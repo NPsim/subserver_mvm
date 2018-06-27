@@ -1,0 +1,783 @@
+#base robot_space.pop
+
+WaveSchedule
+{
+	StartingCurrency 500
+	RespawnWaveTime 6
+	CanBotsAttackWhileInSpawnRoom No
+	
+	Mission // sentry buster
+	{
+		Objective DestroySentries
+
+		InitialCooldown 30
+		Where spawnbot_mission_sentrybuster
+		BeginAtWave 1
+		RunForThisManyWaves 7
+
+		CooldownTime 35            
+
+		TFBot
+		{
+			Class Demoman
+			Name "Lunar Buster"
+			Skill Expert
+			Health 2500
+			Attributes MiniBoss
+			Item "The Ullapool Caber"
+			WeaponRestrictions MeleeOnly
+			ClassIcon sentry_buster
+
+			CharacterAttributes
+			{
+				"move speed bonus" 2
+				"damage force reduction" 0.5
+				"airblast vulnerability multiplier" 0.5
+				"override footstep sound set" 7
+				"cannot be backstabbed" 1
+			}
+		}
+	}
+	Mission
+	{
+		Objective Sniper
+		
+		InitialCooldown 20
+		Where spawnbot_mission_sniper
+		BeginAtWave 3
+		RunForThisManyWaves 1
+		DesiredCount 2
+		CooldownTime 20
+		
+		TFBot
+		{
+			Template SpaceSniper_Easy
+			Skill Hard
+		}
+	}
+	Mission
+	{
+		Objective Spy
+		
+		InitialCooldown 30
+		Where spawnbot_mission_spy
+		BeginAtWave 4
+		RunForThisManyWaves 1
+		DesiredCount 2
+		CooldownTime 40
+		
+		TFBot
+		{
+			Template SpaceSpy
+		}
+	}
+	Mission
+	{
+		Objective Spy
+		
+		InitialCooldown 20
+		Where spawnbot_mission_spy
+		BeginAtWave 6
+		RunForThisManyWaves 1
+		DesiredCount 3
+		CooldownTime 35
+		
+		TFBot
+		{
+			Template SpaceSpy
+		}
+	}
+	Mission
+	{
+		Objective Sniper
+		
+		InitialCooldown 30
+		Where spawnbot_mission_sniper
+		BeginAtWave 7
+		RunForThisManyWaves 1
+		DesiredCount 3
+		CooldownTime 30
+		
+		TFBot
+		{
+			Template SpaceSniper_Easy
+			Skill Hard
+		}
+	}
+	
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+		WaitWhenDone 65
+		Checkpoint Yes
+		
+		WaveSpawn
+		{
+			TotalCurrency 300
+			Where spawnbot
+			TotalCount 48
+			MaxActive 8
+			SpawnCount 4
+			WaitBetweenSpawns 10
+			
+			TFBot
+			{
+				Template SpaceChamp
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 200
+			Where spawnbot
+			TotalCount 30
+			MaxActive 6
+			SpawnCount 3
+			WaitBeforeStarting 15
+			WaitBetweenSpawns 10
+			
+			RandomChoice
+			{
+				TFBot
+				{
+					Template SpaceScout
+					WeaponRestrictions SecondaryOnly
+				}
+				TFBot
+				{
+					Template SpaceScout
+					WeaponRestrictions MeleeOnly
+					Skill Hard
+				}
+				TFBot
+				{
+					Template SpaceScout
+					WeaponRestrictions MeleeOnly
+					Skill Hard
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 200
+			Where spawnbot_upper
+			TotalCount 8
+			MaxActive 2
+			SpawnCount 2
+			WaitBeforeStarting 40
+			
+			TFBot
+			{
+				Template SpaceSoldier
+				Skill Easy
+			}
+		}
+	}
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+		WaitWhenDone 65
+		Checkpoint Yes
+		
+		WaveSpawn
+		{
+			TotalCurrency 300
+			Where spawnbot
+			TotalCount 42
+			MaxActive 9
+			SpawnCount 3
+			WaitBetweenSpawns 6
+			
+			Squad
+			{
+				TFBot
+				{
+					Template SpacePyro
+					Skill Easy
+				}
+				TFBot
+				{
+					Template SpacePyro_Flare
+					Skill Normal
+				}
+				TFBot
+				{
+					Template SpacePyro_Flare
+					Skill Normal
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name "wave2a"
+			TotalCurrency 100
+			Where spawnbot_upper
+			TotalCount 12
+			MaxActive 4
+			SpawnCount 1
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 3
+			
+			TFBot
+			{
+				Template SpaceSoldier
+				Skill Easy
+			}
+		}
+		WaveSpawn
+		{
+			WaitForAllSpawned "wave2a"
+			WaitBeforeStarting 16
+			TotalCurrency 200
+			Where spawnbot_upper
+			TotalCount 8
+			Maxactive 4
+			SpawnCount 4
+			
+			Squad
+			{
+				TFBot
+				{
+					Template SpaceDemo_Giant
+				}
+				TFBot
+				{
+					Template SpacePyro
+				}
+				TFBot
+				{
+					Template SpacePyro
+					Skill Easy
+				}
+				TFBot
+				{
+					Template SpacePyro
+					Skill Easy
+				}
+			}
+		}
+	}
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+		WaitWhenDone 65
+		Checkpoint Yes
+		
+		WaveSpawn
+		{
+			TotalCount 1
+			TotalCurrency 500
+
+			FirstSpawnOutput                                                                                                                                                            
+			{
+				 Target boss_spawn_relay                                            
+				 Action Trigger                         
+			}
+
+			Tank
+			{
+				Health 30000
+				Speed 75
+				Name "boss"
+				StartingPathTrackNode "tank_path_a_1"
+				//StartingPathTrackNode "boss_path_b1"
+
+				OnKilledOutput                                  
+				{
+					Target boss_dead_relay
+					Action Trigger                         
+				}
+				OnBombDroppedOutput                             
+				{
+					Target boss_deploy_relay 
+					Action Trigger                         
+				}
+			}			
+		}
+		WaveSpawn
+		{
+			TotalCurrency 200
+			Where spawnbot
+			WaitBeforeStarting 20
+			WaitBetweenSpawns 8
+			TotalCount 24
+			MaxActive 8
+			SpawnCount 4
+			
+			RandomChoice
+			{
+				TFBot
+				{
+					Template SpaceScout
+					WeaponRestrictions SecondaryOnly
+				}
+				TFBot
+				{
+					Template SpaceScout
+					WeaponRestrictions MeleeOnly
+					Skill Hard
+				}
+				TFBot
+				{
+					Template SpaceScout
+					WeaponRestrictions MeleeOnly
+					Skill Hard
+				}
+				TFBot
+				{
+					Template SpaceScout
+					WeaponRestrictions MeleeOnly
+					Skill Hard
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 50
+			Where spawnbot_upper
+			WaitBeforeStarting 30
+			TotalCount 12
+			MaxActive 4
+			SpawnCount 1
+			WaitBetweenSpawns 4
+			
+			TFBot
+			{
+				Template SpaceDemo
+			}
+		}
+	}
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+		WaitWhenDone 65
+		Checkpoint Yes
+		
+		WaveSpawn
+		{
+			TotalCurrency 200
+			Where spawnbot_upper
+			TotalCount 32
+			MaxActive 8
+			SpawnCount 2
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 5
+			
+			TFBot
+			{
+				Template SpacePyro_Flare
+				Skill Normal
+			}
+		}
+		//8 heavies
+		WaveSpawn
+		{
+			TotalCurrency 200
+			Where spawnbot
+			TotalCount 12
+			MaxActive 4
+			SpawnCount 1
+			WaitBeforeStarting 24
+			WaitBetweenSpawns 6
+			
+			TFBot
+			{
+				Template SpaceHeavy
+				Skill Easy
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 300
+			Where spawnbot
+			TotalCount 16
+			MaxActive 8
+			SpawnCount 4
+			WaitBetweenSpawns 25
+			
+			Squad
+			{
+				TFBot
+				{
+					Template SpaceHeavy_Giant_Shotgun
+				}
+				TFBot
+				{
+					Template SpaceMedic
+				}
+				TFBot
+				{
+					Template SpaceMedic
+				}
+				TFBot
+				{
+					Template SpaceMedic
+				}
+			}
+		}
+	}
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+		WaitWhenDone 65
+		Checkpoint Yes
+		
+		WaveSpawn
+		{
+			TotalCurrency 200
+			Where spawnbot
+			TotalCount 60
+			MaxActive 8
+			SpawnCount 2
+			WaitBetweenSpawns 3
+			
+			TFBot
+			{
+				Template SpaceChamp
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 200
+			Name "wave5a"
+			Where spawnbot_upper
+			TotalCount 5
+			MaxActive 2
+			SpawnCount 1
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 30
+			
+			TFBot
+			{
+				Template SpaceSoldier_Giant_Easy
+			}
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting 35
+			TotalCount 1
+			TotalCurrency 400
+
+			FirstSpawnOutput                                                                                                                                                            
+			{
+				 Target boss_spawn_relay                                            
+				 Action Trigger                         
+			}
+
+			Tank
+			{
+				Health 30000
+				Speed 75
+				Name "boss"
+				StartingPathTrackNode "tank_path_a_1"
+				//StartingPathTrackNode "boss_path_b1"
+
+				OnKilledOutput                                  
+				{
+					Target boss_dead_relay
+					Action Trigger                         
+				}
+				OnBombDroppedOutput                             
+				{
+					Target boss_deploy_relay 
+					Action Trigger                         
+				}
+			}			
+		}
+	}
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+		WaitWhenDone 65
+		Checkpoint Yes
+		
+		WaveSpawn
+		{
+			Name "wave6a"
+			TotalCurrency 450
+			Where spawnbot
+			TotalCount 12
+			MaxActive 6
+			SpawnCount 3
+			WaitBetweenSpawns 24
+			
+			Squad
+			{
+				TFBot
+				{
+					Template SpaceDemo_Giant
+				}
+				TFBot
+				{
+					Template SpaceMedic_Uber
+				}
+				TFBot
+				{
+					Template SpaceMedic_Uber
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 300
+			WaitForAllDead "wave6a"
+			WaitBeforeStarting 4
+			WaitBetweenSpawns 20
+			Where spawnbot_upper
+			TotalCount 3
+			MaxActive 3
+			SpawnCount 1
+			
+			TFBot
+			{
+				Template SpaceScout_Giant
+				Skill Expert
+				WeaponRestrictions MeleeOnly
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 100
+			Where spawnbot_upper
+			WaitBeforeStarting 40
+			WaitBetweenSpawns 3
+			TotalCount 12
+			MaxActive 3
+			SpawnCount 1
+			Support 1
+			
+			TFBot
+			{
+				Template SpaceSoldier
+				Skill Easy
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 100
+			Where spawnbot
+			WaitBeforeStarting 8
+			WaitBetweenSpawns 4
+			TotalCount 20
+			MaxActive 4
+			SpawnCount 1
+			Support 1
+			
+			TFBot
+			{
+				Template SpacePyro
+				Skill Easy
+			}
+		}
+	}
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+		WaitWhenDone 65
+		Checkpoint Yes
+		
+		WaveSpawn
+		{
+			Name "wave7a"
+			TotalCount 1
+			TotalCurrency 300
+
+			FirstSpawnOutput                                                                                                                                                            
+			{
+				 Target boss_spawn_relay                                            
+				 Action Trigger                         
+			}
+
+			Tank
+			{
+				Health 32000
+				Speed 75
+				Name "boss"
+				StartingPathTrackNode "tank_path_a_1"
+				//StartingPathTrackNode "boss_path_b1"
+
+				OnKilledOutput                                  
+				{
+					Target boss_dead_relay
+					Action Trigger                         
+				}
+				OnBombDroppedOutput                             
+				{
+					Target boss_deploy_relay 
+					Action Trigger                         
+				}
+			}			
+		}
+		WaveSpawn
+		{
+			Name "wave7b"
+			TotalCurrency 100
+			WaitBeforeStarting 28
+			WaitBetweenSpawns 30
+			Where spawnbot
+			TotalCount 2
+			MaxActive 1
+			SpawnCount 1
+			
+			TFBot
+			{
+				Template SpaceHeavy_Giant
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 100
+			Name "wave7b"
+			Where spawnbot_upper
+			WaitBeforeStarting 20
+			WaitBetweenSpawns 4
+			TotalCount 16
+			MaxActive 8
+			SpawnCount 2
+			
+			TFBot
+			{
+				Template SpaceSoldier
+				Skill Easy
+			}
+		}
+		WaveSpawn
+		{
+			WaitForAllDead "wave7b"
+			TotalCurrency 100
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 18
+			Where spawnbot
+			TotalCount 9
+			MaxActive 6
+			SpawnCount 3
+			
+			Squad
+			{
+				TFBot
+				{
+					Template SpaceSoldier_Giant_Easy
+				}
+				TFBot
+				{
+					Template SpaceMedic_Uber
+				}
+				TFBot
+				{
+					Template SpaceMedic_Uber
+				}
+			}
+		}
+		WaveSpawn
+		{
+			WaitForAllDead "wave7b"
+			WaitBeforeStarting 24
+			TotalCount 1
+
+			FirstSpawnOutput                                                                                                                                                            
+			{
+				 Target boss_spawn_relay                                            
+				 Action Trigger                         
+			}
+
+			Tank
+			{
+				Health 32000
+				Speed 75
+				Skin 1
+				Name "boss"
+				StartingPathTrackNode "tank_path_a_1"
+				//StartingPathTrackNode "boss_path_b1"
+
+				OnKilledOutput                                  
+				{
+					Target boss_dead_relay
+					Action Trigger                         
+				}
+				OnBombDroppedOutput                             
+				{
+					Target boss_deploy_relay 
+					Action Trigger                         
+				}
+			}			
+		}
+		WaveSpawn
+		{
+			WaitForAllDead "wave7b"
+			TotalCurrency 100
+			Where spawnbot_upper
+			WaitBetweenSpawns 8
+			TotalCount 18
+			MaxActive 6
+			SpawnCount 2
+			
+			TFBot
+			{
+				Template SpaceHeavy
+				Skill Easy
+			}
+		}
+	}
+}

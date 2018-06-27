@@ -1,0 +1,944 @@
+#base robot_giant.pop
+#base robot_standard.pop
+#base robot_gatebot.pop
+#base robot_sequoia.pop
+
+
+/////////////////
+//   MVM SEQUOIA NORMAL 1 - Written by Freyja
+/////////////////
+
+
+WaveSchedule
+{
+	StartingCurrency 800
+	CanBotsAttackWhileInSpawnRoom No
+	RespawnWaveTime 4
+
+	
+	
+	Mission
+	{
+		Objective DestroySentries
+		Where spawnbot
+
+		CooldownTime 60
+
+		TFBot
+		{
+			Template T_TFBot_SentryBuster
+			Tag bot_sentrybuster
+			Name "Buster Boy"
+		}
+	}
+	
+	Mission // Sniper - wave 2
+	{
+		Objective Sniper
+
+		InitialCooldown 40
+		Where spawnbot_mission_sniper
+		BeginAtWave 2
+		RunForThisManyWaves 1
+		CooldownTime 20
+		DesiredCount 2
+
+		TFBot
+		{
+			Class Sniper
+			Skill Expert
+			MaxVisionRange 4000
+			Name "Sharpshooty Boy"
+		}
+	}
+	Mission // Sniper - wave 4
+	{
+		Objective Sniper
+
+		InitialCooldown 20
+		Where spawnbot_mission_sniper
+		BeginAtWave 4
+		RunForThisManyWaves 1
+		CooldownTime 40
+		DesiredCount 2
+
+		TFBot
+		{
+			Template T_TFBot_Sniper_Sydney_Sleeper
+			Skill Expert
+			MaxVisionRange 4000
+			Name "Sydney Boy"
+		}
+	}
+	
+	Mission // Sniper - wave 5-6
+	{
+		Objective Sniper
+
+		InitialCooldown 20
+		Where spawnbot_mission_sniper
+		BeginAtWave 5
+		RunForThisManyWaves 2
+		CooldownTime 30
+		DesiredCount 3
+
+		TFBot
+		{
+			Template T_TFBot_Sniper_Razorback
+			Skill Expert
+			MaxVisionRange 4000
+			Name "Sharpshooty Boy"
+		}
+	}
+	Mission // Spy - wave 3
+	{
+		Objective Spy  
+
+		InitialCooldown 5
+		Where spawnbot_mission_spy
+		BeginAtWave 3
+		RunForThisManyWaves 1
+		CooldownTime 50
+		DesiredCount 3
+
+		TFBot
+		{
+			Class Spy
+			Skill Expert
+			Name "Stabby Boy"
+		}
+	}	
+	
+	Mission // Spy - wave 6
+	{
+		Objective Spy  
+
+		InitialCooldown 5
+		Where spawnbot_mission_spy
+		BeginAtWave 6
+		RunForThisManyWaves 1
+		CooldownTime 50
+		DesiredCount 3
+
+		TFBot
+		{
+			Class Spy
+			Skill Expert
+			Name "Stabby Boy"
+		}
+	}	
+	
+	/////////////////////////// WAVE 1 //////////////////////////
+	Wave
+	{
+		WaitWhenDone 60
+		Checkpoint Yes
+
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+		
+
+		
+		WaveSpawn
+		{
+			Name "wave01_pyros"
+			Where spawnbot
+			TotalCount 18
+			MaxActive 4
+			SpawnCount 2
+			
+			WaitBetweenSpawns 5
+			WaitBeforeStarting 0
+			
+			TotalCurrency 250
+			
+			TFBot 
+			{
+				Template T_TFBot_Pyro
+				Attributes AlwaysFireWeapon	
+				Name "Hot Boy"
+				Tag nav_prefer_flank_right
+			}
+		
+		}
+		
+		WaveSpawn
+		{
+			Name "wave01_gatebot_demomen"
+			Where spawnbot
+			TotalCount 20
+			SpawnCount 2
+			MaxActive 6
+			
+			WaitBetweenSpawns 9
+			WaitBeforeStarting 10
+			
+			TotalCurrency 250
+			
+			TFBot
+			{
+				Template T_TFGateBot_Demoman_Normal
+				Name "Boomy Boy"
+			}	
+		}
+		
+		WaveSpawn
+		{
+			Name "wave01_whip_boys"
+			Where spawnbot
+			TotalCount 10
+			SpawnCount 2
+			MaxActive 2
+			WaitBetweenSpawns 0.5
+			WaitForAllSpawned "wave01_pyros"
+			
+			TotalCurrency 100
+		
+			TFBot
+			{
+				Template T_TFBot_Soldier_Whip
+				Name "Whip Boy"
+			}
+		}
+		WaveSpawn
+		{
+			
+			Name "wave01_meleescout"
+			Where spawnbot
+			TotalCount 20
+			MaxActive 5
+			SpawnCount 1
+			WaitBetweenSpawns 0.5
+			WaitBeforeStarting 0
+			
+			TotalCurrency 100
+			
+			TFBot
+			{
+				Template T_TFBot_Scout_Fish
+				Name "Fishy Boy"
+			}
+		
+		}
+	}
+	/////////////////////////// WAVE 2 //////////////////////////
+	Wave
+	{
+		WaitWhenDone 60
+		Checkpoint Yes
+
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+	
+		WaveSpawn 
+		{
+			Name "wave02_scorch_shot"
+			Where spawnbot
+			TotalCount 24
+			SpawnCount 2
+			MaxActive 6
+			
+			WaitBetweenSpawns 1
+			
+			TotalCurrency 200
+			
+			TFBot
+			{
+				Template T_TFBot_Pyro_Flaregun
+				Item "The Scorch Shot"
+				Name "Scorched Boy"
+			}
+		}
+	
+		WaveSpawn
+		{
+			Name "wave02_gatebot_giant_soldier"
+			Where spawnbot
+			TotalCount 1
+			SpawnCount 1
+			MaxActive 1
+			WaitBeforeStarting 7.5
+			
+			TotalCurrency 200
+			
+			TFBot
+			{
+				Template T_TFGateBot_Giant_Soldier
+				Name "Bazooka Boy"
+				Tag nav_prefer_flank_right
+				Tag bot_giant
+			}
+		}
+		
+		WaveSpawn
+		{
+			Name "wave02_gatebot_heavies"
+			Where spawnbot
+			TotalCount 8
+			SpawnCount 2
+			MaxActive 4
+			
+			WaitBetweenSpawns 9
+			
+			WaitForAllDead "wave02_gatebot_giant_soldier"
+			
+			TotalCurrency 100
+			TFBot
+			{
+				Template T_TFGateBot_Heavy_Normal
+				Name "Shooty Boy"
+			}
+		}
+		
+		WaveSpawn
+		{
+			Name "wave02_demoknight"
+			Where spawnbot
+			TotalCount 14
+			SpawnCount 2
+			MaxActive 4
+			
+			WaitForAllDead "wave02_gatebot_giant_soldier"
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 5
+			TotalCurrency 200
+			
+			RandomChoice 
+			{
+				TFBot
+				{
+					Template T_TFBot_Demoman_Knight
+					Name "Boy Knight"
+				}
+				TFBot
+				{
+					Template T_TFBot_Demoman_Knight
+					Name "Boy Knight"
+					Tag nav_prefer_flank_right
+				}
+			}
+			
+		}
+		
+		WaveSpawn
+		{
+			Name "wave02_melee_scout_support"
+			Where spawnbot
+			TotalCount 10
+			MaxActive 4
+			SpawnCount 4
+			Support 1
+			
+			TotalCurrency 100
+			TFBot
+			{
+				Template T_TFBot_Scout_Fish
+				Name "Fishy Boy"
+			}
+		}
+	
+	}
+	/////////////////////////// WAVE 3 //////////////////////////
+	Wave
+	{
+		WaitWhenDone 60
+		Checkpoint Yes
+
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+	
+	
+		WaveSpawn
+		{
+			Name "wave03_heavypunch"
+			Where spawnbot
+			TotalCount 24
+			MaxActive 6
+			SpawnCount 2	
+			WaitBetweenSpawns 4
+			
+			TotalCurrency 200
+			
+			TFBot
+			{
+				Template T_TFBot_Heavyweapons_Heavyweight_Champ
+				Name "Punchy Boy"
+			}
+		}
+		
+		WaveSpawn
+		{
+			Name "wave03_bushwacka_snipersquad"
+			Where spawnbot
+			TotalCount 30
+			MaxActive 6
+			SpawnCount 2
+			
+			TotalCurrency 200
+			Squad
+			{
+				TFBot
+				{
+					Class Sniper
+					Skill Hard
+					
+					Item "Soldered Sensei"
+					Item "Jarate"
+					
+					ClassIcon sniper_jarate
+					
+					WeaponRestrictions SecondaryOnly
+					
+					Name "Piss Boy"
+					CharacterAttributes
+					{
+						 "effect bar recharge rate increased" 0.2
+					}
+				}
+				TFBot
+				{
+					Class Sniper
+					Skill Hard
+					
+					Item "Hawk Eyed Hunter"
+					Item "The Bushwacka"
+					Item "Ol' Snaggletooth"
+					
+					Name "Bush Boy"
+					
+					ClassIcon sniper_bushwacka
+					
+					WeaponRestrictions MeleeOnly
+				
+				}
+			}
+			
+		}
+		
+		WaveSpawn
+		{
+			Name "wave03_tank"
+			TotalCount 1
+			MaxActive 1
+			WaitBeforeStarting 30
+			TotalCurrency 200
+			WaitForAllSpawned "wave03_heavypunch"
+			
+			FirstSpawnOutput                                                                                                                                                            
+			{
+				 Target boss_spawn_relay                                            
+				 Action Trigger                         
+			}
+
+			Tank
+			{
+				Health 17000
+				Speed 75
+				Name "tankboss"
+				StartingPathTrackNode "boss_path_a1"
+
+				OnKilledOutput                                  
+				{
+					Target boss_dead_relay
+					Action Trigger                         
+				}
+				
+				OnBombDroppedOutput                             
+				{
+					Target boss_deploy_relay 
+					Action Trigger                         
+				}
+			}
+		
+		}
+		
+		WaveSpawn
+		{
+			Name "wave03_soldiers"
+			Where spawnbot
+			TotalCount 24
+			MaxActive 4
+			SpawnCount 2
+			WaitBetweenSpawns 9.5
+			WaitForAllSpawned "wave03_heavypunch"
+			
+			TotalCurrency 100
+			
+			Support 1
+			
+			TFBot
+			{
+				Class Soldier
+				Skill Normal
+				Name "Rocket Boy"
+			}
+		}
+		
+
+	}
+	
+	
+	/////////////////////////// WAVE 3 //////////////////////////
+	Wave
+	{
+		WaitWhenDone 60
+		Checkpoint Yes
+
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+		
+		WaveSpawn
+		{
+			Name "wave04_heavy"
+			Where spawnbot
+			TotalCount 24
+			MaxActive 4
+			SpawnCount 2
+			WaitBetweenSpawns 6
+			TotalCurrency 100
+			
+			TFBot
+			{
+				Template T_TFBot_Sniper_Huntsman
+				Name "Bow Boy"
+			}
+		}
+		
+		WaveSpawn
+		{
+			Name "wave04_gatebot_giant_pyro"
+			Where spawnbot
+			TotalCount 2
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 4
+			
+			TotalCurrency 300
+		
+			TFBot
+			{
+				Template T_TFGateBot_Giant_Pyro_AlwaysFire
+				Name "Big Hot Boy"
+			}
+		
+		}
+		WaveSpawn
+		{
+			Name "wave04_pyros"
+			Where spawnbot
+			TotalCount 24
+			MaxActive 6
+			SpawnCount 3
+			WaitForAllDead "wave04_gatebot_giant_pyro"
+			TotalCurrency 200
+			TFBot
+			{
+				Class Pyro
+				Skill Normal
+				Name "Hot Boy"
+			}
+		}
+		
+		WaveSpawn
+		{
+			Name "wave04_fisters"
+			Where spawnbot
+			TotalCount 8
+			MaxActive 2
+			SpawnCount 2
+			
+			WaitForAllDead "wave04_gatebot_giant_pyro"
+			TotalCurrency 100
+			TFBot
+			{
+				Template T_TFGateBot_Heavy_IronFist
+				
+				Name "Fist Boy"
+			}
+		}
+		WaveSpawn
+		{
+			Name "wave04_fisters_medics"
+			Where spawnbot
+			TotalCount 4
+			MaxActive 2
+			SpawnCount 2
+			
+			WaitForAllDead "wave04_gatebot_giant_pyro"
+			TotalCurrency 100
+			Squad 
+			{				
+				TFBot
+				{
+					Template T_TFGateBot_Heavy_IronFist
+					Name "Fist Boy"
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_BigHeal
+					Name "Healing Boy"
+				}
+			}
+		}
+		
+		WaveSpawn
+		{
+			Name "wave04_support_scouts"
+			Where spawnbot
+			Support 1
+			
+			TotalCount 20
+			MaxActive 4
+			SpawnCount 4
+			
+			WaitForAllDead "wave04_heavy"
+			
+			TotalCount 100
+			
+			TFBot
+			{
+				Template T_TFBot_Scout_SunStick
+				Name "Warm Boy"
+			}
+		}
+		
+	}
+	
+	/////////////////////////// WAVE 4 //////////////////////////
+	Wave
+	{
+		WaitWhenDone 60
+		Checkpoint Yes
+
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+	
+
+		WaveSpawn
+		{
+			
+			Name "wave04_scouts"
+			Where spawnbot
+			TotalCount 20
+			MaxActive 2
+			SpawnCount 1
+			WaitBetweenSpawns 5
+
+			Support 1
+			TotalCurrency 100
+			TFBot
+			{
+				Template T_TFBot_Scout_FAN
+				Name "Pushy Boy"
+			}
+		}
+		
+		WaveSpawn
+		{
+			Name "wave04_demoknights"
+			Where spawnbot
+			TotalCount 24
+			SpawnCount 3
+			MaxActive 6
+			
+			WaitBetweenSpawns 7
+			
+			TotalCurrency 200
+			TFBot
+			{
+				Template T_TFBot_Demoman_Knight
+				Name "Boy Knight"
+			}
+		}
+		
+		WaveSpawn
+		{
+			
+			Name "wave04_gatebot_giant_heavies"
+			Where spawnbot
+			TotalCount 6
+			MaxActive 3
+			SpawnCount 3
+			WaitBetweenSpawns 5
+			WaitBeforeStarting 12
+			TotalCurrency 200
+			Squad
+			{
+				TFBot
+				{
+					Template T_TFGateBot_Giant_Heavyweapons_Heater
+					Name "Big Hot Fat Boy"
+					Skill Easy
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_BigHeal
+					Tag bot_squad_member
+					Name "Healing Boy"
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_BigHeal
+					Tag bot_squad_member
+					Name "Healing Boy"
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name "wave04_gatebot_giant_scouts"
+			Where spawnbot
+			TotalCount 2
+			SpawnCount 1
+			MaxActive 1
+			WaitBetweenSpawns 15
+			
+			TotalCurrency 200
+			WaitForAllDead "wave04_gatebot_giant_heavies"
+			
+			TFBot 
+			{
+				Template T_TFGateBot_Giant_Scout_FAN
+				Name "Big Pushy Boy"
+			}
+		}
+		
+		WaveSpawn
+		{
+			Name "wave04_pyrosquad"
+			Where spawnbot
+			TotalCount 12d
+			SpawnCount 3
+			MaxActive 9
+			WaitBetweenSpawns 7
+			
+			WaitForAllDead "wave04_demoknights"
+			Squad
+			{
+				TFBot 
+				{
+					Template T_TFBot_Pyro
+					Name "Hot Boy"
+					
+				}
+				TFBot
+				{
+					Template T_TFBot_ScorchShot
+					Name "Scorched Boy"
+				}
+				TFBot
+				{
+					Template T_TFBot_ScorchShot
+					Name "Scorched Boy"
+				}
+			}
+		}
+		
+	}
+	
+	/////////////////////////// WAVE 5 //////////////////////////
+	Wave
+	{
+		WaitWhenDone 60
+		Checkpoint Yes
+
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+
+		
+		
+		WaveSpawn
+		{
+			Name "wave05_gatebot_bearboy"
+			Where spawnbot
+			TotalCount 33
+			SpawnCount 3
+			MaxActive 6
+			
+			WaitBetweenSpawns 5
+			TotalCurrency 200
+			TFBot
+			{
+				Template T_TFGateBot_Warrior_Spirit
+				Name "Bear Boy"
+			}
+		}
+		
+		WaveSpawn
+		{
+			Name "wave05_tank"
+			TotalCount 1
+			MaxActive 1
+			WaitBeforeStarting 15
+			TotalCurrency 200
+			
+			FirstSpawnOutput                                                                                                                                                            
+			{
+				 Target boss_spawn_relay                                            
+				 Action Trigger                         
+			}
+
+			Tank
+			{
+				Health 19000
+				Speed 75
+				Name "tankboss"
+				StartingPathTrackNode "boss_path_a1"
+
+				OnKilledOutput                                  
+				{
+					Target boss_dead_relay
+					Action Trigger                         
+				}
+				
+				OnBombDroppedOutput                             
+				{
+					Target boss_deploy_relay 
+					Action Trigger                         
+				}
+			}
+		
+		}
+		
+		WaveSpawn
+		{
+		
+			Name "wave05_giantsoldier"
+			Where spawnbot
+			TotalCount 4
+			SpawnCount 4
+			MaxActive 4
+			WaitBeforeStarting 45
+			TotalCurrency 200
+			WaitForAllDead "wave05_tank"
+			Squad
+			{
+				TFBot 
+				{
+					Template T_TFGateBot_Giant_Soldier_Spammer
+					Name "Big Spammy Boy"
+				}
+				TFBot 
+				{
+					Template T_TFBot_Medic_BigHeal
+					Name "Healing Boy"
+				}
+				TFBot 
+				{
+					Template T_TFBot_Medic_BigHeal
+					Name "Healing Boy"
+				}
+				TFBot 
+				{
+					Template T_TFBot_Medic_BigHeal
+					Name "Healing Boy"
+				}
+			}
+			
+			
+		}
+		WaveSpawn
+		{
+			Name "wave05_giantdemo"
+			Where spawnbot
+			TotalCount 4
+			MaxActive 4
+			SpawnCount 4
+			WaitForAllDead "wave05_giantsoldier"
+			TotalCurrency 200
+			
+			Squad 
+			{
+				TFBot 
+				{
+					Template T_TFGateBot_Giant_Demo_Burst
+					Name "Big Boomy Boy"
+				}
+				TFBot 
+				{
+					Template T_TFBot_Medic_BigHeal
+					Name "Healing Boy"
+				}
+				TFBot 
+				{
+					Template T_TFBot_Medic_BigHeal
+					Name "Healing Boy"
+				}
+				TFBot 
+				{
+					Template T_TFBot_Medic_BigHeal
+					Name "Healing Boy"
+				}
+			}
+			
+		}
+		WaveSpawn
+		{
+			Name "wave05_support_pyros"
+			Where spawnbot
+			MaxActive 6
+			SpawnCount 3
+			TotalCount 22
+			WaitBetweenSpawns 5
+			
+			Support 1
+			
+			TotalCurrency 200
+			TFBot
+			{
+				Template T_TFBot_Pyro
+				Name "Hot Boy"
+			}
+		
+		}
+	}
+	
+}

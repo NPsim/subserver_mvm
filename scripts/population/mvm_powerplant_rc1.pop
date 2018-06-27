@@ -1,0 +1,599 @@
+#base robot_standard.pop
+#base robot_giant.pop
+#base robot_powerplant.pop
+WaveSchedule
+{
+	StartingCurrency 400
+	RespawnWaveTime 2
+	CanBotsAttackWhileInSpawnRoom no
+	Mission
+	{
+		Where spawnbot
+		Objective DestroySentries
+		InitialCooldown 5
+		BeginAtWave 1
+		CooldownTime 90
+		DesiredCount 1
+		TFBot
+		{
+			Template T_TFBot_SentryBuster
+		}
+	}
+	Mission
+	{
+		Where spawnbot_mission_sniper
+		Objective Sniper
+		InitialCooldown 20
+		BeginAtWave 4
+		RunForThisManyWaves 2
+		CooldownTime 60
+		DesiredCount 2
+		TFBot
+		{
+			Class Sniper
+			Skill Easy
+		}
+	}
+	Mission
+	{
+		Where spawnbot_mission_sniper
+		Objective Spy
+		InitialCooldown 20
+		BeginAtWave 3
+		RunForThisManyWaves 2
+		CooldownTime 60
+		DesiredCount 2
+		TFBot
+		{
+			Class Spy
+			Skill Easy
+		}
+	}
+	Mission
+	{
+		Where spawnbot_mission_sniper
+		Objective Spy
+		InitialCooldown 20
+		BeginAtWave 6
+		RunForThisManyWaves 1
+		CooldownTime 60
+		DesiredCount 2
+		TFBot
+		{
+			Class Spy
+			Skill Easy
+		}
+	}
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput
+		{
+			Target wave_finished_relay
+			Action Trigger
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave1_1"
+			TotalCount 9
+			MaxActive 6
+			SpawnCount 3
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 5
+			TotalCurrency 50
+			TFBot
+			{
+				Class Scout
+				Skill Easy
+				WeaponRestrictions MeleeOnly
+			}
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave1_2"
+			TotalCount 30
+			MaxActive 8
+			SpawnCount 4
+			WaitForAllDead "wave1_1"
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 15
+			TotalCurrency 300
+			TFBot
+			{
+				Template T_TFBot_Heavyweapons_Heavyweight_Champ_Fast
+			}
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave1_3"
+			TotalCount 15
+			MaxActive 6
+			SpawnCount 3
+			WaitForAllDead "wave1_1"
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 20
+			TotalCurrency 125
+			TFBot
+			{
+				Class Soldier
+				Skill Easy
+			}
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave1_4"
+			TotalCount 15
+			MaxActive 6
+			SpawnCount 3
+			WaitForAllDead "wave1_1"
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 25
+			TotalCurrency 125
+			TFBot
+			{
+				Class Pyro
+				Skill Easy
+			}
+		}
+	}
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput
+		{
+			Target wave_finished_relay
+			Action Trigger
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave2_1"
+			TotalCount 10
+			MaxActive 10
+			SpawnCount 10
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 0
+			TotalCurrency 800
+			Squad
+			{
+				TFBot
+				{
+					Template T_TFBot_Giant_Heavyweapons
+					Skill Easy
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickFix
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickFix
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickFix
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickFix
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickFix
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickFix
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickFix
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickFix
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickFix
+				}
+			}
+		}
+	}
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput
+		{
+			Target wave_finished_relay
+			Action Trigger
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave3_1"
+			TotalCount 20
+			MaxActive 8
+			SpawnCount 4
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 25
+			TotalCurrency 100
+			Support 1
+			TFBot
+			{
+				Template T_TFBot_Heavyweapons_Heavyweight_Champ
+				Skill Hard
+				Attributes AlwaysFireWeapon
+			}
+		}
+		WaveSpawn
+		{
+			Name "wave3_2"
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 0
+			TotalCurrency 400
+			FirstSpawnOutput
+			{
+				Target boss_spawn_relay
+				Action Trigger
+			}
+			Tank
+			{
+				Name "tankboss"
+				Health 20000
+				Speed 75
+				StartingPathTrackNode boss_path_1
+				OnKilledOutput
+				{
+					Target boss_dead_relay
+					Action Trigger
+				}
+				OnBombDroppedOutput
+				{
+					Target boss_deploy_relay
+					Action Trigger
+				}
+			}
+		}
+	}
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput
+		{
+			Target wave_finished_relay
+			Action Trigger
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave4_1"
+			TotalCount 20
+			MaxActive 4
+			SpawnCount 2
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 15
+			TotalCurrency 300
+			TFBot
+			{
+				Class Demoman
+				Skill Easy
+			}
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave4_2"
+			TotalCount 20
+			MaxActive 6
+			SpawnCount 3
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 20
+			TotalCurrency 300
+			TFBot
+			{
+				Template T_TFBot_Pyro_Flaregun
+				Skill Easy
+			}
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave4_3"
+			TotalCount 3
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 30
+			WaitBetweenSpawns 40
+			TotalCurrency 240
+			TFBot
+			{
+				Template T_TFBot_Giant_DemoMan_PrinceTavish
+			}
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave4_4"
+			TotalCount 20
+			MaxActive 3
+			SpawnCount 3
+			WaitBeforeStarting 5
+			WaitBetweenSpawns 15
+			TotalCurrency 60
+			Support 1
+			TFBot
+			{
+				Class Scout
+				Skill Easy
+				WeaponRestrictions MeleeOnly
+			}
+		}
+	}
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput
+		{
+			Target wave_finished_relay
+			Action Trigger
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave5_1"
+			TotalCount 20
+			MaxActive 3
+			SpawnCount 3
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 25
+			TotalCurrency 300
+			TFBot
+			{
+				Class Heavyweapons
+				Skill Easy
+			}
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave5_2"
+			TotalCount 40
+			MaxActive 10
+			SpawnCount 4
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 10
+			TotalCurrency 400
+			TFBot
+			{
+				Template T_TFBot_Scout_Sandman
+			}
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave5_3"
+			TotalCount 30
+			MaxActive 6
+			SpawnCount 3
+			WaitBeforeStarting 20
+			WaitBetweenSpawns 15
+			TotalCurrency 300
+			TFBot
+			{
+				Template T_TFBot_Demoman_Knight
+			}
+		}
+	}
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput
+		{
+			Target wave_finished_relay
+			Action Trigger
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave6_1"
+			TotalCount 25
+			MaxActive 12
+			SpawnCount 4
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 10
+			TotalCurrency 200
+			TFBot
+			{
+				Class Scout
+				Skill Easy
+			}
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave6_2"
+			TotalCount 8
+			MaxActive 4
+			SpawnCount 4
+			WaitBeforeStarting 30
+			WaitBetweenSpawns 30
+			TotalCurrency 360
+			Squad
+			{
+				TFBot
+				{
+					Template T_TFBot_Giant_Demoman
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickFix
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickFix
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickFix
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave6_3"
+			TotalCount 24
+			MaxActive 10
+			SpawnCount 5
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 10
+			TotalCurrency 240
+			TFBot
+			{
+				Template T_TFBot_Heavyweapons_Heavyweight_Champ
+				Skill Easy
+			}
+		}
+	}
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput
+		{
+			Target wave_finished_relay
+			Action Trigger
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave7_1"
+			TotalCount 2
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 30
+			TotalCurrency 100
+			TFBot
+			{
+				Template T_TFBot_Giant_Pyro_Flare_Spammer
+			}
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave7_2"
+			TotalCount 3
+			MaxActive 1
+			SpawnCount 1
+			WaitForAllDead "wave7_1"
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 45
+			TotalCurrency 300
+			TFBot
+			{
+				Template T_TFBot_BurstFire_Cow_Mangler
+			}
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave7_3"
+			TotalCount 35
+			MaxActive 6
+			SpawnCount 3
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 15
+			TotalCurrency 280
+			TFBot
+			{
+				Template T_TFBot_Demoman_Knight
+				Skill Easy
+			}
+		}
+		WaveSpawn
+		{
+			Name "wave7_4"
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitForAllSpawned "wave7_1"
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 0
+			TotalCurrency 100
+			FirstSpawnOutput
+			{
+				Target boss_spawn_relay
+				Action Trigger
+			}
+			Tank
+			{
+				Name "tankboss"
+				Health 17000
+				Speed 75
+				StartingPathTrackNode boss_path_1
+				OnKilledOutput
+				{
+					Target boss_dead_relay
+					Action Trigger
+				}
+				OnBombDroppedOutput
+				{
+					Target boss_deploy_relay
+					Action Trigger
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Where spawnbot
+			Name "wave7_5"
+			TotalCount 40
+			MaxActive 8
+			SpawnCount 4
+			WaitForAllDead "wave7_4"
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 15
+			TotalCurrency 120
+			Support 1
+			TFBot
+			{
+				Template T_TFBot_Scout_Bonk
+			}
+		}
+	}
+}

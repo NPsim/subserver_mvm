@@ -1,0 +1,1013 @@
+WaveSchedule
+{
+	Templates
+	{
+		SpaceScout
+		{
+			Name "Cadet Scout"
+			Class Scout
+			Item "Phononaut"
+			Item "The C.A.P.P.E.R"
+			Item "Batsaber"
+		}
+		SpaceScout_Cola
+		{
+			Name "Cola Scout"
+			Class Scout
+			ClassIcon scout_cola
+			Item "The Bolt Boy"
+			Item "The Soda Popper"
+			Item "Crit-a-Cola"
+			ItemAttributes
+			{
+				ItemName "Crit-A-Cola"
+				"effect bar recharge rate increased" .33
+			}
+			Skill Hard
+		}
+		SpaceScout_Giant
+		{
+			Template SpaceScout
+			Name "Giant Cadet Scout"
+			Health 1200
+			Attributes MiniBoss
+			WeaponRestrictions SecondaryOnly
+			Skill Expert
+			CharacterAttributes
+			{
+				"damage force reduction" 0.7
+				"airblast vulnerability multiplier" 0.7
+				"override footstep sound set" 5
+			}
+		}
+		SpaceSoldier
+		{
+			Name "Galactic Soldier"
+			Class Soldier
+			//Item "Lord Cockswain's Pith Helmet"
+			Item "Lord Cockswain's Novelty Mutton Chops and Pipe"
+			Item "The Cow Mangler 5000"
+			ItemAttributes
+			{
+				ItemName "The Cow Mangler 5000"
+				"dmg bonus vs buildings" 5
+			}
+		}
+		SpaceSoldier_Bison
+		{
+			Template SpaceSoldier
+			Item "The Righteous Bison"
+			WeaponRestrictions SecondaryOnly
+			ClassIcon soldier_bison
+		}
+		SpaceSoldier_Charged
+		{
+			Name "Charged Galactic Soldier"
+			Class Soldier
+			ClassIcon soldier_crit
+			Item "The Doe-Boy"
+			Item "Lord Cockswain's Novelty Mutton Chops and Pipe"
+			Item "The Original"
+			Attributes AlwaysCrit
+			ItemAttributes
+			{
+				ItemName "The Original"
+				"faster reload rate" 0.2
+				"Projectile speed decreased" 0.5
+			}
+		}
+		SpaceSoldier_Giant_Easy
+		{
+			Template SpaceSoldier
+			ClassIcon soldier_giant
+			Name "Giant Galactic Soldier"
+			Health 3800
+			Attributes MiniBoss
+			Skill Expert
+			WeaponRestrictions PrimaryOnly
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.4
+				"override footstep sound set" 3
+			}
+		}
+		SpaceSoldier_Giant
+		{
+			Template SpaceSoldier_Giant_Easy
+			ItemAttributes
+			{
+				ItemName "The Cow Mangler 5000"
+				"fire rate bonus" .66
+				"faster reload rate" .5
+			}
+		}
+		SpaceSoldier_Giant_Burst
+		{
+			Template SpaceSoldier_Giant
+			Name "Giant Burst Galactic Soldier"
+			ClassIcon soldier_burstfire
+			Health 4200
+			Attributes HoldFireUntilFullReload
+			Item "TF_WEAPON_ROCKETLAUNCHER"
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_ROCKETLAUNCHER"
+				//"damage bonus" 1.5
+				"fire rate bonus" .2
+				"faster reload rate" .2
+				"clip size upgrade atomic" 8
+			}
+		}
+		SpaceSoldier_Giant_Stun
+		{
+			Class Soldier
+			ClassIcon soldier_stun_giant
+			Name "Giant Supernova Soldier"
+			Item "The Liberty Launcher"
+			Item "Jumper's Jeepcap"
+			Health 4200
+			Attributes MiniBoss
+			Skill Expert
+			ItemAttributes
+			{
+				ItemName "The Liberty Launcher"
+				"damage penalty" 1
+				"damage bonus" 1.5
+				"rocket specialist" 4
+				"fire rate penalty" 1.5
+				"faster reload rate" .01
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.4
+				"override footstep sound set" 3
+			}
+		}
+		SpaceSoldier_Backup
+		{
+			Name "Tank Soldier"
+			Class Soldier
+			Skill Hard
+			ClassIcon soldier_backup
+			Attributes SpawnWithFullCharge
+			Item "The War Pig"
+			Item "The Battalion's Backup"
+			Scale 1.5
+			Health 700
+			ItemAttributes
+			{
+				ItemName "The Battalion's Backup"
+				"increase buff duration"	7
+			}
+		}
+		SpaceSoldier_Backup_Giant
+		{
+			Class Soldier
+			Name "Giant Tank Soldier"
+			Skill Expert
+			ClassIcon soldier_backup_giant
+			Attributes MiniBoss
+			Attributes SpawnWithFullCharge
+			Item "The War Pig"
+			Item "The Battalion's Backup"
+			Health 4200
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_ROCKETLAUNCHER"
+				"fire rate bonus" .75
+				"faster reload rate" .2
+			}
+			ItemAttributes
+			{
+				ItemName "The Battalion's Backup"
+				"increase buff duration"	9
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.4
+				"override footstep sound set" 3
+			}
+		}
+		SpaceSoldier_Buff
+		{
+			Name "Offensive Soldier"
+			Class Soldier
+			Skill Hard
+			ClassIcon soldier_buff
+			Attributes SpawnWithFullCharge
+			Item "Defiant Spartan"
+			Item "The Direct Hit"
+			Item "The Buff Banner"
+			//Attributes AlwaysCrit
+			ItemAttributes
+			{
+				ItemName "The Buff Banner"
+				"increase buff duration"	7
+			}
+		}
+		SpaceSoldier_Buff_Giant
+		{
+			Name "Giant Buff Soldier"
+			Class Soldier
+			Skill Expert
+			ClassIcon soldier_buff_giant
+			Attributes SpawnWithFullCharge
+			Item "Defiant Spartan"
+			Item "The Buff Banner"
+			Attributes MiniBoss
+			Health 3800
+			ItemAttributes
+			{
+				ItemName "The Buff Banner"
+				"increase buff duration"	7
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.4
+				"override footstep sound set" 3
+			}
+		}
+		SpaceSoldier_Conch
+		{
+			Name "Support Soldier"
+			Class Soldier
+			Skill Hard
+			ClassIcon soldier_conch
+			Attributes SpawnWithFullCharge
+			Item "The Grenadier's Softcap"
+			Item "The Black Box"
+			Item "The Concheror"
+			ItemAttributes
+			{
+				ItemName "The Concheror"
+				"increase buff duration"	7
+			}
+		}
+		Foof
+		{
+			Name "Foof Soldier"
+			Class Soldier
+			ClassIcon soldier_airstrike
+			Item "The Air Strike"
+			Item "The B.A.S.E. Jumper"
+			Item "Captain Space Mann"
+			Attributes AutoJump
+				AutoJumpMin 2
+				AutoJumpMax 4
+			CharacterAttributes
+			{
+				"increased jump height" 3.5
+				"move speed bonus" 1.2
+			}
+		}
+		SpacePyro
+		{
+			Name "Space Pyro"
+			ClassIcon pyro_phlog
+			Skill Normal
+			Class Pyro
+			Item "The Phlogistinator"
+			Item "The Manmelter"
+			Item "The Bubble Pipe"
+			ItemAttributes
+			{
+				ItemName "The Phlogistinator"
+				"critboost on kill" 3
+			}
+		}
+		SpacePyro_Flare
+		{
+			Template SpacePyro
+			ClassIcon pyro_flare
+			WeaponRestrictions SecondaryOnly
+			Skill Hard
+		}
+		SpacePyro_Flare_Rocket
+		{
+			Template SpacePyro_Flare
+			Name "Superflare Pyro"
+			ClassIcon pyro_rocketflare 
+			Skill Expert
+			Item "The Flare Gun"
+			ItemAttributes
+			{
+				ItemName "The Flare Gun"
+				"override projectile type" 2
+				"Projectile speed increased" 2.25
+				"set damagetype ignite" 1
+				"damage bonus" 3
+			}
+		}
+		SpacePyro_Giant
+		{
+			Template SpacePyro
+			Name "Giant Space Pyro"
+			Skill Expert
+			Attributes MiniBoss
+			Health 3000
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.6
+				"override footstep sound set" 6
+			}
+		}
+		SpacePyro_Giant_Spaceless
+		{
+			Name "Giant Mercury Pyro"
+			Class Pyro
+			Skill Expert
+			Attributes AlwaysFireWeapon
+			Attributes AlwaysCrit
+			Item "The Bolted Birdcage"
+			Attributes MiniBoss
+			Health 3000
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.6
+				"override footstep sound set" 6
+			}
+		}
+		SpaceDemo
+		{
+			Name "Planetary Demoman"
+			Class Demoman
+			Item "Captain Space Mann"
+		}
+		SpaceDemo_Inf
+		{
+			Template SpaceDemo
+			Name "Bottomless Bomber"
+			ClassIcon demo_spammer
+			Skill Hard
+			Attributes HoldFireUntilFullReload
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_GRENADELAUNCHER"
+				"faster reload rate" 0.01
+			}
+		}
+		SpaceDemo_Inf_Giant
+		{
+			Template SpaceDemo_Inf
+			Name "Giant Bottomless Bomber"
+			Skill Expert
+			Attributes MiniBoss
+			Health 3300
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.5
+				"airblast vulnerability multiplier" 0.5
+				"override footstep sound set" 4
+			}
+		}
+		SpaceDemo_Superbomb
+		{
+			Class Demoman
+			Name "Superbomb Demoman"
+			ClassIcon demo_nuke
+			Skill Normal
+			Item "The Cyborg Stunt Helmet"
+			Item "The Iron Bomber"
+			Attributes AlwaysCrit
+			Attributes HoldFireUntilFullReload
+			ItemAttributes
+			{
+				ItemName "The Iron Bomber"
+				"fire rate penalty" 3.5
+				"damage bonus" 2
+				"faster reload rate" 0.01
+				"Blast radius decreased" 1
+				"Blast radius increased" 1.5
+				"fuse bonus" 1.5
+				"set damagetype ignite" 1
+			}
+			CharacterAttributes
+			{
+				"no self blast dmg" 1
+				"blast dmg to self increased" 0
+			}
+		}
+		SpaceDemo_Superbomb_Giant
+		{
+			Template SpaceDemo_Superbomb
+			Name "Giant Superbomb Demoman"
+			Skill Expert
+			Attributes MiniBoss
+			Health 3300
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.5
+				"airblast vulnerability multiplier" 0.5
+				"override footstep sound set" 4
+			}
+		}
+		SpacePirate
+		{
+			Class Demoman
+			ClassIcon demo_loosecannon
+			Skill Normal
+			Name "Space Pirate"
+			Item "The Buccaneer's Bicorne"
+			Item "The Loose Cannon"
+			Item "The Tide Turner"
+			Item "The Eyelander"
+			WeaponRestrictions PrimaryOnly
+			ItemAttributes
+			{
+				ItemName "The Loose Cannon"
+				"grenade launcher mortar mode" 0
+			}
+		}
+		SpacePirate_Melee
+		{
+			Template SpacePirate
+			Skill Hard
+			ClassIcon demoknight
+			WeaponRestrictions MeleeOnly
+			Attributes AlwaysCrit
+		}
+		SpacePirate_Drunk
+		{
+			Name "Wealthy Space Pirate"
+			Template SpacePirate_Melee
+			ClassIcon drunk
+			Skill Expert
+			ItemAttributes
+			{
+				ItemName "The Eyelander"
+				"item style override" 1
+				"is australium item" 1
+			}
+			ItemAttributes
+			{
+				ItemName "The Tide Turner"
+				"charge time increased" 1
+				"charge recharge rate increased" 3
+			}
+		}
+		SpacePirate_Giant
+		{
+			Template SpacePirate
+			Name "Giant Space Pirate"
+			Skill Expert
+			Attributes MiniBoss
+			Attributes HoldFireUntilFullReload
+			Health 3300
+			ItemAttributes
+			{
+				ItemName "The Loose Cannon"
+				"fire rate bonus" .8
+				"faster reload rate" .1
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.5
+				"airblast vulnerability multiplier" 0.5
+				"override footstep sound set" 4
+			}
+		}
+		SpaceDemo_Giant
+		{
+			Template SpaceDemo
+			ClassIcon demo_giant
+			Name "Giant Planetary Demoman"
+			Skill Expert
+			Attributes MiniBoss
+			Attributes HoldFireUntilFullReload
+			Health 3300
+			ItemAttributes
+			{
+				ItemName "Captain Space Mann"
+				"attach particle effect" 32
+			}
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_GRENADELAUNCHER"
+				"faster reload rate" 0.25
+				"fire rate bonus" 0.8
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.5
+				"airblast vulnerability multiplier" 0.5
+				"override footstep sound set" 4
+			}
+		}
+		SpaceDemo_Giant_Burst
+		{
+			Template SpaceDemo_Giant
+			Name "Giant Burst Demoman"
+			ClassIcon demo_burst_giant
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_GRENADELAUNCHER"
+				"faster reload rate" 0.33
+				"fire rate bonus" 0.25
+			}
+		}
+		SpaceHeavy
+		{
+			Name "Brainwashed Heavy"
+			Class Heavy
+			Item "Sucker Slug"
+			Item "The Killing Gloves of Boxing"
+		}
+		SpaceHeavy_Deflector
+		{
+			Name "Deflector Heavy"
+			ClassIcon heavy_deflector
+			Class Heavy
+			Skill Expert
+			Item "Deflector"
+			Item "Large Luchadore"
+			ItemAttributes
+			{
+				ItemName "Deflector"
+				"damage bonus"	1.5
+				"attack projectiles" 1
+			}
+		}
+		SpaceHeavy_Frozen
+		{
+			Name "Frozen Heavy"
+			Class Heavy
+			ClassIcon heavy_natascha_ver2
+			Skill Normal
+			Item "The Eliminators Safeguard"
+			Item "Natascha"
+			ItemAttributes
+			{
+				ItemName "The Eliminators Safeguard"
+				"attach particle effect" 30
+				"set item tint RGB" 15132390
+				"set item tint RGB 2" 15132390
+			}
+		}
+		SpaceHeavy_Frozen_Giant
+		{
+			Template SpaceHeavy_Frozen
+			Name "Giant Frozen Heavy"
+			Skill Expert
+			Attributes MiniBoss
+			Health 5000
+			ItemAttributes
+			{
+				ItemName "Natascha"
+				"fire rate bonus" .8
+				"damage penalty" .66
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.3
+				"override footstep sound set" 2
+			}
+		}
+		SpaceHeavy_Shotgun
+		{
+			Template SpaceHeavy
+			Name "Brainwashed Shotgun Heavy"
+			ClassIcon heavy_shotgun
+			WeaponRestrictions SecondaryOnly
+			Skill Hard
+		}
+		SpaceHeavy_Shotgun_Burst
+		{
+			Template SpaceHeavy_Shotgun
+			Name "Burst Shotgun Heavy"
+			ClassIcon heavy_shotgun_burst
+			Skill Expert
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SHOTGUN_HWG"
+				"fire rate bonus" .75
+				"faster reload rate" 0.01
+				"clip size upgrade atomic" 3
+			}
+		}
+		SpaceChamp
+		{
+			Template SpaceHeavy
+			Name "No-Weight Champ"
+			ClassIcon heavy_champ
+			Skill Hard
+			WeaponRestrictions MeleeOnly
+		}
+		SpaceChamp_Giant
+		{
+			Template SpaceChamp
+			Name "Super No-Weight Champ"
+			Skill Expert
+			Attributes AlwaysCrit
+			Attributes MiniBoss
+			Health 5000
+			WeaponRestrictions MeleeOnly
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.3
+				"override footstep sound set" 2
+			}
+		}
+		SpaceChamp_Steel_Flinger
+		{
+			Name "Steel Gauntlet Flinger"
+			Class Heavy
+			ClassIcon heavy_steelfist
+			Item "Fists of Steel"
+			Item "The Heavy-Weight Champ"
+			Item "The Titanium Towel"
+			Skill Expert
+			Health 900
+			Scale 1.5
+			WeaponRestrictions MeleeOnly
+			ItemAttributes
+			{
+				ItemName "Fists of Steel"
+				"apply z velocity on damage" 700
+				//"apply look velocity on damage" 750
+			}
+		}
+		SpaceHeavy_Giant
+		{
+			Template SpaceHeavy
+			ClassIcon heavy_giant
+			Name "Giant Brainwashed Heavy"
+			Skill Expert
+			Attributes MiniBoss
+			Health 5000
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.3
+				"override footstep sound set" 2
+			}
+		}
+		SpaceHeavy_Giant_Shotgun
+		{
+			Template SpaceHeavy_Shotgun
+			Name "Giant Brainwashed Shotgun Heavy"
+			Skill Expert
+			Attributes MiniBoss
+			Health 5000
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SHOTGUN_HWG"
+				"faster reload rate" 0.1
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.6
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.3
+				"override footstep sound set" 2
+			}
+		}
+		SpaceHeavy_Giant_Shotgun_Burst
+		{
+			Template SpaceHeavy_Giant_Shotgun
+			Name "Giant Burst Shotgun Heavy"
+			ClassIcon heavy_shotgun_burst
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SHOTGUN_HWG"
+				"fire rate bonus" .75
+				"faster reload rate" 0.01
+				"clip size upgrade atomic" 3
+			}
+		}
+		SpaceHeavy_Giant_Deflector
+		{
+			Class Heavy
+			Name "Giant Deflector Heavy"
+			ClassIcon heavy_deflector
+			Skill Expert
+			Item "Deflector"
+			Item "Large Luchadore"
+			//Attributes AlwaysCrit
+			Attributes MiniBoss
+			Health 5000
+			ItemAttributes
+			{
+				ItemName "Deflector"
+				"damage bonus"	1.5
+				"attack projectiles" 1
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.3
+				"override footstep sound set" 2
+			}
+		}
+		HRG
+		{
+			Name "Heavy Rockets Guy"
+			Class Heavy
+			Skill Hard
+			ClassIcon heavy_rocket_hyper
+			Item "Heavy Hair"			
+			WeaponRestrictions SecondaryOnly
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SHOTGUN_HWG"
+				"override projectile type" 2
+				"damage bonus" 10
+				"Projectile speed increased" 1.5
+			}
+		}
+		HRG_Giant
+		{
+			Template HRG
+			Name "Giant Heavy Rockets Guy"
+			Skill Expert
+			Attributes MiniBoss
+			Health 5000
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SHOTGUN_HWG"
+				"faster reload rate" 0.1
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.6
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.3
+				"override footstep sound set" 2
+			}
+		}
+		SpaceMedic
+		{
+			Class Medic
+			Name "Cosmos Medic"
+			Skill Hard
+			Item "Universal Translator"
+			Item "The Quick-Fix"
+			ItemAttributes
+			{
+				ItemName "The Quick-Fix"
+				"ubercharge rate bonus" 0.1
+			}
+			CharacterAttributes
+			{
+				"heal rate bonus" 10
+			}
+		}
+		SpaceMedic_Uber
+		{
+			Class Medic
+			Name "Cosmos Uber Medic"
+			ClassIcon medic_uber
+			Item "Universal Translator"
+			Skill Hard
+			Attributes SpawnWithFullCharge
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_MEDIGUN"
+				"ubercharge rate bonus" 5
+				"uber duration bonus" -3
+			}
+			CharacterAttributes
+			{
+				"heal rate bonus" 0.1
+			}
+		}
+		SpaceMedic_Flicker
+		{
+			Class Medic
+			Name "Flicker Medic"
+			ClassIcon medic_battery
+			Item "The Weather Master"
+			Skill Expert
+			Attributes SpawnWithFullCharge
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_MEDIGUN"
+				"ubercharge rate bonus" 20
+				"uber duration bonus" -6
+			}
+			CharacterAttributes
+			{
+				"heal rate bonus" 0.1
+				"bot medic uber health threshold" 150
+			}
+		}
+		SpaceMedic_Giant
+		{
+			Template SpaceMedic
+			Name "Giant Cosmos Medic"
+			Health 4500
+			Attributes MiniBoss
+			Skill Expert
+			Attributes SpawnWithFullCharge
+			ItemAttributes
+			{
+				ItemName "The Quick-Fix"
+				"ubercharge rate bonus" 0.1
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.6
+				"health regen"	40
+				"heal rate bonus" 50
+				"bot medic uber health threshold" 400
+			}
+		}
+		SpaceMedic_Uber_Giant
+		{
+			Template SpaceMedic_Uber
+			Name "Giant Cosmos Uber Medic"
+			Health 4500
+			Attributes MiniBoss
+			Skill Expert
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_MEDIGUN"
+				"ubercharge rate bonus" 5
+				"uber duration bonus" -4
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.6
+				"health regen"	40
+				"heal rate bonus" 50
+				"bot medic uber health threshold" 400
+			}
+		}
+		SpaceMedic_Vac_Blast
+		{
+			Template SpaceMedic
+			Name "Big Bang Blocking Medic"
+			Skill Expert
+			ClassIcon medic_blast
+			Item "The Vaccinator"
+			Attributes SpawnWithFullCharge
+			Attributes VaccinatorBlast
+			ItemAttributes
+			{
+				ItemName "The Vaccinator"
+				"heal rate bonus" 10
+				"medigun blast resist deployed" 2
+				"medigun blast resist passive" 2
+				"medigun charge is resists" 4
+				"uber duration bonus" 200
+				"ubercharge rate bonus" 200
+			}
+			CharacterAttributes
+			{
+				"bot medic uber health threshold" 500
+			}
+		}
+		SpaceMedic_Vac_Bullet
+		{
+			Template SpaceMedic
+			Name "Lead Liquefier Medic"
+			Skill Expert
+			ClassIcon medic_bullet
+			Item "The Vaccinator"
+			Attributes SpawnWithFullCharge
+			Attributes VaccinatorBullets
+			ItemAttributes
+			{
+				ItemName "The Vaccinator"
+				"heal rate bonus" 10
+				"medigun bullet resist deployed" 2
+				"medigun bullet resist passive" 2
+				"medigun charge is resists" 3
+				"uber duration bonus" 200
+				"ubercharge rate bonus" 200
+			}
+			CharacterAttributes
+			{
+				"bot medic uber health threshold" 500
+			}
+		}
+		SpaceMedic_Vac_Bullet_Giant
+		{
+			Template SpaceMedic_Vac_Bullet
+			Name "Giant Lead Liquefier Medic"
+			Health 4500
+			Attributes MiniBoss
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.6
+				"health regen"	40
+			}
+		}
+		SpaceSniper
+		{
+			Class Sniper
+			Name "Thermoptic Sniper"
+			Skill Expert
+			MaxVisionRange 3000
+			Item "Letch's LED"
+			Item "Hawk Eyed Hunter"
+			Item "Shooting Star"
+		}
+		SpaceSniper_Sydney
+		{
+			Class Sniper
+			Name "Mercury Sniper"
+			Skill Expert
+			MaxVisionRange 3000
+			ClassIcon sniper_sydneysleeper
+			Item "The Sydney Sleeper"
+			Item "The Cold Killer"
+		}
+		SpaceSniper_Easy
+		{
+			Template SpaceSniper
+			ItemAttributes
+			{
+				ItemName "Shooting Star"
+				"sniper full charge damage bonus" 1
+			}
+		}
+		SpaceSniper_Bow
+		{
+			Class Sniper
+			Name "Primitive Bowman"
+			Item "Ol' Snaggletooth"
+			Item "Darwin's Danger Shield"
+			ClassIcon sniper_bow
+			WeaponRestrictions PrimaryOnly
+			Item "The Huntsman"
+			Skill Expert
+			ItemAttributes
+			{
+				ItemName "The Huntsman"
+				"damage penalty" .5
+			}
+		}
+		SpaceSniper_Bow_Blood
+		{
+			Template SpaceSniper_Bow
+			Name "Brutal Bowman"
+			ClassIcon sniper_huntsman_bleed
+			ItemAttributes
+			{
+				ItemName "Ol' Snaggletooth"
+				"attach particle effect" 12
+			}
+			ItemAttributes
+			{
+				ItemName "The Huntsman"
+				"damage penalty" .66
+				"bleeding duration" 6
+			}
+		}
+		SpaceSniper_Bow_Giant
+		{
+			Template SpaceSniper_Bow
+			Name "Giant Primitive Bowman"
+			Health 3000
+			Attributes MiniBoss
+			ItemAttributes
+			{
+				ItemName "The Huntsman"
+				"damage penalty" 1
+				"fire rate bonus" .5
+			}
+			CharacterAttributes
+			{
+				"airblast vulnerability multiplier" 0.4
+				"override footstep sound set" 3
+				"move speed penalty" 0.5
+				"damage force reduction" 0.5
+			}
+		}
+		SpaceSpy
+		{
+			Name "Intergalactic Spy"
+			Class Spy
+			Skill Expert
+			Item "Graylien"
+		}
+	}
+}

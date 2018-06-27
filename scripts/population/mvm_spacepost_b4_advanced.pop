@@ -1,0 +1,1465 @@
+#base robot_space.pop
+
+WaveSchedule
+{
+	StartingCurrency 500
+	RespawnWaveTime 6
+	CanBotsAttackWhileInSpawnRoom No
+	
+	Mission // sentry buster
+	{
+		Objective DestroySentries
+
+		InitialCooldown 15
+		Where spawnbot_mission_sentrybuster
+		BeginAtWave 1
+		RunForThisManyWaves 6
+
+		CooldownTime 25            
+
+		TFBot
+		{
+			Class Demoman
+			Name "Lunar Buster"
+			Skill Expert
+			Health 2500
+			Attributes MiniBoss
+			Item "The Ullapool Caber"
+			WeaponRestrictions MeleeOnly
+			ClassIcon sentry_buster
+
+			CharacterAttributes
+			{
+				"move speed bonus" 2
+				"damage force reduction" 0.5
+				"airblast vulnerability multiplier" 0.5
+				"override footstep sound set" 7
+				"cannot be backstabbed" 1
+			}
+		}
+	}
+	Mission
+	{
+		Objective Sniper
+		
+		InitialCooldown 40
+		Where spawnbot_mission_sniper
+		BeginAtWave 1
+		RunForThisManyWaves 1
+		DesiredCount 2
+		CooldownTime 40
+		
+		TFBot
+		{
+			Template SpaceSniper
+		}
+	}
+	Mission
+	{
+		Objective Spy
+		
+		InitialCooldown 40
+		Where spawnbot_mission_spy
+		BeginAtWave 2
+		RunForThisManyWaves 1
+		DesiredCount 4
+		CooldownTime 20
+		
+		TFBot
+		{
+			Template SpaceSpy
+		}
+	}
+	Mission
+	{
+		Objective Sniper
+		
+		InitialCooldown 20
+		Where spawnbot_mission_sniper
+		BeginAtWave 4
+		RunForThisManyWaves 1
+		DesiredCount 3
+		CooldownTime 30
+		
+		TFBot
+		{
+			Template SpaceSniper
+		}
+	}
+	Mission
+	{
+		Objective Spy
+		
+		InitialCooldown 10
+		Where spawnbot_mission_spy
+		BeginAtWave 5
+		RunForThisManyWaves 1
+		DesiredCount 2
+		CooldownTime 15
+		
+		TFBot
+		{
+			Template SpaceSpy
+		}
+	}
+	Mission
+	{
+		Objective Sniper
+		
+		InitialCooldown 20
+		Where spawnbot_mission_sniper
+		BeginAtWave 6
+		RunForThisManyWaves 1
+		DesiredCount 2
+		CooldownTime 35
+		
+		TFBot
+		{
+			Template SpaceSniper
+		}
+	}
+	Mission
+	{
+		Objective Spy
+		
+		InitialCooldown 45
+		Where spawnbot_mission_spy
+		BeginAtWave 6
+		RunForThisManyWaves 1
+		DesiredCount 2
+		CooldownTime 30
+		
+		TFBot
+		{
+			Template SpaceSpy
+		}
+	}
+	Mission
+	{
+		Objective Sniper
+		
+		InitialCooldown 15
+		Where spawnbot_mission_sniper
+		BeginAtWave 7
+		RunForThisManyWaves 1
+		DesiredCount 4
+		CooldownTime 25
+		
+		TFBot
+		{
+			Template SpaceSniper
+		}
+	}
+	Mission
+	{
+		Objective Spy
+		
+		InitialCooldown 15
+		Where spawnbot_mission_spy
+		BeginAtWave 7
+		RunForThisManyWaves 1
+		DesiredCount 5
+		CooldownTime 20
+		
+		TFBot
+		{
+			Template SpaceSpy
+		}
+	}
+	Templates
+	{
+		SuperFoof
+		{
+			Template Foof
+			Skill Normal
+			Attributes HoldFireUntilFullReload
+			Attributes AutoJump
+				AutoJumpMin 1
+				AutoJumpMax 5
+			ItemAttributes
+			{
+				ItemName "The Air Strike"
+				"fire rate bonus" .25
+				"faster reload rate" 0.66
+			}
+		}
+	}
+	//Wave 1
+	//Money: 800
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+		WaitWhenDone 65
+		Checkpoint Yes
+		
+		WaveSpawn
+		{
+			Name "wave1a"
+			TotalCurrency 60
+			Where spawnbot
+			TotalCount 30
+			MaxActive 8
+			SpawnCount 4
+			WaitBetweenSpawns 8
+			
+			RandomChoice
+			{
+				TFBot
+				{
+					Template SpacePirate
+				}
+				TFBot
+				{
+					Template SpacePirate
+				}
+				TFBot
+				{
+					Template SpacePirate
+				}
+				TFBot
+				{
+					Template SpacePirate_Melee
+				}
+			}
+		}
+		WaveSpawn
+		{
+			WaitForAllSpawned "wave1a"
+			TotalCurrency 140
+			Where spawnbot
+			TotalCount 48
+			MaxActive 8
+			SpawnCount 4
+			WaitBeforeStarting 6
+			WaitBetweenSpawns 6
+			
+			RandomChoice
+			{
+				TFBot
+				{
+					Template SpacePirate
+				}
+				TFBot
+				{
+					Template SpacePirate
+				}
+				TFBot
+				{
+					Template SpacePirate
+				}
+				TFBot
+				{
+					Template SpacePirate_Melee
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name "wave1b"
+			TotalCurrency 150
+			Where spawnbot_upper
+			TotalCount 32
+			MaxActive 6
+			SpawnCount 2
+			WaitBeforeStarting 12
+			WaitBetweenSpawns 2
+			
+			TFBot
+			{
+				Template SpacePyro_Flare
+			}
+		}
+		WaveSpawn
+		{
+			WaitForAllDead "wave1a"
+			TotalCurrency 100
+			Where spawnbot
+			TotalCount 24
+			MaxActive 3
+			SpawnCount 3
+			Support 1
+			
+			TFBot
+			{
+				Template SpaceSoldier_Bison
+			}
+		}
+		WaveSpawn
+		{
+			WaitForAllDead "wave1b"
+			TotalCurrency 50
+			Where spawnbot_upper
+			TotalCount 20
+			MaxActive 3
+			SpawnCount 1
+			WaitBetweenSpawns 5
+			Support 1
+			
+			TFBot
+			{
+				Template SpaceSoldier
+			}			
+		}
+		WaveSpawn
+		{
+			TotalCurrency 300
+			WaitForAllSpawned "wave1a"
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 32
+			Where spawnbot
+			TotalCount 20
+			MaxActive 10
+			SpawnCount 5
+			
+			Squad
+			{
+				TFBot
+				{
+					Template SpaceChamp_Giant
+				}	
+				TFBot
+				{
+					Template SpaceMedic_Uber
+				}
+				TFBot
+				{
+					Template SpaceMedic_Uber
+				}
+				TFBot
+				{
+					Template SpaceMedic_Uber
+				}
+				TFBot
+				{
+					Template SpaceMedic_Uber
+				}
+			}
+		}
+	}
+	//Wave 2
+	//Money: 700
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+		WaitWhenDone 65
+		Checkpoint Yes
+		
+		WaveSpawn
+		{
+			Where spawnbot
+			TotalCurrency 300
+			TotalCount 96
+			MaxActive 12
+			SpawnCount 4
+			WaitBetweenSpawns 4
+			
+			TFBot
+			{
+				Template SpaceSniper_Bow
+			}
+		}
+		WaveSpawn
+		{
+			Where spawnbot_upper
+			TotalCurrency 300
+			TotalCount 36
+			MaxActive 8
+			SpawnCount 2
+			WaitBeforeStarting 12
+			WaitBetweenSpawns 10
+			
+			Squad
+			{
+				TFBot
+				{
+					Template SpaceScout
+					Skill Hard
+					Attributes AlwaysCrit
+					WeaponRestrictions SecondaryOnly
+				}
+				TFBot
+				{
+					Template SpaceMedic_Uber
+					CharacterAttributes
+					{
+						"heal rate bonus" 1
+						"move speed bonus" 1.33
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Where spawnbot_upper
+			TotalCurrency 100
+			WaitBeforeStarting 45
+			TotalCount 20
+			MaxActive 2
+			SpawnCount 1
+			Support 1
+			
+			TFBot
+			{
+				Template SpaceScout_Cola
+			}
+		}
+	}
+	//Wave 3
+	//Money: 950
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+		WaitWhenDone 65
+		Checkpoint Yes
+		
+		//Heavies: Main wave force
+		WaveSpawn
+		{
+			TotalCurrency 100
+			Name "wave3a"
+			Where spawnbot
+			TotalCount 24
+			MaxActive 8
+			SpawnCount 4
+			WaitBetweenSpawns 10
+			
+			Squad
+			{
+				TFBot
+				{
+					Template SpaceHeavy
+					Skill Normal
+				}
+				TFBot
+				{
+					Template SpaceHeavy_Shotgun
+				}
+				TFBot
+				{
+					Template SpaceHeavy_Shotgun
+				}
+				TFBot
+				{
+					Template SpaceHeavy_Shotgun
+				}
+			}
+		}
+		//Foofs: Top, only for first half
+		WaveSpawn
+		{
+			TotalCurrency 100
+			Where spawnbot_upper
+			TotalCount 20
+			MaxActive 6
+			SpawnCount 2
+			WaitBeforeStarting 12
+			WaitBetweenSpawns 12
+			
+			TFBot
+			{
+				Template SuperFoof
+			}
+		}
+		//GCs
+		WaveSpawn
+		{
+			Name "wave3b"
+			TotalCurrency 100
+			Where spawnbot
+			TotalCount 4
+			MaxActive 2
+			SpawnCount 1
+			WaitBeforeStarting 35
+			WaitBetweenSpawns 15
+			
+			TFBot
+			{
+				Template SpaceScout_Giant
+			}
+		}
+		//Tank
+		WaveSpawn
+		{
+			Name "wave3c"
+			WaitForAllDead "wave3b"
+			WaitBeforeStarting 5
+			TotalCurrency 350
+			TotalCount 1
+			
+			FirstSpawnOutput                                                                                                                                                            
+			{
+				 Target boss_spawn_relay                                            
+				 Action Trigger                         
+			}
+
+			Tank
+			{
+				Health 30000
+				Speed 75
+				Name "boss"
+				StartingPathTrackNode "tank_path_a_1"
+				//StartingPathTrackNode "boss_path_b1"
+
+				OnKilledOutput                                  
+				{
+					Target boss_dead_relay
+					Action Trigger                         
+				}
+				OnBombDroppedOutput                             
+				{
+					Target boss_deploy_relay 
+					Action Trigger                         
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 100
+			Where spawnbot_upper
+			WaitForAllSpawned "wave3c"
+			WaitBeforeStarting 40
+			WaitBetweenSpawns 40
+			TotalCount 3
+			MaxActive 3
+			SpawnCount 1
+			
+			TFBot
+			{
+				Template SpaceDemo_Giant_Burst
+			}
+		}
+		//Second main heavy force
+		WaveSpawn
+		{
+			TotalCurrency 100
+			WaitForAllDead "wave3a"
+			WaitBetweenSpawns 10
+			Where spawnbot
+			TotalCount 24
+			MaxActive 8
+			SpawnCount 4
+			
+			Squad
+			{
+				TFBot
+				{
+					Template SpaceHeavy
+					Skill Normal
+				}
+				TFBot
+				{
+					Template SpaceHeavy
+					Skill Normal
+				}
+				TFBot
+				{
+					Template SpaceHeavy_Shotgun
+				}
+				TFBot
+				{
+					Template SpaceSoldier_Charged
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 50
+			WaitForAllDead "wave3a"
+			Where spawnbot_upper
+			WaitBeforeStarting 5
+			WaitBetweenSpawns 12
+			TotalCount 12
+			MaxActive 6
+			SpawnCount 2
+			
+			TFBot
+			{
+				Template SpaceSoldier_Charged
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 50
+			WaitBeforeStarting 30
+			Where spawnbot_upper
+			TotalCount 20
+			MaxActive 4
+			SpawnCount 2
+			WaitBetweenSpawns 20
+			Support 1
+			
+			TFBot
+			{
+				Template SpacePyro
+			}
+		}
+	}
+	//Wave 4
+	//Money: 800
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+		WaitWhenDone 65
+		Checkpoint Yes
+		
+		WaveSpawn
+		{
+			Name "wave4a"
+			TotalCount 1
+			TotalCurrency 100
+			
+			FirstSpawnOutput                                                                                                                                                            
+			{
+				 Target boss_spawn_relay                                            
+				 Action Trigger                         
+			}
+
+			Tank
+			{
+				Health 40000
+				Speed 75
+				Name "boss"
+				StartingPathTrackNode "tank_path_a_1"
+				//StartingPathTrackNode "boss_path_b1"
+
+				OnKilledOutput                                  
+				{
+					Target boss_dead_relay
+					Action Trigger                         
+				}
+				OnBombDroppedOutput                             
+				{
+					Target boss_deploy_relay 
+					Action Trigger                         
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 50
+			WaitBeforeStarting 6
+			Where spawnbot
+			TotalCount 32
+			MaxActive 8
+			SpawnCount 4
+			WaitBetweenSpawns 10
+			
+			TFBot
+			{
+				Template HRG
+			}
+		}
+		WaveSpawn
+		{
+			Name "wave4b"
+			WaitForAllDead "wave4a"
+			WaitBeforeStarting 10
+			TotalCount 1
+			TotalCurrency 100
+			
+			FirstSpawnOutput                                                                                                                                                            
+			{
+				 Target boss_spawn_relay                                            
+				 Action Trigger                         
+			}
+
+			Tank
+			{
+				Health 40000
+				Speed 75
+				Name "boss"
+				StartingPathTrackNode "tank_path_a_1"
+				//StartingPathTrackNode "boss_path_b1"
+
+				OnKilledOutput                                  
+				{
+					Target boss_dead_relay
+					Action Trigger                         
+				}
+				OnBombDroppedOutput                             
+				{
+					Target boss_deploy_relay 
+					Action Trigger                         
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 150
+			Name "wave4d"
+			WaitForAllSpawned "wave4b"
+			WaitBeforeStarting 5
+			Where spawnbot
+			TotalCount 8
+			MaxActive 8
+			SpawnCount 4
+			WaitBetweenSpawns 20
+			
+			Squad
+			{
+				TFBot
+				{
+					Template SpacePirate_Giant
+				}
+				TFBot
+				{
+					Template SpaceHeavy
+					Skill Hard
+				}
+				TFBot
+				{
+					Template SpaceHeavy
+					Skill Hard
+				}
+				TFBot
+				{
+					Template SpaceHeavy
+					Skill Hard
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 100
+			WaitForAllSpawned "wave4b"
+			Where spawnbot_upper
+			WaitBeforeStarting 3
+			WaitBetweenSpawns 3
+			TotalCount 36
+			MaxActive 6
+			SpawnCount 2
+			
+			TFBot
+			{
+				Template SpacePyro
+				Attributes AlwaysCrit
+			}
+		}
+		WaveSpawn
+		{
+			Name "wave4c"
+			WaitForAllDead "wave4b"
+			WaitBeforeStarting 10
+			TotalCount 1
+			TotalCurrency 100
+			
+			FirstSpawnOutput                                                                                                                                                            
+			{
+				 Target boss_spawn_relay                                            
+				 Action Trigger                         
+			}
+
+			Tank
+			{
+				Health 40000
+				Speed 75
+				Name "boss"
+				StartingPathTrackNode "tank_path_a_1"
+				//StartingPathTrackNode "boss_path_b1"
+
+				OnKilledOutput                                  
+				{
+					Target boss_dead_relay
+					Action Trigger                         
+				}
+				OnBombDroppedOutput                             
+				{
+					Target boss_deploy_relay 
+					Action Trigger                         
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 100
+			Where spawnbot_upper
+			WaitForAllSpawned "wave4c"
+			WaitBeforeStarting 40
+			WaitBetweenSpawns 45
+			TotalCount 10
+			MaxActive 10
+			SpawnCount 5
+			
+			Squad
+			{
+				TFBot
+				{
+					Template SpaceHeavy_Giant
+					Attributes AlwaysCrit
+				}
+				TFBot
+				{
+					Template SpaceMedic_Uber
+				}
+				TFBot
+				{
+					Template SpaceMedic_Uber
+				}
+				TFBot
+				{
+					Template SpaceMedic_Uber
+				}
+				TFBot
+				{
+					Template SpaceMedic_Uber
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 50
+			Where spawnbot
+			WaitForAllDead "wave4d"
+			WaitBeforeStarting 6
+			TotalCount 5
+			MaxActive 3
+			SpawnCount 1
+			WaitBetweenSpawns 24
+			
+			TFBot
+			{
+				Template SpacePirate_Giant
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 50
+			Where spawnbot_upper
+			WaitForAllSpawned "wave4c"
+			WaitBeforeStarting 12
+			TotalCount 18
+			MaxActive 6
+			SpawnCount 2
+			
+			TFBot
+			{
+				Template HRG
+			}
+		}
+	}
+	//Wave 5
+	//Money: 900
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+		WaitWhenDone 65
+		Checkpoint Yes
+		
+		WaveSpawn
+		{
+			TotalCurrency 150
+			Where spawnbot
+			WaitBetweenSpawns 75
+			TotalCount 4
+			MaxActive 4
+			SpawnCount 1
+			
+			TFBot
+			{
+				Template SpaceScout_Giant
+				Skill Expert
+				//Attributes AlwaysCrit
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 150
+			Where spawnbot_upper
+			WaitBeforeStarting 1
+			WaitBetweenSpawns 75
+			TotalCount 4
+			MaxActive 4
+			SpawnCount 1
+			
+			TFBot
+			{
+				Template SpaceScout_Giant
+				Skill Expert
+				//Attributes AlwaysCrit
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 100
+			Name "wave5aupper"
+			Where spawnbot_upper
+			WaitBeforeStarting 5
+			WaitBetweenSpawns 7
+			TotalCount 30
+			MaxActive 4
+			SpawnCount 2
+			
+			Squad
+			{
+				TFBot
+				{
+					Template SpaceSoldier_Buff
+					Skill Expert
+				}
+				TFBot
+				{
+					Template SpaceSniper_Bow
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 100
+			Name "wave5a"
+			Where spawnbot
+			WaitBeforeStarting 5
+			WaitBetweenSpawns 10
+			TotalCount 16
+			MaxActive 5
+			SpawnCount 4
+			
+			Squad
+			{
+				TFBot
+				{
+					Template SpaceSoldier_Buff
+					Skill Expert
+				}
+				TFBot
+				{
+					Template SpaceSniper_Bow
+				}
+				TFBot
+				{
+					Template SpaceSniper_Bow
+				}
+				TFBot
+				{
+					Template SpaceSniper_Bow
+				}
+			}
+		}
+		//Heavy Soldier support
+		WaveSpawn
+		{
+			TotalCurrency 100
+			WaitForAllDead "wave5a"
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 24
+			Where spawnbot
+			TotalCount 30
+			MaxActive 6
+			SpawnCount 3
+			Support 1
+			
+			Squad
+			{
+				TFBot
+				{
+					Template SpaceHeavy
+					Attributes AlwaysCrit
+					Skill Hard
+				}
+				TFBot
+				{
+					Template SpaceSoldier_Conch
+				}
+				TFBot
+				{
+					Template SpaceSoldier_Conch
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name "wave5aupper"
+			TotalCurrency 150
+			Where spawnbot_upper
+			WaitBeforeStarting 35	
+			WaitBetweenSpawns 40
+			TotalCount 12
+			MaxActive 6
+			SpawnCount 3
+			
+			Squad
+			{
+				TFBot
+				{
+					Template SpaceSoldier_Giant_Burst
+					Attributes AlwaysCrit
+				}
+				TFBot
+				{
+					Template SpaceSoldier_Backup
+				}
+				TFBot
+				{
+					Template SpaceSoldier_Backup
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 150
+			WaitForAllDead "wave5a"
+			WaitBeforeStarting 5
+			WaitBetweenSpawns 30
+			Where spawnbot
+			TotalCount 15
+			MaxActive 7
+			SpawnCount 3
+			
+			Squad
+			{
+				TFBot
+				{
+					Template SpaceDemo_Giant_Burst
+				}
+				TFBot
+				{
+					Template SpaceSoldier_Buff
+				}
+				TFBot
+				{
+					Template SpaceSoldier_Buff
+				}
+			}
+		}
+		//WaveSpawn
+		//{
+		//	TotalCurrency 150
+		//	WaitForAllDead "wave5aupper"
+		//	WaitBeforeStarting 7
+		//	WaitBetweenSpawns 18
+		//	Where spawnbot_upper
+		//	TotalCount 14
+		//	MaxActive 7
+		//	SpawnCount 7
+		//	
+		//	Squad
+		//	{
+		//		TFBot
+		//		{
+		//			Template SpaceHeavy_Giant_Deflector
+		//		}
+		//		TFBot
+		//		{
+		//			Template SpaceSoldier_Backup
+		//		}
+		//		TFBot
+		//		{
+		//			Template SpaceSoldier_Backup
+		//		}
+		//		TFBot
+		//		{
+		//			Template SpaceSoldier_Buff
+		//		}
+		//		TFBot
+		//		{
+		//			Template SpaceSoldier_Buff
+		//		}
+		//		TFBot
+		//		{
+		//			Template SpaceSoldier_Conch
+		//			ClassIcon soldier_conch_giant
+		//		}
+		//		TFBot
+		//		{
+		//			Template SpaceSoldier_Conch
+		//			ClassIcon soldier_conch_giant
+		//		}
+		//	}
+		//}
+	}
+	//Wave 6
+	//Money: 850
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+		WaitWhenDone 65
+		Checkpoint Yes
+		
+		WaveSpawn
+		{
+			Name "wave6a"
+			TotalCount 1
+			TotalCurrency 100
+
+			FirstSpawnOutput                                                                                                                                                            
+			{
+				 Target boss_spawn_relay                                            
+				 Action Trigger                         
+			}
+
+			Tank
+			{
+				Health 45000
+				Speed 75
+				Name "boss"
+				StartingPathTrackNode "tank_path_a_1"
+				//StartingPathTrackNode "boss_path_b1"
+
+				OnKilledOutput                                  
+				{
+					Target boss_dead_relay
+					Action Trigger                         
+				}
+				OnBombDroppedOutput                             
+				{
+					Target boss_deploy_relay 
+					Action Trigger                         
+				}
+			}			
+		}
+		WaveSpawn
+		{
+			TotalCurrency 50
+			Name "wave6b"
+			Where spawnbot_upper
+			WaitBeforeStarting 5
+			WaitBetweenSpawns 8
+			TotalCount 20
+			MaxActive 4
+			SpawnCount 2
+			
+			TFBot
+			{
+				Template HRG
+				//Attributes AlwaysCrit
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 50
+			Name "wave6b"
+			Where spawnbot
+			WaitBeforeStarting 6
+			WaitBetweenSpawns 8
+			TotalCount 24
+			MaxActive 6
+			SpawnCount 3
+			
+			TFBot
+			{
+				Template SpacePirate_Melee
+			}
+		}
+		WaveSpawn
+		{
+			Name "wave6c"
+			TotalCurrency 100
+			WaitBeforeStarting 7
+			Where spawnbot
+			TotalCount 15
+			MaxActive 6
+			SpawnCount 3
+			WaitBetweenSpawns 25
+			
+			Squad
+			{
+				TFBot
+				{
+					Template SpaceSniper_Bow_Giant
+				}
+				TFBot
+				{
+					Template SpaceSoldier_Backup
+				}
+				TFBot
+				{
+					Template SpaceSoldier_Backup
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 100
+			Where spawnbot_upper
+			WaitForAllSpawned "wave6b"
+			Name "wave6pyros"
+			WaitBeforeStarting 3
+			WaitBetweenSpawns 8
+			TotalCount 32
+			MaxActive 5
+			SpawnCount 2
+			
+			RandomChoice
+			{
+				TFBot
+				{
+					Template SpacePyro
+					Attributes AlwaysCrit
+				}
+				TFBot
+				{
+					Template SpacePyro
+					Attributes AlwaysCrit
+				}
+				TFBot
+				{
+					Template SpacePyro_Flare
+					Attributes AlwaysCrit
+					Skill Expert
+				}
+				TFBot
+				{
+					Template SpacePyro_Flare
+					Attributes AlwaysCrit
+					Skill Expert
+				}
+				TFBot
+				{
+					Template SpacePyro_Flare
+					Attributes AlwaysCrit
+					Skill Expert
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 50
+			Where spawnbot_upper
+			WaitForAllDead "wave6a"
+			WaitBeforeStarting 8
+			WaitBetweenSpawns 30
+			TotalCount 3
+			MaxActive 3
+			SpawnCount 1
+			
+			TFBot
+			{
+				Template SpaceHeavy_Giant
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 100
+			WaitForAllDead "wave6c"
+			Where spawnbot
+			WaitBeforeStarting 20
+			WaitBetweenSpawns 13
+			TotalCount 30
+			MaxActive 5
+			SpawnCount 3
+			Support 1
+			
+			Squad
+			{
+				TFBot
+				{
+					Template SpaceSoldier_Conch
+				}
+				TFBot
+				{
+					Template SpaceScout_Cola
+				}
+				TFBot
+				{
+					Template SpaceScout_Cola
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency 100
+			WaitForAllDead "wave6c"
+			Where spawnbot
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 40
+			TotalCount 8
+			MaxActive 5
+			SpawnCount 2
+			
+			Squad
+			{
+				TFBot
+				{
+					Template SpacePirate_Giant
+					Attributes AlwaysCrit
+					ItemAttributes
+					{
+						ItemName "The Loose Cannon"
+						"fire rate bonus" .8
+						"faster reload rate" .01
+					}
+				}
+				TFBot
+				{
+					Template SpaceMedic_Uber
+					Name "Giant Cosmos Uber Medic"
+					Health 4500
+					Attributes MiniBoss
+					Skill Expert
+					ItemAttributes
+					{
+						ItemName "TF_WEAPON_MEDIGUN"
+						"ubercharge rate bonus" 5
+						"uber duration bonus" -4
+					}
+					CharacterAttributes
+					{
+						"move speed bonus"	0.5
+						"damage force reduction" 0.6
+						"airblast vulnerability multiplier" 0.6
+						"health regen"	40
+						"heal rate bonus" 50
+						"bot medic uber health threshold" 400
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
+			WaitForAllDead "wave6c"
+			WaitBeforeStarting 50
+			
+			TotalCount 1
+			TotalCurrency 200
+
+			FirstSpawnOutput                                                                                                                                                            
+			{
+				 Target boss_spawn_relay                                            
+				 Action Trigger                         
+			}
+
+			Tank
+			{
+				Health 45000
+				Skin 1
+				Speed 75
+				Name "boss"
+				StartingPathTrackNode "tank_path_a_1"
+				//StartingPathTrackNode "boss_path_b1"
+
+				OnKilledOutput                                  
+				{
+					Target boss_dead_relay
+					Action Trigger                         
+				}
+				OnBombDroppedOutput                             
+				{
+					Target boss_deploy_relay 
+					Action Trigger                         
+				}
+			}	
+		}
+	}
+	Wave
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay_boss
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay_boss
+			Action Trigger
+		}
+		WaitWhenDone 65
+		Checkpoint Yes
+		
+		WaveSpawn
+		{
+			TotalCurrency 5
+			Where spawnbot_boss
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 5  //needed for intro sequence
+			
+			TFBot
+			{
+				Name "The Wormhole Bomber"
+				Class Demoman
+				ClassIcon demo_clusterbomb
+				Skill Expert
+				Attributes MiniBoss
+				//Attributes AlwaysCrit
+				Attributes HoldFireUntilFullReload
+				Attributes UseBossHealthBar
+				Health 50000
+				Item "The Bomber Knight"
+				ItemAttributes
+				{
+					ItemName "The Bomber Knight"
+					"attach particle effect" 71
+				}
+				Item "The Iron Bomber"
+				ItemAttributes
+				{
+					ItemName "The Iron Bomber"
+					//"damage penalty" .66
+					"clip size upgrade atomic" 28
+					"faster reload rate" .05
+					"fire rate bonus" .1
+					"projectile spread angle penalty" 6
+					//"projectile speed increased" 1.5
+					"apply look velocity on damage" -600
+					"cancel falling damage" 1
+				}
+				CharacterAttributes
+				{
+					"no self blast dmg" 1
+					"blast dmg to self increased" 0
+					"health regen"	200
+					"move speed bonus"	0.4
+					"damage force reduction" 0.2
+					"airblast vulnerability multiplier" 0.3
+					"override footstep sound set" 4
+					"airblast vertical vulnerability multiplier" 0.1
+					"rage giving scale" 0.1
+				}
+			}
+		}
+	}
+}

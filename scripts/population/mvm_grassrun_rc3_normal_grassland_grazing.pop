@@ -1,0 +1,180 @@
+#base robot_standard.pop
+#base robot_giant.pop
+Eat_Grass_PlanSchedule // Made by Addicted sceretly in the basement :cowboy:
+{
+	StartingCurrency 600
+	RespawnWaveTime 3
+	CanBotsAttackWhileInSpawnRoom No
+	FixedRespawnWaveTime Yes
+	// EnableDominations 1 [$SIGSEGV] nope
+	Wave
+	{
+		Explanation [$SIGSEGV]
+		{
+			Line "{green}Missing Icons? Download it here: https://www.dropbox.com/s/em3o63bxusg6zr2/Grassland_Grazing_Icons.zip?dl=0"
+			Line "{blue}Put the textures in tf/materials/hud."
+			Line ""
+			Line "{ffff66}After downloading them, disconnect, type sv_cheats 1 in console and use the command mat_reloadallmaterials to load the textures."
+			Line "{ffff66}Alternatively, you can relaunch tf2."
+		}
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+		}
+		DoneOutput
+		{
+			Target wave_finished_relay
+			Action Trigger
+		}
+		WaveSpawn
+		{
+			Name "w1_sniping_scouts_time1"
+			TotalCurrency 120
+			TotalCount 20
+			SpawnCount 4
+			MaxActive 8
+			FirstSpawnWarningSound vo/mvm_bomb_alerts02.mp3
+			StartWaveWarningSound vo/mvm/norm/scout_mvm_headright02.mp3
+			StartWaveOutput
+			{
+				Target spawn_giant_shake
+				Action Kill
+			}
+			Where spawnbot_right_main
+			WaitBeforeStarting 12
+			WaitBetweenSpawns 8
+			Squad
+			{
+				FormationSize 31.0
+				ShouldPreserveSquad 1
+				TFBot
+				{
+					Class Soldier
+					ClassIcon soldier_liberty								
+					Skill Easy
+					Item "The Liberty Launcher"
+				}
+				TFBot
+				{
+					Template T_TFBot_Addicted_Scout_Pistol
+					Skill Easy
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_PISTOL"
+						"damage penalty" 0.85
+						"spread penalty" 1.2
+					}
+				}
+				TFBot
+				{
+					Template T_TFBot_Addicted_Scout_Pistol
+					Skill Easy
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_PISTOL"
+						"damage penalty" 0.85
+						"spread penalty" 1.2
+					}
+				}
+				TFBot
+				{
+					Template T_TFBot_Addicted_Scout_Pistol
+					Skill Easy
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_PISTOL"
+						"damage penalty" 0.85
+						"spread penalty" 1.2
+					}
+				}
+			}	
+		}
+		WaveSpawn
+		{
+			Name "w1_scouts_support"
+			TotalCurrency 140
+			TotalCount 20
+			SpawnCount 4
+			MaxActive 4
+			WaitForAllDead w1_sniping_scouts_time1
+			StartWaveOutput
+			{
+				Target giant_spawn_sound
+				Action Kill
+			}
+			Where spawnbot_right_side
+			WaitBetweenSpawns 10
+			TFBot
+			{
+				Template T_TFBot_Addicted_Scout_Basher
+				Skill Easy
+				MaxVisionRange 500
+			}
+		}
+		WaveSpawn
+		{
+			Name "w1_sniping_scouts_time2"
+			TotalCurrency 120
+			TotalCount 20
+			SpawnCount 4
+			MaxActive 8
+			Where spawnbot_right_main
+			WaitBeforeStarting 8
+			WaitBetweenSpawns 8
+			Squad
+			{
+				FormationSize 40
+				ShouldPreserveSquad 1
+				TFBot
+				{
+					Class Soldier
+					ClassIcon soldier_liberty								
+					Skill Easy
+					Item "The Liberty Launcher"
+				}
+				TFBot
+				{
+					Class Soldier
+					WeaponRestrictions SecondaryOnly
+					Item "Soldier's Stash"
+					Skill Easy
+				}
+				TFBot
+				{
+					Class Soldier
+					WeaponRestrictions SecondaryOnly
+					Item "Soldier's Stash"
+					Skill Easy
+				}
+				TFBot
+				{
+					Class Soldier
+					WeaponRestrictions SecondaryOnly
+					Item "Soldier's Stash"
+					Skill Easy
+				}
+			}	
+		}
+	}
+	Templates
+	{
+		T_TFBot_Addicted_Scout_Basher
+		{
+			Class Scout
+			ClassIcon scout_bostonbasher
+			Item "The Boston Basher"
+			WeaponRestrictions MeleeOnly
+			Skill Hard
+			Item "Scout Beanie"
+		}
+		T_TFBot_Addicted_Scout_Pistol
+		{
+			Class Scout
+			ClassIcon scout_pistol
+			Item "Upgradeable TF_WEAPON_PISTOL"
+			Skill Normal
+			WeaponRestrictions SecondaryOnly
+		}
+	}
+}

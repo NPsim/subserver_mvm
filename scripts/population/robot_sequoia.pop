@@ -1,0 +1,892 @@
+#base robot_giant.pop
+#base robot_standard.pop
+
+WaveSchedule
+{
+Templates
+{
+	
+	T_TFBot_Medic_BigHeal_Shield
+	{
+		Name "Shield Medic"
+		Class Medic
+		Skill Expert
+		ClassIcon medic_shield_qf
+		Item "The Quick-Fix"
+		Item "Grimm Hatte"
+		Attributes ProjectileShield
+		// Attributes SpawnWithFullCharge
+		ItemAttributes
+		{
+			ItemName "The Quick-Fix"
+			"generate rage on heal" 2
+			"heal rate bonus" 10
+			"increase buff duration" 3
+		}
+		CharacterAttributes
+		{
+			"ubercharge rate bonus" 0.1
+		}
+	}
+	
+	T_TFBot_Uber_Shield
+	{
+		Class Medic
+		Name "Uber Medic"
+		ClassIcon medic_shield_uber
+		Item "Grimm Hatte"
+		Skill Normal
+		Attributes SpawnWithFullCharge
+		Attributes ProjectileShield
+		ItemAttributes
+		{
+			ItemName "TF_WEAPON_MEDIGUN"
+			"ubercharge rate bonus" 2
+			"generate rage on heal" 1
+			"increase buff duration" 3
+		}
+		ItemAttributes
+		{
+			ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+			"damage penalty" 0.1
+		}
+		CharacterAttributes
+		{
+			"heal rate bonus" 5
+		}
+	}
+	
+	T_TFBot_Blast_Vaccinator
+	{
+		Name "Blast Vaccinator"
+		Class Medic
+		Skill Expert
+		ClassIcon medic_blast
+		WeaponRestrictions SecondaryOnly
+		Item "The Vaccinator"
+		Item "Medic Goggles"
+		Attributes SpawnWithFullCharge
+		Attributes VaccinatorBlast
+		ItemAttributes
+		{
+			ItemName "The Vaccinator"
+			"heal rate bonus" 10
+			"medigun blast resist deployed" 2
+			"medigun blast resist passive" 2
+			"medigun charge is resists" 4
+			"uber duration bonus" 200
+			"ubercharge rate bonus" 200
+		}
+		CharacterAttributes
+		{
+			"bot medic uber health threshold" 500
+		}
+	}
+	T_TFBot_Bullet_Vaccinator
+	{
+		Name "Bullet Vaccinator"
+		Class Medic
+		Skill Expert
+		ClassIcon medic_bullet
+		WeaponRestrictions SecondaryOnly
+		Item "The Vaccinator"
+		Item "Medic Goggles"
+		Attributes SpawnWithFullCharge
+		Attributes VaccinatorBullets
+		ItemAttributes
+		{
+			ItemName "The Vaccinator"
+			"heal rate bonus" 10
+			"medigun bullet resist deployed" 2
+			"medigun bullet resist passive" 2
+			"medigun charge is resists" 3
+			"uber duration bonus" 200
+			"ubercharge rate bonus" 200
+		}
+		CharacterAttributes
+		{
+			"bot medic uber health threshold" 500
+		}
+	}
+	T_TFBot_Fire_Vaccinator
+	{
+		Name "Fire Vaccinator"
+		Class Medic
+		Skill Expert
+		ClassIcon medic_fire
+		WeaponRestrictions SecondaryOnly
+		Item "The Vaccinator"
+		Item "Medic Goggles"
+		Attributes SpawnWithFullCharge
+		Attributes VaccinatorFire
+		ItemAttributes
+		{
+			ItemName "The Vaccinator"
+			"heal rate bonus" 10
+			"medigun charge is resists" 5
+			"medigun fire resist deployed" 2
+			"medigun fire resist passive" 2
+			"uber duration bonus" 200
+			"ubercharge rate bonus" 200
+		}
+		CharacterAttributes
+		{
+			"bot medic uber health threshold" 500
+		}
+	}	
+	T_TFBot_Giant_Shield_Medic
+	{
+		Name "Giant Shield Medic"
+		Class Medic
+		Skill Expert
+		Health 4500
+		ClassIcon medic_shield_qf
+		WeaponRestrictions SecondaryOnly
+		Item "The Quick-Fix"
+		Item "Grimm Hatte"
+		Attributes MiniBoss
+		Attributes ProjectileShield
+		Attributes SpawnWithFullCharge
+		ItemAttributes
+		{
+			ItemName "The Quick-Fix"
+			"generate rage on heal" 2
+			"heal rate bonus" 100
+			"increase buff duration" 2
+		}
+		CharacterAttributes
+		{
+			"airblast vulnerability multiplier" 0.6
+			"damage force reduction" 0.6
+			"move speed bonus" 0.5
+		}
+	}
+	T_TFBot_Giant_Uber_Medic
+	{
+		Class Medic
+		Name "Giant Uber Medic"
+		ClassIcon medic_uber_giant
+		Skill Expert
+		Health 4500
+		Item "Grimm Hatte"
+		WeaponRestrictions SecondaryOnly
+		Attributes MiniBoss
+		Attributes SpawnWithFullCharge
+
+		CharacterAttributes
+		{
+			"move speed bonus"	0.5
+			"damage force reduction" 0.6
+			"airblast vulnerability multiplier" 0.6
+			"health regen"	20
+			"bot medic uber health threshold" 400
+		}
+	}	
+	T_TFBot_Giant_Shield_Medic_NoPop
+	{
+		Name "Giant Shield Medic"
+		Class Medic
+		Skill Expert
+		Health 4700
+		ClassIcon medic_shield_qf
+		WeaponRestrictions SecondaryOnly
+		Item "The Quick-Fix"
+		Item "Grimm Hatte"
+		Attributes MiniBoss
+		Attributes ProjectileShield
+		// Attributes SpawnWithFullCharge
+		ItemAttributes
+		{
+			ItemName "The Quick-Fix"
+			"generate rage on heal" 2
+			"heal rate bonus" 100
+			"increase buff duration" 2
+		}
+		CharacterAttributes
+		{
+			"airblast vulnerability multiplier" 0.6
+			"damage force reduction" 0.6
+			"move speed bonus" 0.5
+			"ubercharge rate bonus" 0.25
+		}
+	
+
+	}
+	T_TFBot_Giant_Blast_Vaccinator_Medic
+	{
+		Name "Giant Blast Vaccinator"
+		Class Medic
+		Skill Expert
+		Health 4500
+		ClassIcon medic_blast
+		WeaponRestrictions SecondaryOnly
+		Item "The Vaccinator"
+		Item "Grimm Hatte"
+		Attributes MiniBoss
+		Attributes SpawnWithFullCharge
+		Attributes VaccinatorBlast
+		ItemAttributes
+		{
+			ItemName "The Vaccinator"
+			"heal rate bonus" 200
+			"medigun blast resist deployed" 1
+			"medigun blast resist passive" 1
+			"medigun charge is resists" 4
+			"uber duration bonus" 200
+			"ubercharge rate bonus" 200
+		}
+		CharacterAttributes
+		{
+			"airblast vulnerability multiplier" 0.6
+			"bot medic uber health threshold" 10000
+			"damage force reduction" 0.6
+			"move speed bonus" 0.6
+		}
+	}
+	T_TFBot_Giant_Bullet_Vaccinator_Medic
+	{
+		Name "Giant Bullet Vaccinator"
+		Class Medic
+		Skill Expert
+		Health 4500
+		ClassIcon medic_bullet
+		WeaponRestrictions SecondaryOnly
+		Item "The Vaccinator"
+		Item "Grimm Hatte"
+		Attributes MiniBoss
+		Attributes SpawnWithFullCharge
+		Attributes VaccinatorBullets
+		ItemAttributes
+		{
+			ItemName "The Vaccinator"
+			"heal rate bonus" 200
+			"medigun bullet resist deployed" 1
+			"medigun bullet resist passive" 1
+			"medigun charge is resists" 3
+			"uber duration bonus" 200
+			"ubercharge rate bonus" 200
+		}
+		CharacterAttributes
+		{
+			"airblast vulnerability multiplier" 0.6
+			"bot medic uber health threshold" 10000
+			"damage force reduction" 0.6
+			"move speed bonus" 0.6
+		}
+	}
+	T_TFBot_Giant_Fire_Vaccinator_Medic
+	{
+		Name "Giant Fire Vaccinator"
+		Class Medic
+		Skill Expert
+		Health 4500
+		ClassIcon medic_fire
+		WeaponRestrictions SecondaryOnly
+		Item "The Vaccinator"
+		Item "Grimm Hatte"
+		Attributes MiniBoss
+		Attributes SpawnWithFullCharge
+		Attributes VaccinatorFire
+		ItemAttributes
+		{
+			ItemName "The Vaccinator"
+			"heal rate bonus" 200
+			"medigun charge is resists" 5
+			"medigun fire resist deployed" 1
+			"medigun fire resist passive" 1
+			"uber duration bonus" 200
+			"ubercharge rate bonus" 200
+		}
+		CharacterAttributes
+		{
+			"airblast vulnerability multiplier" 0.6
+			"bot medic uber health threshold" 10000
+			"damage force reduction" 0.6
+			"move speed bonus" 0.6
+		}
+	}
+	T_TFBot_Giant_Kritz_Medic
+	{
+		Class Medic
+		Name "Giant Kritz Medic"
+		ClassIcon medic_shield_kritz
+		Skill Expert
+		Health 4500
+		Item "The Kritzkrieg"
+		Item "Grimm Hatte"
+		WeaponRestrictions SecondaryOnly
+		Attributes MiniBoss
+		Attributes SpawnWithFullCharge
+		Attributes ProjectileShield
+
+		ItemAttributes
+		{
+			ItemName "The Kritzkrieg"
+			"generate rage on heal" 2
+			"heal rate bonus" 100
+			"increase buff duration" 2
+		}
+		CharacterAttributes
+		{
+			"move speed bonus"	0.5
+			"damage force reduction" 0.6
+			"airblast vulnerability multiplier" 0.6
+			"health regen"	40
+			"bot medic uber health threshold" 10000
+			"ubercharge rate bonus" 99
+		}
+	}
+	
+	T_TFBot_Giant_Fire_Heavy
+	{
+		Class Heavyweapons
+		Name "Giant Heater Heavy"
+		ClassIcon heavy_heater_giant
+		Skill Expert
+		Item "The Bunsen Brave"
+		Item "The Huo Long Heatmaker"
+		Health 3400
+		Scale 1.7
+		MaxVisionRange 1600
+		WeaponRestrictions PrimaryOnly
+		Attributes MiniBoss
+		ItemAttributes
+		{
+			ItemName "The Huo Long Heatmaker"
+			"damage bonus"	1.0
+			"Set DamageType Ignite" 1
+			
+		}
+		CharacterAttributes
+		{
+			"move speed bonus"	0.4
+			"damage force reduction" 0.3
+			"airblast vulnerability multiplier" 0.4
+			"airblast vertical vulnerability multiplier" 0.1
+			"rage giving scale"	0.5
+			"override footstep sound set" 2
+		}
+	}
+		
+	T_TFBot_Soldier_Beggar
+	{
+		Name "Trash Soldier"
+		Class Soldier
+		Skill Normal
+		ClassIcon soldier_dumpster
+		WeaponRestrictions PrimaryOnly
+		Item "The Beggar's Bazooka"
+		Item "The Captain's Cocktails"
+		Item "The Helmet Without a Home"
+		ItemAttributes
+		{
+			ItemName "The Beggar's Bazooka"
+			"auto fires when full" 1
+		}
+	}
+	
+	T_TFGateBot_Bison_Soldier
+		{
+			Name "Bison Soldier"
+			Class Soldier
+			
+			ClassIcon soldier_bison
+			
+			
+			
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+
+					Item "MvM GateBot Light Soldier"
+					WeaponRestrictions SecondaryOnly
+					Attributes AlwaysCrit
+					Skill Expert
+					Item "The Righteous Bison"
+					Item "Lord Cockswain's Novelty Mutton Chops and Pipe"		
+					
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Soldier"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Soldier"
+						"item style override" 1
+					}
+					Item "MvM GateBot Light Soldier"
+					WeaponRestrictions SecondaryOnly
+					Attributes AlwaysCrit
+					Skill Expert
+					Item "The Righteous Bison"
+					Item "Lord Cockswain's Novelty Mutton Chops and Pipe"
+				}
+			}
+		
+		}
+		
+	T_TFGateBot_AntiMedic_Bison_Soldier
+		{
+			Name "Medic Buster"
+			Class Soldier		
+			ClassIcon soldier_bison_giant
+			Health 25000
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers push			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Attributes MiniBoss
+					Attributes UseBossHealthBar
+					
+					Item "MvM GateBot Light Soldier"
+					WeaponRestrictions SecondaryOnly
+					// Attributes AlwaysCrit
+					Skill Expert
+					Item "The Righteous Bison"
+					Item "Lord Cockswain's Novelty Mutton Chops and Pipe"	
+
+					ItemAttributes
+					{
+						ItemName "The Righteous Bison"
+						"fire rate bonus" 1.5
+						"faster reload rate" 0.4
+						"damage bonus" 2.5 
+						"damage all connected" 1
+						"subtract victim medigun charge on hit" 20
+					}
+					CharacterAttributes
+					{
+						"move speed bonus"	0.6
+						"damage force reduction" 0.6
+						"airblast vulnerability multiplier" 0.6
+						"override footstep sound set" 6
+					}
+					
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Soldier"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Soldier"
+						"item style override" 1
+					}
+					
+					Attributes MiniBoss
+					Attributes UseBossHealthBar
+					Item "MvM GateBot Light Soldier"
+					WeaponRestrictions SecondaryOnly
+					// Attributes AlwaysCrit
+					Skill Expert
+					Item "The Righteous Bison"
+					Item "Lord Cockswain's Novelty Mutton Chops and Pipe"
+					
+					ItemAttributes
+					{
+						ItemName "The Righteous Bison"
+						"fire rate bonus" 1.7
+						"Reload time decreased" 0.5
+						"damage bonus" 2.5 
+						"damage all connected" 1
+						"subtract victim medigun charge on hit" 20
+					}
+					CharacterAttributes
+					{
+						"move speed bonus"	0.6
+						"damage force reduction" 0.6
+						"airblast vulnerability multiplier" 0.6
+						"override footstep sound set" 6
+					}
+				}
+			}
+		
+		}
+		
+	T_TFGateBot_Warrior_Spirit
+	{
+		Class Heavyweapons
+		Name "Warrior Spirit"
+		ClassIcon heavy_warriorsspirit
+		Scale 1.2
+		Health 600
+		
+		EventChangeAttributes
+		{
+			Default
+			{
+				Tag nav_prefer_gate1_flank	// having these will cause bots to run towards gates
+				Tag bot_gatebot				// having these will cause bots to run towards gates
+				BehaviorModifiers push		// having these will cause bots to run towards gates
+				Attributes IgnoreFlag		// having these will cause bots to run towards gates
+
+				Item "MvM GateBot Light Heavy"
+				WeaponRestrictions MeleeOnly
+				Item "Warrior's Spirit"
+				Tag bot_giant
+				Skill Hard
+				
+				Attributes AlwaysCrit
+				
+				CharacterAttributes
+				{
+					"move speed bonus"	1.3
+					"damage force reduction" 0.6
+					"airblast vulnerability multiplier" 0.6
+				}
+
+			}
+			RevertGateBotsBehavior
+			{
+				Item "MvM GateBot Light Heavy"
+				ItemAttributes               // turn off light hat
+				{
+					ItemName "MvM GateBot Light Heavy"
+					"item style override" 1
+				}
+				
+				Item "MvM GateBot Light Heavy"
+				WeaponRestrictions MeleeOnly
+				Item "Warrior's Spirit"
+				Tag bot_giant
+				Skill Hard
+				
+				Attributes AlwaysCrit
+				
+				CharacterAttributes
+				{
+					"move speed bonus"	1.3
+					"damage force reduction" 0.6
+					"airblast vulnerability multiplier" 0.6
+				}
+			}
+		}
+	
+	}
+	
+	T_TFBot_Heavyweapons_Deflector2
+	{
+		Name "Deflector Heavy"
+		Class Heavyweapons
+		Skill Hard
+		ClassIcon heavy_deflector
+		WeaponRestrictions PrimaryOnly
+		Item "Deflector"
+		Item "The U-clank-a"
+		ItemAttributes
+		{
+			ItemName "Deflector"
+			"attack projectiles" 1
+		}
+	}
+
+	T_TFBot_Giant_Crossbow_Medic
+	{
+		Class Medic
+		Skill Expert
+		ClassIcon medic_crossbow_giant
+		WeaponRestrictions PrimaryOnly
+		Item "The Crusader's Crossbow"
+		Item "Legendary Lid"
+		Attributes AlwaysCrit
+		Name "Giant Crossbower"
+		Health 4500
+		Attributes MiniBoss
+		ItemAttributes
+		{
+			ItemName "The Crusader's Crossbow"
+			"damage bonus" 1.25
+			"faster reload rate" 0.2
+			"fire rate bonus" 0.4
+			"heal on kill" 500 
+		}
+		CharacterAttributes
+		{
+			"airblast vulnerability multiplier" 0.6
+			"damage force reduction" 0.6
+			"move speed bonus" 0.6
+		}
+	}
+	T_TFGateBot_Giant_Scout
+	{
+		Class Scout
+		Name "Giant Scout"
+		ClassIcon scout_giant_fast
+		Health 1600
+
+		
+		EventChangeAttributes
+		{
+			Default
+			{
+				BehaviorModifiers push			// having these will cause bots to run towards gates
+				Attributes IgnoreFlag			// having these will cause bots to run towards gates
+				Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+				Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+
+				Item "MvM GateBot Light Scout"
+				Tag bot_giant
+				MaxVisionRange 900
+				Skill Expert
+				Attributes MiniBoss
+				WeaponRestrictions MeleeOnly
+				Item "The Holy Mackerel"
+				Attributes AlwaysCrit
+				CharacterAttributes
+				{
+					"move speed bonus"	1.1
+					"damage force reduction" 0.7
+					"airblast vulnerability multiplier" 0.7
+					"override footstep sound set" 5
+				}
+			}
+			RevertGateBotsBehavior
+			{
+				Item "MvM GateBot Light Scout"
+				ItemAttributes               // turn off light hat
+				{
+					ItemName "MvM GateBot Light Scout"
+					"item style override" 1
+				}
+				Tag bot_giant
+				MaxVisionRange 900
+				Skill Expert
+				Attributes MiniBoss
+				Attributes HoldFireUntilFullReload
+				WeaponRestrictions MeleeOnly
+				Item "The Holy Mackerel"
+				Attributes AlwaysCrit
+
+				CharacterAttributes
+				{
+					"move speed bonus"	1.0
+					"damage force reduction" 0.7
+					"airblast vulnerability multiplier" 0.7
+					"override footstep sound set" 5
+				}
+			}
+		}
+	}	
+	T_TFGateBot_Giant_Sengoku
+	{
+		Class Pyro
+		Name "Ronin Roaster"
+		ClassIcon pyro_heal
+		Health 20000
+		EventChangeAttributes
+		{
+			Default
+			{
+			
+				Tag nav_prefer_gate1_flank	// having these will cause bots to run towards gates
+				Tag bot_gatebot				// having these will cause bots to run towards gates
+				BehaviorModifiers push		// having these will cause bots to run towards gates
+				Attributes IgnoreFlag		// having these will cause bots to run towards gates
+				Tag bot_giant
+				
+				Skill Expert
+				Attributes MiniBoss	
+				Attributes UseBossHealthBar
+				Item "MvM GateBot Light Pyro"
+				Item "The Sengoku Scorcher"
+				Item "harvest_flamethrower_nutcracker"
+				
+				ItemAttributes 
+				{
+					ItemName "harvest_flamethrower_nutcracker"
+					"set_item_texture_wear" .2
+					"heal on kill" 500 
+					"mark for death" 1
+					"damage bonus" 1.5
+				}
+				CharacterAttributes
+				{
+					"move speed bonus"	0.5
+					"damage force reduction" 0.6
+					"airblast vulnerability multiplier" 0.6
+					"override footstep sound set" 6
+				}
+			}
+			RevertGateBotsBehavior
+			{
+				Skill Expert
+				Attributes MiniBoss	
+				Attributes UseBossHealthBar
+				Tag bot_giant
+				Item "MvM GateBot Light Pyro"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Pyro"
+						"item style override" 1
+					}
+				Item "The Sengoku Scorcher"
+				Item "harvest_flamethrower_nutcracker"
+				
+				ItemAttributes 
+				{
+					ItemName "harvest_flamethrower_nutcracker"
+					"set_item_texture_wear" .2
+					"heal on kill" 500 
+					"mark for death" 1
+					"damage bonus" 1.5
+				}
+				CharacterAttributes
+				{
+					"move speed bonus"	0.5
+					"damage force reduction" 0.6
+					"airblast vulnerability multiplier" 0.6
+					"override footstep sound set" 6
+				}
+			}
+		}
+	}
+	T_TFGateBot_Demoman_IronBomber	
+		{
+		
+			Class Demoman
+			ClassIcon demo_clusterbomb
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Item "MvM GateBot Light Demoman"
+					Skill Hard
+					WeaponRestrictions PrimaryOnly
+					Item "The Iron Bomber"
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Demoman"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Demoman"
+						"item style override" 1
+					}
+					Skill Hard
+					WeaponRestrictions PrimaryOnly
+					Item "The Iron Bomber"
+				}
+			}	
+
+		}
+	T_TFGateBot_Soldier_Whip
+		{
+		
+			Class Soldier
+			ClassIcon soldier_disciplinary
+			Name "Disciplinary Soldier"
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
+					Item "MvM GateBot Light Soldier"
+					Skill Hard
+					WeaponRestrictions MeleeOnly
+					Item "The Disciplinary Action"
+					ItemAttributes               
+					{
+						ItemName "The Disciplinary Action"
+						"fire rate bonus" 0.6
+					}
+					CharacterAttributes
+					{
+						"move speed bonus"	1.3
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Soldier"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Soldier"
+						"item style override" 1
+					}
+					Skill Hard
+					WeaponRestrictions MeleeOnly
+					Item "The Disciplinary Action"
+					ItemAttributes               
+					{
+						ItemName "The Disciplinary Action"
+						"fire rate bonus" 0.6
+					}
+					CharacterAttributes
+					{
+						"move speed bonus"	1.3
+					}
+				}
+			}	
+
+		}
+		T_TFBot_Soldier_Whip
+		{
+		
+			Class Soldier
+			ClassIcon soldier_disciplinary
+			Name "Disciplinary Soldier"
+
+			Skill Hard
+			WeaponRestrictions MeleeOnly
+			Attributes AlwaysFireWeapon
+			Item "The Disciplinary Action"
+			ItemAttributes               
+			{
+				ItemName "The Disciplinary Action"
+				"fire rate bonus" 0.6
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	1.2
+			}
+				
+				
+		}	
+
+		T_TFBot_Neon_Pyro
+		{
+			Class Pyro
+			Skill Expert
+			ClassIcon pyro_neonsign		
+			Item "Plumber's Pipe"
+			Item "The Neon Annihilator"
+			WeaponRestrictions MeleeOnly
+			ItemAttributes
+			{
+				ItemName "The Neon Annihilator"
+				"damage bonus" 1.5
+				"fire rate bonus" .5
+				"heal on kill" 50
+			}
+			CharacterAttributes
+			{
+				"move speed bonus" 1.2
+			}
+		}	
+		
+		
+		
+}
+	
+}

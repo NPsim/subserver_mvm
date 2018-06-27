@@ -1,0 +1,785 @@
+//Scouty scouting scout
+//A joke mission by Remilia Scarlet
+//2018-6-13
+
+#base robot_standard.pop
+#base robot_giant.pop
+population
+{
+	StartingCurrency 7777
+	RespawnWaveTime	8
+	FixedRespawnWaveTime Yes
+	CanBotsAttackWhileInSpawnRoom no
+	AddSentryBusterWhenDamageDealtExceeds 3000
+    AddSentryBusterWhenKillCountExceeds 20
+	Advanced 1
+	Templates
+	{
+		T_TFBot_scout_soda_cola_giant
+		{
+			Class	Scout
+			Health	1600
+			Name	"Crit-a-Cola Soda Scout"
+			ClassIcon	scout_cola
+			Skill	Hard
+			Item	"The Soda Popper"
+			Attributes SpawnWithFullCharge
+			Item	"Crit-a-Cola"
+			Item "The Caffeine Cooler"
+			Attributes	MiniBoss
+			ItemAttributes
+			{
+				ItemName	"The Soda Popper"
+				"faster reload rate" 1.4
+				"damage bonus" 0.45
+			}
+			ItemAttributes
+			{
+				ItemName	"Crit-a-Cola"
+				"effect bar recharge rate increased" 0.5
+			}
+			CharacterAttributes
+			{
+				"damage force reduction" 0.2
+				"airblast vulnerability multiplier" 0.2
+				"override footstep sound set" 5
+				"move speed penalty" 1.1
+			}
+		}
+		T_TFBot_Scout_Extended_Buff_Banner
+		{
+			Class Scout
+			Name "Extended Buff Scout"
+			Skill Normal
+			ClassIcon soldier_buff
+			Attributes SpawnWithFullCharge
+			Item "The Buff Banner"
+			CharacterAttributes
+			{
+				"increase buff duration"	9.0
+			}
+		}
+		T_TFBot_Chief_Scout
+		{
+			Class Scout
+			Skill Expert
+			WeaponRestrictions SecondaryOnly
+			Name "Sergeant Lime"
+			ClassIcon scout_giant
+			Health 60000
+			Scale 1.9
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			Attributes AlwaysCrit
+			ClassIcon soldier_sergeant_crits
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_PISTOL"
+				"damage bonus" 6
+				"override projectile type"	2
+				"faster reload rate" 3
+				"fire rate bonus" 1.25
+				"Projectile speed increased" 1.15
+			}
+			CharacterAttributes
+			{
+				"health regen"	250
+				"move speed bonus"	0.35
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.005
+				"override footstep sound set" 3
+				"airblast vertical vulnerability multiplier" 0.005
+				"rage giving scale" 0.1
+			}
+		}
+		T_TFBot_Giant_Scout_Spammer
+		{
+			Class Scout
+			Name "Giant Rapid Fire Scout"
+			ClassIcon soldier_spammer
+			Health 3800
+			Skill Expert
+			WeaponRestrictions SecondaryOnly
+			Attributes MiniBoss
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_PISTOL"
+				"faster reload rate" -0.8
+				"fire rate bonus" 3
+				"damage bonus" 6
+				"override projectile type"	2
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.35
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.005
+				"override footstep sound set" 3
+				"Projectile speed increased" 0.65
+			}
+		}
+		T_TFBot_Chief_Fish
+		{
+			Class Scout
+			Skill Expert
+			WeaponRestrictions MeleeOnly
+			Name "Captain Fish"
+			ClassIcon heavy_chief
+			Health 60000
+			Scale 1.9
+			Item "War Head"
+			Item "The Holy Mackerel"
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			ItemAttributes
+			{
+				ItemName "The Holy Mackerel"
+				"fire rate bonus" 0.6
+				"damage bonus" 11
+				"dmg from melee increased" 2
+				"dmg from range reduced" 1.4
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.4
+				"health regen"	250
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.05
+				"override footstep sound set" 2
+				"airblast vertical vulnerability multiplier" 0.05
+				"rage giving scale" 0.1
+			}
+		}
+		T_TFBot_Scout_BurstFire
+		{
+			Class Scout
+			Name "Giant Burst Fire Scout"
+			ClassIcon soldier_burstfire
+			Health 4200
+			Skill Expert
+			WeaponRestrictions SecondaryOnly
+			Attributes MiniBoss
+			Attributes HoldFireUntilFullReload
+			Attributes AlwaysCrit
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_PISTOL"
+				"damage bonus" 8
+				"faster reload rate" 2.65
+				"fire rate bonus" 1.15
+				"clip size penalty" 0.7
+				"faster reload rate" 3
+				"override projectile type"	2
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.35
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.005
+				"override footstep sound set" 3
+				"Projectile speed increased" 0.9
+			}
+		}
+		T_TFBot_Chief_Scout_HealOnKill // Air blast pushback on damage. Pins players, low damage, slow move speed
+		{
+			Class Scout
+			Name "Chief Heal-On-Kill Scout"
+			ClassIcon heavy_healonkill
+			Skill Expert
+			Item "The Tungsten Toque"
+			Health 70000
+			Scale 1.8
+			MaxVisionRange 1600
+			Attributes UseBossHealthBar
+			WeaponRestrictions SecondaryOnly
+			Attributes MiniBoss
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_PISTOL"
+				"damage bonus"	0.65
+				"fire rate bonus" 0.5
+				"attack projectiles" 2
+				// "weapon spread bonus" 1
+				// "fire rate penalty" 4
+				"heal on kill" 8000
+				"faster reload rate" 0.01
+				
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.3
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.005
+				"airblast vertical vulnerability multiplier" 0.005
+				"rage giving scale"	0.9
+				"override footstep sound set" 2
+			}
+		}
+		T_TFBot_Giant_Scout_Deflector
+		{
+			Class Scout
+			Name "Giant Deflector Scout"
+			ClassIcon heavy_giant
+			Skill Expert
+			Health 5000
+			Item "The U-clank-a"
+			WeaponRestrictions SecondaryOnly
+			MaxVisionRange 1200
+			Attributes MiniBoss
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_PISTOL"
+				"damage bonus"	0.9 // copied from base mighty heavy
+				"attack projectiles" 1	// force ability to shoot down projectiles
+				"faster reload rate" 0.01
+				"fire rate bonus" 0.5
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.4
+				"damage force reduction" 0.005
+				"airblast vulnerability multiplier" 0.005
+				"override footstep sound set" 2
+			}
+		}
+		T_TFBot_Super_Scout_Deflector
+		{
+			Class Scout
+			Name "Super Pistol Heal-On-Hit Scout"
+			ClassIcon scout_healw_elite
+			Skill Expert
+			Health 90000
+			Item "The U-clank-a"
+			WeaponRestrictions SecondaryOnly
+			Attributes MiniBoss
+			Attributes	UseBossHealthBar
+			Attributes	AlwaysCrit
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_PISTOL"
+				"damage bonus"	0.55
+				"faster reload rate" 0.01
+				"fire rate bonus" 0.5
+				"heal on hit for rapidfire"	15
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.35
+				"damage force reduction" 0.005
+				"airblast vulnerability multiplier" 0.005
+				"override footstep sound set" 2
+			}
+		}
+		T_TFBot_Giant_Scout_Crit // Super slow crit rocket flight speed, fires one at a time
+		{
+			Class Scout
+			Name "Giant Charged Scout"
+			ClassIcon soldier_crit
+			Skill Normal
+			Health 3800
+			Attributes AlwaysCrit
+			WeaponRestrictions SecondaryOnly
+			Attributes MiniBoss
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_PISTOL"
+				"faster reload rate" 2
+				"damage bonus"	6
+				"fire rate bonus" 7
+				"Projectile speed increased" 0.4
+				"override projectile type"	2
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.4
+				"damage force reduction" 0.005
+				"airblast vulnerability multiplier" 0.005
+				"override footstep sound set" 3
+			}
+		}
+
+		T_TFBot_scout_major
+		{
+			Class	Scout
+			Health	40000
+			Name	"Major Lime"
+			Skill	Expert
+			ClassIcon soldier_barrage
+			WeaponRestrictions	SecondaryOnly
+			Attributes	MiniBoss
+			Attributes	UseBossHealthBar
+			Attributes	AlwaysCrit
+			ItemAttributes
+			{
+				ItemName	"TF_WEAPON_PISTOL"
+				"override projectile type"	2
+				"damage bonus"	6
+				"projectile spread angle penalty"	4
+				"clip size upgrade atomic"	16
+				"clip size bonus" 2.25
+				"faster reload rate" 3.25
+				"fire rate bonus" 1.75
+				"Projectile speed increased"	0.35
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.35
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.005
+				"override footstep sound set" 3
+				"airblast vertical vulnerability multiplier" 0.005
+				"rage giving scale"	0.1
+			}
+		}
+		T_TFBot_Scout_Gnome
+		{
+			Class Scout
+			Name "Heavy Mittens"
+			Skill Easy
+			ClassIcon heavy_mittens
+			Scale 0.85
+			WeaponRestrictions MeleeOnly
+			Health 80
+			Attributes AlwaysCrit
+			Item "The All-Father"
+			Item "Point and Shoot"
+			Item "The Holy Mackerel"
+			ItemAttributes
+			{
+				ItemName "The Holy Mackerel"
+				"damage bonus" 0.2
+				"crit forces victim to laugh" 1
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.8
+			}
+		}
+		T_TFBot_Giant_Scout_Baseball_Hurt_unused	//unused
+		{
+			Class Scout
+			Name "Major League Scout"
+			Skill Expert
+			Health 2000
+			Item "Batter's Helmet"
+			Item "MNC Mascot Outfit"
+			Item "The Sandman"
+			ClassIcon scout_stun_giant
+			WeaponRestrictions MeleeOnly
+			Attributes	AlwaysCrit
+			Attributes MiniBoss
+			ItemAttributes
+			{
+				ItemName "The Sandman"
+				"effect bar recharge rate increased" 0.8
+				"damage bonus"	3.25
+			}
+			CharacterAttributes
+			{
+				"damage force reduction" 0.2
+				"airblast vulnerability multiplier" 0.2
+				"override footstep sound set" 5
+				"move speed penalty" 0.8
+			}
+		}
+		T_TFBot_Chief_Scout_RocketPush
+		{
+			Class Scout
+			Skill Expert
+			WeaponRestrictions SecondaryOnly
+			ClassIcon scout_giant
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			Health 60000
+			Scale 1.8
+			Name "Chief Blast Scout"
+			ClassIcon	soldier_libertylauncher_giant
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_PISTOL"
+				"damage causes airblast" 1
+				"damage bonus" 7
+				"override projectile type"	2
+				"fire rate bonus" 1.25
+				"faster reload rate" 2.75
+				"Blast radius decreased" 1.2
+				"projectile spread angle penalty" 4
+				// "Projectile speed increased" 0.75
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.35
+				"override footstep sound set" 3
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.005
+				"airblast vertical vulnerability multiplier" 0.005
+				"rage giving scale"	0.15
+			}
+		}
+		T_TFBot_Chief_Scout_Atomic	//unused
+		{
+			Class Scout
+			Name "Sir Scoutsalot"
+			ClassIcon scout_giant
+			Health 50000
+			Scale 1.9
+			Skill Expert
+			WeaponRestrictions PrimaryOnly
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			Attributes AlwaysFireWeapon
+			Attributes AlwaysCrit
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SCATTERGUN"
+				"override projectile type"	17
+				"grenade launcher mortar mode" 0
+				"faster reload rate" 1.8
+				"fire rate bonus" 2
+				"clip size penalty" 0.1
+				"Projectile speed increased" 0.8
+				"projectile spread angle penalty" 5
+				"damage bonus" 25
+				"damage causes airblast" 1
+				"blast radius increased" 1.2
+				"use large smoke explosion" 1
+			}
+
+			CharacterAttributes
+			{
+				"move speed bonus"	0.3
+				"damage force reduction" 0.005
+				"airblast vulnerability multiplier" 0.005
+				"override footstep sound set" 4
+			}
+		}
+		T_TFBot_Chief_Scout_sandman	//unused
+		{
+			Class Scout
+			Name "Sir Scoutsalot"
+			ClassIcon scout_giant
+			Health 50000
+			Scale 1.9
+			Skill Expert
+			WeaponRestrictions MeleeOnly
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			Attributes AlwaysCrit
+			Item "The Sandman"
+			ItemAttributes
+			{
+				ItemName "TThe Sandman"
+				"override projectile type"	1
+				"damage bonus" 25
+				"damage causes airblast" 1
+				"blast radius increased" 1.2
+				"use large smoke explosion" 1
+			}
+
+			CharacterAttributes
+			{
+				"move speed bonus"	0.3
+				"damage force reduction" 0.005
+				"airblast vulnerability multiplier" 0.005
+				"override footstep sound set" 4
+			}
+		}
+		T_TFBot_Giant_Major_League
+		{
+			Class Scout
+			Name "Major League"
+			ClassIcon scout_stun_giant
+			Skill Expert
+			Health 10000
+			Scale 1.9
+			Item "Genuine Cockfighter"
+			Item "The Boston Boom-Bringer"
+			Item "Summer Shades"
+			Item "The Sandman"
+			WeaponRestrictions MeleeOnly
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			ItemAttributes
+			{
+				ItemName "The Sandman"
+				"effect bar recharge rate increased" 0.001
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	8
+				"damage force reduction" 0.7
+				"airblast vulnerability multiplier" 0.005
+				"override footstep sound set" 5
+				"airblast vertical vulnerability multiplier" 0.005
+				"rage giving scale" 0.1
+			}
+		}
+		T_TFBot_Giant_Metalbeard_scout //dont work just like nukesalot
+		{
+			Class Scout
+			Name "Major Scouter"
+			ClassIcon demo_bomber
+			Skill Normal
+			Health 40000
+			Attributes AlwaysCrit
+			WeaponRestrictions SecondaryOnly
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_PISTOL"
+				"fire rate bonus" 1.25
+				"damage bonus"	4
+				"override projectile type"	3
+				"faster reload rate" 5
+				"clip size penalty" 3.0
+				"Projectile speed increased" 1.5
+			}
+			CharacterAttributes
+			{
+				"health regen"	200
+				"move speed bonus"	0.32
+				"damage force reduction" 0.7
+				"airblast vulnerability multiplier" 0.3
+				"override footstep sound set" 4
+				"airblast vertical vulnerability multiplier" 0.1
+				"rage giving scale" 0.1
+			}
+		}
+		T_TFBot_Chief_Scout_Extended_Concheror
+		{
+			Class Scout
+			Name "Chief Concheror Scout"
+			ClassIcon soldier_conch_giant
+			Attributes UseBossHealthBar
+			Skill Expert
+			Health 50000
+			Scale 1.8
+			WeaponRestrictions SecondaryOnly
+			Attributes MiniBoss
+			Attributes SpawnWithFullCharge
+			Item "The Concheror"
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_PISTOL"
+				"fire rate bonus" 4
+				"damage bonus"	5
+				"override projectile type"	2
+				"faster reload rate" 2.5
+				"clip size penalty" 0.3
+				"Projectile speed increased"	0.85
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.3
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.4
+				"override footstep sound set" 3
+				"increase buff duration"	9.0
+				"airblast vertical vulnerability multiplier" 0.1
+				"rage giving scale"	0.1
+			}
+		}
+	}
+	Wave
+	{
+		WaitWhenDone	65
+		Checkpoint	Yes
+		StartWaveOutput
+		{
+			Target	wave_start_relay
+			Action	Trigger
+		}
+		DoneOutput
+		{
+			Target	wave_finished_relay
+			Action	Trigger
+		}
+		WaveSpawn
+		{
+			Name	1A
+			TotalCurrency	500
+			TotalCount	1
+			Where	spawnbot
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	1
+			TFBot
+			{
+				Template	T_TFBot_Giant_Major_League
+				Health	35000
+			}
+		}
+		WaveSpawn
+		{
+			Name	1B
+			WaitForAllDead	1A
+			TotalCurrency	500
+			TotalCount	1
+			Where	spawnbot
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	1
+			TFBot
+			{
+				Template	T_TFBot_Chief_Scout_Extended_Concheror
+				Health	75000
+			}
+		}
+		WaveSpawn
+		{
+			Name	1C
+			WaitForAllDead	1B
+			TotalCurrency	500
+			TotalCount	1
+			Where	spawnbot
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	1
+			TFBot
+			{
+				Template	T_TFBot_Chief_Scout_RocketPush
+				Health	77500
+			}
+		}
+		WaveSpawn
+		{
+			Name	1D
+			WaitForAllDead	1C
+			TotalCurrency	500
+			TotalCount	1
+			Where	spawnbot
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	1
+			TFBot
+			{
+				Template	T_TFBot_scout_major
+				Health	80000
+			}
+		}
+		WaveSpawn
+		{
+			Name	1E
+			WaitForAllDead	1D
+			TotalCurrency	500
+			TotalCount	1
+			Where	spawnbot
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	1
+			TFBot
+			{
+				Template	T_TFBot_Scout_BurstFire
+				Health	80000
+				Attributes	UseBossHealthBar
+			}
+		}
+		WaveSpawn
+		{
+			Name	1F
+			WaitForAllDead	1E
+			TotalCurrency	500
+			TotalCount	1
+			Where	spawnbot
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	1
+			TFBot
+			{
+				Template	T_TFBot_Chief_Fish
+				Health	80000
+			}
+		}
+		WaveSpawn
+		{
+			Name	1G
+			WaitForAllDead	1F
+			TotalCurrency	500
+			TotalCount	1
+			Where	spawnbot
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	1
+			TFBot
+			{
+				Template	T_TFBot_Chief_Scout
+				Health	80000
+			}
+		}
+		WaveSpawn
+		{
+			Name	1H
+			WaitForAllDead	1G
+			TotalCurrency	500
+			TotalCount	1
+			Where	spawnbot
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	1
+			TFBot
+			{
+				Template	T_TFBot_Chief_Scout_HealOnKill
+				Health	80000
+				
+			}
+		}
+		WaveSpawn
+		{
+			Name	1I
+			WaitForAllDead	1H
+			TotalCurrency	500
+			TotalCount	1
+			Where	spawnbot
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	20
+			WaitBetweenSpawns	0
+			TFBot
+			{
+				Template	T_TFBot_Super_Scout_Deflector
+			}
+		}
+		WaveSpawn
+		{
+			Name	1J
+			WaitForAllDead	1I
+			TotalCurrency	500
+			TotalCount	15
+			Where	spawnbot
+			MaxActive	15
+			SpawnCount	5
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	10
+			TFBot
+			{
+				Template	T_TFBot_Giant_Scout_Fast
+			}
+		}
+		WaveSpawn
+		{
+			Name	1J
+			WaitForAllDead	1I
+			TotalCurrency	500
+			TotalCount	15
+			Where	spawnbot
+			MaxActive	15
+			SpawnCount	5
+			WaitBeforeStarting	5
+			WaitBetweenSpawns	10
+			TFBot
+			{
+				Template	T_TFBot_Giant_Scout_Fan
+			}
+		}
+	}
+}
+			

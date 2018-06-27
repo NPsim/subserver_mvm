@@ -1,0 +1,707 @@
+
+	WaveSchedule
+	{
+		Templates
+		{
+			T_TFBot_Soldier_Smokescreen
+			{
+				ClassIcon	soldier_smokescreen
+				Name	"Smokescreen Soldier"
+				Class	Soldier
+				Skill	Hard
+				BehaviorModifiers	Mobber
+				WeaponRestrictions	PrimaryOnly
+				Attributes	"HoldFireUntilFullReload"
+				Attributes	"IgnoreFlag"
+				ItemAttributes
+				{
+					ItemName	"rocket jumper"
+					"damage penalty"	2.35
+					"use large smoke explosion"	1
+					"fire rate penalty"	1.5
+					"faster reload rate"	1.05
+					"clip size upgrade atomic"	1
+				}
+				CharacterAttributes
+				{
+					"no self blast dmg"	1
+				}
+				Item	"rocket jumper"
+				Item	"the lucky shot"
+			}
+			T_TFBot_Giant_Soldier_Smokescreen
+			{
+					ClassIcon	soldier_smokescreen_giant
+					Health	4000
+					Name	"Giant Smokescreen Soldier"
+					Scale	1.8
+					Class	Soldier
+					Skill	Expert
+					BehaviorModifiers	Mobber
+					WeaponRestrictions	PrimaryOnly
+					Tag	"bot_giant"
+					Attributes	"HoldFireUntilFullReload"
+					Attributes	"MiniBoss"
+					Attributes	"IgnoreFlag"
+					ItemAttributes
+					{
+						ItemName	"rocket jumper"
+						"faster reload rate"	1.05
+						"damage penalty"	2.35
+						"fire rate penalty"	1.25
+						"use large smoke explosion"	1
+						"clip size upgrade atomic"	1
+					}
+					CharacterAttributes
+					{
+						"move speed bonus"	0.45
+						"damage force reduction"	0.4
+						"airblast vulnerability multiplier"	0.4
+						"no self blast dmg"	1
+						"override footstep sound set"	3
+					}
+					Item	"rocket jumper"
+					Item	"the lucky shot"
+				}
+			T_TFBot_Giant_Scout_Igniting
+			{
+				ClassIcon	scout_fast_bonk
+				Health	1200
+				Name	"Bonk-Fueled Super Scout"
+				Scale	1.8
+				Class	Scout
+				Skill	Easy
+				WeaponRestrictions	MeleeOnly
+				Tag	"bot_giant"
+				Attributes	"MiniBoss"
+				Attributes	"UseBossHealthBar"
+				ItemAttributes
+				{
+					ItemName	tf_weapon_bat
+					"Set DamageType Ignite"	1
+				}
+				CharacterAttributes
+				{
+					"move speed bonus"	5
+					"override footstep sound set"	5
+					"damage force reduction"	0.7
+					"airblast vulnerability multiplier"	0.7
+					"dmg from melee increased"	1.5
+				}
+				Item	"the beastly bonnet"
+				Item	"the cheet sheet"
+			}
+			T_TFBot_Giant_Scout_Cola
+			{
+				ClassIcon	scout_fast_cola
+				Health	1200
+				Name	"Crit-A-Cola Fueled Super Scout"
+				Scale	1.8
+				Class	Scout
+				Skill	Normal
+				WeaponRestrictions	MeleeOnly
+				Tag	"bot_giant"
+				Attributes	"MiniBoss"
+				Attributes	"UseBossHealthBar"
+				ItemAttributes
+				{
+					ItemName	crit-a-cola
+					"effect bar recharge rate increased"	2
+				}
+				CharacterAttributes
+				{
+					"dmg from melee increased"	1.25
+					"move speed bonus"	3.5
+					"airblast vulnerability multiplier"	0.7
+					"damage force reduction"	0.7
+					"override footstep sound set"	5
+				}
+				Item	"crit-a-cola"
+				Item	"the front runner"
+				Item	"ball-kicking boots"
+			}
+			T_TFBot_Heavyweapons_Deflector_Push
+			{
+				ClassIcon	heavy_deflector_push
+				Health	300
+				Name	"Push Deflector Heavy"
+				Class	HeavyWeapons
+				Skill	Normal
+				MaxVisionRange	1800
+				WeaponRestrictions	PrimaryOnly
+				ItemAttributes
+				{
+					ItemName	teufort_minigun_warroom
+					"attack projectiles"	1
+					"damage causes airblast"	1
+				}
+				ItemAttributes
+				{
+					ItemName	"the u-clank-a"
+					"set item tint RGB"	15132390
+				}
+				Item	"teufort_minigun_warroom"
+				Item	"the u-clank-a"
+				Item	"commissar's coat"
+			}
+			T_TFBot_Giant_Heavyweapons_Deflector_Push
+			{
+				ClassIcon	heavy_deflector_push
+				Health	4800
+				Name	"Giant Push Deflector Heavy"
+				Scale	1.8
+				Class	HeavyWeapons
+				Skill	Expert
+				MaxVisionRange	1800				WeaponRestrictions	PrimaryOnly
+				Tag	"bot_giant"
+				Attributes	"MiniBoss"
+				ItemAttributes
+				{
+					ItemName	teufort_minigun_warroom
+					"damage bonus"	1.2
+					"attack projectiles"	2
+					"damage causes airblast"	1
+				}
+				ItemAttributes
+				{
+					ItemName	"the u-clank-a"
+					"set item tint RGB"	15132390
+				}
+				CharacterAttributes
+				{
+					"move speed bonus"	0.45
+					"override footstep sound set"	2
+					"damage force reduction"	0.3
+					"airblast vulnerability multiplier"	0.3
+				}
+				Item	"teufort_minigun_warroom"
+				Item	"the u-clank-a"
+				Item	"commissar's coat"
+			}
+			T_TFBot_Sniper_Huntsman_Crossbow
+			{
+				ClassIcon	sniper_crossbow
+				Health	125
+				Name	"Crossbowman"
+				Class	Sniper
+				Skill	Hard
+				WeaponRestrictions	PrimaryOnly
+				ItemAttributes
+				{
+					ItemName	"the fortified compound"
+					"override projectile type"	11
+					"damage bonus"	1.25
+				}
+				Item	"the fortified compound"
+				Item	"the falconer"
+				Item	"the archers groundings"
+			}
+			T_TFBot_Sniper_Huntsman_Rocket
+			{
+				ClassIcon	sniper
+_rocket				Health	125
+				Name	Rocketman
+				Class	Sniper
+				Skill	Hard
+				WeaponRestrictions	PrimaryOnly
+				ItemAttributes
+				{
+					ItemName	"the fortified compound"
+					"override projectile type"	2
+					"damage bonus"	1.75
+					"Blast radius increased"	1.25
+				}
+				CharacterAttributes
+				{
+					"no self blast dmg"	1
+				}
+				Item	"the fortified compound"
+				Item	"sniper's snipin' glass"
+				Item	"the falconer"
+			}
+			T_TFBot_Giant_Sniper_Huntsman
+			{
+				ClassIcon	sniper_bow
+				Health	2800
+				Name	"Giant Bowman"
+				Scale	1.8
+				Class	Sniper
+				Skill	Expert
+				MaxVisionRange	5000000				WeaponRestrictions	PrimaryOnly
+				Tag	"bot_giant"
+				Attributes	"MiniBoss"
+				ItemAttributes
+				{
+					ItemName	"the huntsman"
+					"damage bonus"	2				}
+				CharacterAttributes
+				{
+					"move speed bonus"	0.5
+					"airblast vulnerability multiplier"	0.6					"damage force reduction"	0.6					"override footstep sound set"	4
+					"head scale"	0.7
+				}
+				Item	"the huntsman"
+			}
+			T_TFBot_Sniper_Huntsman_Littlerapid
+			{
+				ClassIcon	sniper_bow_multi
+				Health	125
+				Name	"Bowman Rapid-Fire"
+				Class	Sniper
+				Skill	Hard
+				WeaponRestrictions	PrimaryOnly
+				ItemAttributes
+				{
+					ItemName	"the huntsman"
+					"fire rate bonus"	0.6
+					"damage bonus"	1.10
+				}
+				Item	"the huntsman"
+				Item	"larrikin robin"
+			}
+			T_TFBot_Giant_Sniper_Huntsman_Rapidfire
+			{
+				ClassIcon	sniper_bow_multi
+				Health	3200
+				Name	"Giant Bowman Rapid-Fire"
+				Scale	1.8
+				Class	Sniper
+				Skill	Expert
+				MaxVisionRange	5000000
+				WeaponRestrictions	PrimaryOnly
+				Tag	"bot_giant"
+				Attributes	"MiniBoss"
+				ItemAttributes
+				{
+					ItemName	"the huntsman"
+					"fire rate bonus"	0.45
+				}
+				CharacterAttributes
+				{
+					"override footstep sound set"	4
+					"move speed bonus"	0.5
+					"airblast vulnerability multiplier"	0.6					"damage force reduction"	0.6
+					"head scale"	0.7
+				}
+				Item	"the huntsman"
+				Item	"larrikin robin"
+			}
+			T_TFBot_Scout_Buff
+			{
+				ClassIcon	scout_tanky
+				Health	250
+				Name	"Buff Scout"
+				Class	Scout
+				Skill	Hard
+				MaxVisionRange	2500
+				WeaponRestrictions	PrimaryOnly
+				Attributes	"HoldFireUntilFullReload"
+				ItemAttributes
+				{
+					ItemName	gentlemanne_scattergun_coffinnail
+					"damage bonus"	1.15					"fire rate bonus"	0.95
+					"faster reload rate"	0.95
+					"clip size upgrade atomic"	4
+				}
+				ItemAttributes
+				{
+					ItemName	"batter's helmet"
+					"set item tint RGB"	8289918
+				}
+				CharacterAttributes
+				{
+					"move speed bonus"	0.8
+				}
+				Item	"gentlemanne_scattergun_coffinnail"
+				Item	"batter's helmet"
+				Item	"flak jack"
+			}
+			T_TFBot_Giant_Scout_Buff
+			{
+				ClassIcon	scout_tanky_giant
+				Health	2400
+				Name	"Giant Buff Scout"
+				Scale	1.8
+				Class	Scout
+				Skill	Hard
+				MaxVisionRange	2500
+				WeaponRestrictions	PrimaryOnly
+				Tag	"bot_giant"
+				Attributes	"HoldFireUntilFullReload"
+				Attributes	"MiniBoss"
+				ItemAttributes
+				{
+					ItemName	gentlemanne_scattergun_coffinnail
+					"faster reload rate"	0.95					"fire rate bonus"	0.95
+					"damage bonus"	1.15
+					"clip size upgrade atomic"	4
+				}
+				ItemAttributes
+				{
+					ItemName	"batter's helmet"
+					"set item tint RGB"	8289918
+				}
+				CharacterAttributes
+				{
+					"move speed bonus"	0.55
+					"override footstep sound set"	5
+					"airblast vulnerability multiplier"	.7
+					"damage force reduction"	.7
+				}
+				Item	"gentlemanne_scattergun_coffinnail"
+				Item	"flak jack"
+				Item	"batter's helmet"
+			}
+			T_TFBot_Soldier_Buff
+			{
+				ClassIcon	soldier_tanky
+				Health	400
+				Name	"Buff Soldier"
+				Class	Soldier
+				Skill	Hard
+				MaxVisionRange	2500
+				WeaponRestrictions	PrimaryOnly
+				Attributes	"HoldFireUntilFullReload"
+				ItemAttributes
+				{
+					ItemName	gentlemanne_rocketlauncher_coffinnail
+					"clip size upgrade atomic"	4
+					"damage bonus"	1.15
+					"faster reload rate"	0.95
+					"Blast radius increased"	1.25
+					"fire rate bonus with reduced health"	.75
+				}
+				CharacterAttributes
+				{
+					"move speed bonus"	0.6
+				}
+				Item	"gentlemanne_rocketlauncher_coffinnail"
+				Item	"soldier's sparkplug"
+				Item	"fancy dress uniform"
+			}
+			T_TFBot_Giant_Soldier_Buff
+			{
+				ClassIcon	soldier_tanky_giant
+				Health	7600
+				Name	"Giant Buff Soldier"
+				Scale	1.8
+				Class	Soldier
+				Skill	Expert
+				MaxVisionRange	2500
+				WeaponRestrictions	PrimaryOnly
+				Tag	"bot_giant"
+				Attributes	"HoldFireUntilFullReload"
+				Attributes	"MiniBoss"
+				ItemAttributes
+				{
+					ItemName	gentlemanne_rocketlauncher_coffinnail
+					"damage bonus"	1.25
+					"clip size upgrade atomic"	4
+					"Blast radius increased"	1.25
+					"fire rate bonus with reduced health"	.95
+				}
+				CharacterAttributes
+				{
+					"move speed bonus"	0.45
+					"damage force reduction"	.4
+					"airblast vulnerability multiplier"	.4
+					"override footstep sound set"	3
+				}
+				Item	"gentlemanne_rocketlauncher_coffinnail"
+				Item	"fancy dress uniform"
+				Item	"soldier's sparkplug"
+			}
+			T_TFBot_Pyro_Buff
+			{
+				ClassIcon	pyro_tanky
+				Health	350
+				Name	"Buff Pyro"
+				Class	Pyro
+				Skill	Hard
+				MaxVisionRange	10000				WeaponRestrictions	PrimaryOnly
+				ItemAttributes
+				{
+					ItemName	gentlemanne_flamethrower_coffinnail
+					"damage bonus"	1.10
+					"airblast pushback scale"	2.5
+					"weapon burn time increased"	1.05
+					"weapon burn dmg increased"	1.05
+				}
+				CharacterAttributes
+				{
+					"move speed bonus"	0.7
+				}
+				Item	"gentlemanne_flamethrower_coffinnail"
+				Item	"the smoking skid lid"
+				Item	"crusader's getup"
+			}
+			T_TFBot_Giant_Pyro_Buff
+			{
+				ClassIcon	pyro_tanky_giant
+				Health	6000
+				Name	"Giant Buff Pyro"
+				Scale	1.8
+				Class	Pyro
+				Skill	Hard
+				MaxVisionRange	10000
+				WeaponRestrictions	PrimaryOnly
+				Tag	"bot_giant"
+				Attributes	"MiniBoss"
+				ItemAttributes
+				{
+					ItemName	gentlemanne_flamethrower_coffinnail
+					"damage bonus"	1.10
+					"weapon burn dmg increased"	1.05
+					"weapon burn time increased"	1.10
+					"airblast pushback scale"	2.5
+				}
+				CharacterAttributes
+				{
+					"move speed bonus"	0.45
+					"override footstep sound set"	6
+					"airblast vulnerability multiplier"	.6
+					"damage force reduction"	.6
+				}
+				Item	"gentlemanne_flamethrower_coffinnail"
+				Item	"the smoking skid lid"
+				Item	"crusader's getup"
+			}
+			T_TFBot_Demo_Buff
+			{
+				ClassIcon	demo_tanky
+				Health	350
+				Name	"Buff Demoman"
+				Class	Demoman
+				Skill	Hard
+				MaxVisionRange	2500
+				WeaponRestrictions	PrimaryOnly
+				Attributes	"HoldFireUntilFullReload"
+				ItemAttributes
+				{
+					ItemName	gentlemanne_grenadelauncher_coffinnail
+					"clip size upgrade atomic"	4
+					"damage bonus"	1.15
+					"faster reload rate"	0.95
+					"Blast radius increased"	1.25
+					"fire rate bonus with reduced health"	.75
+				}
+				CharacterAttributes
+				{
+					"move speed bonus"	.6
+				}
+				Item	"gentlemanne_grenadelauncher_coffinnail"
+				Item	"scotch bonnet"
+				Item	"the bonedolier"
+			}
+			T_TFBot_Giant_Demo_Buff
+			{
+				ClassIcon	demo_tanky_giant
+				Health	6600
+				Name	"Giant Buff Demoman"
+				Scale	1.8
+				Class	Demoman
+				Skill	Expert
+				MaxVisionRange	2500
+				WeaponRestrictions	PrimaryOnly
+				Tag	"bot_giant"
+				Attributes	"HoldFireUntilFullReload"
+				Attributes	"MiniBoss"
+				ItemAttributes
+				{
+					ItemName	gentlemanne_grenadelauncher_coffinnail
+					"clip size upgrade atomic"	4
+					"damage bonus"	1.25
+					"Blast radius increased"	1.25
+					"fire rate bonus with reduced health"	.95
+				}
+				CharacterAttributes
+				{
+					"move speed bonus"	0.45
+					"damage force reduction"	0.5
+					"airblast vulnerability multiplier"	.5
+					"override footstep sound set"	4
+				}
+				Item	"gentlemanne_grenadelauncher_coffinnail"
+				Item	"scotch bonnet"
+				Item	"the bonedolier"
+			}
+			T_TFBot_Heavyweapons_Buff
+			{
+				ClassIcon	heavy_tanky
+				Health	600
+				Name	"Buff HeavyWeapons"
+				Class	HeavyWeapons
+				Skill	Hard
+				MaxVisionRange	2000
+				WeaponRestrictions	PrimaryOnly
+				ItemAttributes
+				{
+					ItemName	gentlemanne_minigun_coffinnail
+					"damage bonus"	1.10
+				}
+				CharacterAttributes
+				{
+					"move speed bonus"	.55
+				}
+				Item	"gentlemanne_minigun_coffinnail"
+				Item	"big steel jaw of summer fun"
+				Item	"commissar's coat"
+			}
+			T_TFBot_Giant_Heavyweapons_Buff
+			{
+				ClassIcon	heavy_tanky_giant
+				Health	10000
+				Name	"Mini-Boss: Giant Buff Heavy"
+				Scale	1.9				Class	HeavyWeapons
+				Skill	Expert
+				MaxVisionRange	3500
+				WeaponRestrictions	PrimaryOnly
+				Tag	"bot_giant"
+				Attributes	"MiniBoss"
+				Attributes	"UseBossHealthBar"
+				ItemAttributes
+				{
+					ItemName	gentlemanne_minigun_coffinnail
+					"damage bonus"	1.5
+					"ring of fire while aiming"	1
+					"fire rate bonus with reduced health"	.95 				}
+				CharacterAttributes
+				{
+					"move speed bonus"	.35
+					"override footstep sound set"	2
+					"damage force reduction"	.3
+					"airblast vulnerability multiplier"	.3
+				}
+				Item	"gentlemanne_minigun_coffinnail"
+				Item	"big steel jaw of summer fun"
+				Item	"eotl_sheavyshirt"
+			}
+			T_TFBot_Medic_Buff
+			{
+				ClassIcon	medic_tanky
+				Health	300
+				Name	"Buff Uber Medic"
+				Class	Medic
+				Skill	Expert
+				ItemAttributes
+				{
+					ItemName	tf_weapon_syringegun_medic
+					"damage bonus"	1.35
+					"clip size upgrade atomic"	100
+					"fire rate bonus"	0.85
+					"add uber charge on hit"	1
+				}
+				ItemAttributes
+				{
+					ItemName	gentlemanne_medigun_coffinnail
+					"uber duration bonus"	1
+					"overheal bonus"	1.5
+					"ubercharge rate bonus"	2
+				}
+				CharacterAttributes
+				{
+					"damage force reduction"	0.3
+					"dmg taken from bullets reduced"	.5
+					"dmg taken from blast reduced"	.5
+					"dmg taken from crit reduced"	.5
+					"dmg taken from fire reduced"	.5
+				}
+				Item	"gentlemanne_medigun_coffinnail"
+				Item	"das metalmeatencasen"
+				Item	"berlin brain bowl"
+			}
+			T_TFBot_Engineer_Mini
+			{
+				ClassIcon	engineer
+				Health	350
+				Name	"Mini-Sentry Engineer"
+				Class	Engineer
+				Skill	Hard
+				Attributes	"TeleportToHint"
+				ItemAttributes
+				{
+					ItemName	"the gunslinger"
+					"damage bonus"	1.25
+				}
+				Item	"the gunslinger"
+				Item	"clockwerk's helm"
+			}
+			T_TFBot_Scout_Batsaber
+			{
+				ClassIcon	scout_batsaber
+				Health	130
+				Name	"Batsaber Scout"
+				Class	Scout
+				Skill	Hard
+				WeaponRestrictions	MeleeOnly
+				ItemAttributes
+				{
+					ItemName	batsaber
+					"Set DamageType Ignite"	1
+					"weapon burn dmg increased"	1.05
+					"weapon burn time increased"	1.05
+				}
+				CharacterAttributes
+				{
+					"dmg taken from fire reduced"	0
+				}
+				Item	"batsaber"
+				Item	"cadet visor"
+			}
+			T_TFBot_Demo_Stickybomb
+			{
+				ClassIcon	demo_sticky
+				Health	175
+				Name	"Sticky Demo"
+				Class	Demoman
+				Skill	Hard
+				WeaponRestrictions	SecondaryOnly
+				Attributes	"HoldFireUntilFullReload"
+				ItemAttributes
+				{
+					ItemName	tf_weapon_pipebomblauncher
+					"stickybomb charge rate"	0
+					"fire rate bonus"	0.01
+					"faster reload rate"	0.35
+					"damage bonus"	1.25
+				}
+				CharacterAttributes
+				{
+					"no self blast dmg"	1
+				}
+				Item	"pass time miniature half jack"
+				Item	"civilian grade jack hat"
+			}
+			T_TFBot_Giant_Demo_Sticky
+			{
+				ClassIcon	demo_sticky_giant
+				Health	3600
+				Name	"Giant Sticky Demo"
+				Scale	1.8
+				Class	Demoman
+				Skill	Expert
+				WeaponRestrictions	SecondaryOnly
+				Tag	"bot_giant"
+				Attributes	"HoldFireUntilFullReload"
+				Attributes	"MiniBoss"
+				ItemAttributes
+				{
+					ItemName	"the scottish resistance"
+					"damage bonus"	1.5					"fire rate bonus"	0.001
+					"faster reload rate"	0.05
+					"stickybomb charge rate"	0
+					"sticky arm time bonus"	0.5				}
+				CharacterAttributes
+				{
+					"move speed bonus"	0.5
+					"override footstep sound set"	4
+					"damage force reduction"	.5
+					"airblast vulnerability multiplier"	.5
+					"no self blast dmg"	1
+				}
+				Item	"the scottish resistance"
+				Item	"military grade jack hat"
+				Item	"pass time early participation pin"
+			}
+		}
+	}

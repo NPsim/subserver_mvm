@@ -1,0 +1,2640 @@
+#base robot_giant.pop
+#base robot_standard.pop
+
+
+
+WaveSchedule
+{
+
+	Templates
+	{
+    T_TFBot_Scout_Fish
+		{
+			Name "Salty Boy"
+			Class Scout
+			ClassIcon salty_boy_multi
+			Skill Expert
+			WeaponRestrictions MeleeOnly
+			Item "The Holy Mackerel"
+			
+			CharacterAttributes
+			{
+				"move speed bonus" 1.1 //from 1.25
+			}
+		}
+	// T_TFBot_Scout_Fish_Aggressive
+		// {
+			// Name "Aggressive Pizza"
+			// Class Scout
+			// Skill Expert
+			// Attributes IgnoreFlag //added
+			// WeaponRestrictions MeleeOnly
+			// BehaviorModifiers Mobber
+			// Item "The Holy Mackerel"
+			
+			// //ToDo add skin
+			
+			// CharacterAttributes
+			// {
+				// "move speed bonus" 1.25
+			// }
+		// }
+	T_TFBot_Scout_Milk
+		{
+			Name "Salty Sauce Boy"
+			Class Scout
+			ClassIcon scout_milk_salty
+			Skill Expert
+			WeaponRestrictions SecondaryOnly
+			Item "Mad Milk"
+			
+			ItemAttributes
+			{
+				ItemName "Mad Milk"
+				"throwable recharge time" 10
+			}
+			
+			CharacterAttributes
+			{
+				"move speed bonus" 1.25
+				"effect bar recharge rate increased" 0.1
+			}
+		}
+	T_TFBot_Scout_FaN
+		{
+			Name "Force-a-Salty Boy"
+			Class Scout
+			Skill Expert
+			ClassIcon scout_fan_salty
+			WeaponRestrictions PrimaryOnly
+			Item "Festive Force-a-Nature"
+			
+			ItemAttributes
+			{
+				ItemName "Festive Force-a-Nature"
+				"scattergun knockback mult" 3
+			}
+		}
+	T_TFBot_Scout_SodaPopper
+		{
+			Name "Salty Popper Boy"
+			Class Scout
+			Skill Expert
+			ClassIcon scout_spopper_salty
+			Item "The Soda Popper"
+			Attributes AutoJump
+			AutoJumpMin 1
+			AutoJumpMax 5
+			WeaponRestrictions PrimaryOnly
+			
+			// ItemAttributes
+			// {
+				// ItemName "The Soda Popper"
+				// "damage bonus" 1.5
+			// }
+			CharacterAttributes
+			{
+				"increased jump height" 2
+			}
+		
+		}
+	T_TFBot_Pyro_Phlog
+		{
+			Name "Salty Mmmph Boy"
+			Class Pyro
+			Skill Expert
+			Health 200
+			ClassIcon pyro_phlog_salty
+			WeaponRestrictions PrimaryOnly
+			Item "The Phlogistinator"
+		}
+	T_TFBot_Pyro_Stock
+		{
+			Name "Salty Fire Boy"
+			Class Pyro
+			ClassIcon pyro_salty
+			Skill Hard
+			WeaponRestrictions PrimaryOnly
+			Attributes AlwaysFireWeapon
+		}
+	T_TFBot_Pyro_Reflector
+		{
+			Name "Salty Air Boy"
+			Class Pyro
+			Skill Expert
+			ClassIcon pyro_airblast_salty
+			WeaponRestrictions PrimaryOnly
+			
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_FLAMETHROWER"
+				"mult airblast refire time" 0.5
+			}
+		}
+	T_TFBot_Pyro_Flare
+		{
+			Name "Salty Flare Boy"
+			Class Pyro
+			Skill Expert
+			Health 500 //increased from 200
+			ClassIcon pyro_flare_salty
+			WeaponRestrictions SecondaryOnly
+			Item "The Flare Gun"
+			Scale 1.25
+			
+			ItemAttributes
+			{
+				ItemName "The Flare Gun"
+				"fire rate bonus" 0.5
+			}
+		}
+	T_TFBot_Demoman_Crits
+		{
+			Class Demoman
+			Skill Expert
+			ClassIcon demo_salty
+			Name "Salty Pill Boy"
+			Attributes AlwaysCrit
+			ItemAttributes 
+			{
+				ItemName "TF_WEAPON_GRENADELAUNCHER"
+				"Projectile speed increased" 2.0
+				"faster reload rate" -0.8
+				"damage bonus"	2.0
+			}
+		}
+	T_TFBot_Medic_Blutsauger
+		{
+			Name "Salty Needle Boy"
+			Class Medic
+			ClassIcon medic_blutsauger_salty
+			Skill Expert
+			WeaponRestrictions PrimaryOnly
+			Item "The Blutsauger"
+			
+			ItemAttributes
+			{
+				ItemName "The Blutsauger"
+				"fire rate bonus" 0.75
+			}
+		}
+	T_TFBot_Medic_QuickUber_QuickFix
+		{
+			Class Medic
+			ClassIcon medic_quickfix_salty
+			Name "Salty Heal Boy"
+			Skill Hard
+			Item "The Quick-Fix"
+			Attributes SpawnWithFullCharge
+			ItemAttributes
+			{
+				ItemName "The Quick-Fix"
+				"ubercharge rate bonus" 5
+				"uber duration bonus" -5
+			}
+		}
+	T_TFBot_Engineer_Revenge
+		{
+			Name "Salty Revengineer"
+			Class Engineer
+			ClassIcon engineer_frontierjustice_salty
+			Skill Expert
+			Health 150
+			WeaponRestrictions PrimaryOnly
+			Item "The Frontier Justice"
+			Attributes AlwaysCrit
+			BehaviorModifiers Mobber
+			MaxVisionRange 1200 //new
+		}
+	T_TFBot_Heavy_Fast
+		{
+			Name "Salty Big Boy"
+			Class Heavyweapons
+			ClassIcon heavy_salty
+			Skill Expert
+			Health 400
+			WeaponRestrictions PrimaryOnly
+
+			CharacterAttributes
+			{
+				"move speed bonus" 1.25
+			}
+		}
+	T_TFBot_Heavy_Standard
+		{
+			Name "Salty Pootis Boy"
+			Class Heavyweapons
+			ClassIcon heavy_salty
+			Skill Expert
+			Health 400
+			WeaponRestrictions PrimaryOnly
+
+		}
+	T_TFBot_Sniper_Jarate
+		{
+			Class Sniper
+			Name "Salty Lemonade Boy"
+			ClassIcon sniper_jarate_salty
+			Skill Hard
+			Health 200
+			WeaponRestrictions SecondaryOnly
+			Item "Jarate"
+			ItemAttributes
+			{
+				ItemName "Jarate"
+				"throwable recharge time" 10
+			}
+			CharacterAttributes
+			{
+				"move speed bonus" 1.25 //reduced from 1.5
+				"effect bar recharge rate increased" 0.1
+			}
+		}
+	T_TFBot_Sniper_Bushwacka
+		{
+			Class Sniper
+			Name "Salty Wacky Boy" //Cheese
+			ClassIcon sniper_bushwacka_salty
+			Skill Hard
+			WeaponRestrictions MeleeOnly
+			Item "The Bushwacka"
+			ItemAttributes
+			{
+				ItemName "The Bushwacka"
+				"fire rate bonus" 0.75
+			}
+			CharacterAttributes
+			{
+				"move speed bonus" 1.25 //from 1.5
+			}
+		}
+	T_TFBot_Sniper_Spammer
+		{
+			Class Sniper
+			Name "Lucky Salty Boy"
+			Item "The Huntsman"
+			ClassIcon sniper_bow_multi_salty
+			Skill Hard
+			
+			ItemAttributes
+			{
+				ItemName "The Huntsman"
+				"fire rate bonus" 0.25
+				"damage penalty" 0.5
+			}
+			CharacterAttributes
+			{
+				"head scale" 0.7
+				"move speed bonus"	0.85
+			}
+		}
+		
+		
+	T_TFBot_Giant_Scout_Fish
+		{
+			Name "Big Salty Boy"
+			Class Scout
+			Skill Expert
+			ClassIcon salty_boy_giant
+			Health 1500 //from 1200
+			WeaponRestrictions MeleeOnly
+			Item "The Holy Mackerel"
+			Attributes AlwaysCrit
+			Attributes MiniBoss
+			CharacterAttributes
+			{
+				"airblast vulnerability multiplier" 0.6
+				"damage force reduction" 0.6
+				"override footstep sound set" 5
+			}
+		}
+	T_TFBot_Giant_Soldier_Buff_Beggar
+		{
+			Class Soldier
+			Name "Salty Hydrogen"
+			Skill Normal
+			Health 10000 //from 500
+			ClassIcon soldier_buff_salty
+			Item "Festive Buff Banner"
+			Item "The Beggar's Bazooka"
+			Item "Tux"
+			Item "Mann Co. Cap"
+			Attributes UseBossHealthBar
+			Attributes SpawnWithFullCharge
+			Attributes MiniBoss //from just scale
+			
+			ItemAttributes
+			{
+				ItemName "The Beggar's Bazooka"
+				"auto fires when full" 1
+				"damage bonus"	1.5 //from 2
+				"faster reload rate" -0.8
+			}
+			CharacterAttributes
+			{
+				"increase buff duration" 8.0
+				"move speed bonus"	0.5 //added
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.4
+				"override footstep sound set" 3
+			}
+		}
+	T_TFBot_Giant_Soldier_Conch_Beggar
+		{
+			Class Soldier
+			Name "Salty Farquaad"
+			Skill Normal
+			Health 10000 //from 500
+			ClassIcon soldier_conch_salty
+			Item "The Concheror"
+			Item "The Beggar's Bazooka"
+			Item "The Soldier's Stogie"
+			Item "Soldier Drill Hat"
+			Attributes UseBossHealthBar
+			Attributes SpawnWithFullCharge
+			Attributes MiniBoss //from just scale
+			
+			ItemAttributes
+			{
+				ItemName "The Beggar's Bazooka"
+				"auto fires when full" 1
+				"damage bonus"	1.5 //from 2
+				"faster reload rate" -0.8
+			}
+			CharacterAttributes
+			{
+				"increase buff duration" 8.0
+				"move speed bonus"	0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.4
+				"override footstep sound set" 3
+			}
+		}
+	T_TFBot_Giant_Pyro_Bro
+		{
+			Name "Big Salty Hammer Boy"
+			Class Pyro
+			Skill Hard
+			Health 1000
+			ClassIcon pyro_homewrecker_salty
+			WeaponRestrictions MeleeOnly
+			Attributes AlwaysFireWeapon
+			Attributes MiniBoss
+			Item "The Homewrecker"
+			ItemAttributes
+			{
+				ItemName "The Homewrecker"
+				"fire rate bonus" 0.5
+			}
+		}
+	T_TFBot_Giant_Pyro_Phlog
+		{
+			Name "Big Salty Mmmph Boy"
+			Class Pyro
+			Skill Expert
+			Health 8000
+			ClassIcon pyro_phlog_salty_giant
+			WeaponRestrictions PrimaryOnly
+			Item "The Phlogistinator"
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			//Attributes AlwaysCrit
+			ItemAttributes
+			{
+				ItemName "The Phlogistinator"
+				"critboost on kill" 5 //added
+				"generate rage on heal" 1
+				"heal rate bonus" 100
+				"increase buff duration" 2
+			}
+			CharacterAttributes
+			{
+				"airblast vulnerability multiplier" 0.6
+				"damage force reduction" 0.6
+				"move speed bonus" 0.5
+				"override footstep sound set" 5
+			}
+		}
+	T_TFBot_Giant_Pyro_Stock
+		{
+			Name "Big Salty Fire Boy"
+			Class Pyro
+			Skill Expert
+			ClassIcon pyro_salty_giant
+			Health 6000
+			WeaponRestrictions PrimaryOnly
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			Attributes AlwaysFireWeapon
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_FLAMETHROWER"
+				//"damage bonus" 2  //removed
+				"mult airblast refire time" 0.5
+			}
+			CharacterAttributes
+			{
+				"airblast vulnerability multiplier" 0.6
+				"damage force reduction" 0.6
+				"move speed bonus" 0.5
+				"airblast pushback scale" 2
+				"override footstep sound set" 5
+			}
+		}
+	// T_TFBot_Giant_Pyro_Slap
+		// {
+			// Name "Big Salty Spicy Slappy Boy"
+			// Class Pyro
+			// Skill Expert
+			// ClassIcon pyro_salty_giant
+			// Health 2000
+			// WeaponRestrictions MeleeOnly
+			// Item "The Hot Hand"
+			// Attributes MiniBoss
+			// //Attributes UseBossHealthBar
+			// Attributes AlwaysFireWeapon
+			// ItemAttributes
+			// {
+				// ItemName "The Hot Hand"
+				// "fire rate bonus" 0.5
+			// }
+			// CharacterAttributes
+			// {
+				// "airblast vulnerability multiplier" 0.6
+				// "damage force reduction" 0.6
+				// "move speed bonus" 0.65
+				// "airblast pushback scale" 2
+				// "override footstep sound set" 5
+			// }
+		// }		
+		
+	T_TFBot_Giant_Heavy_BB
+		{
+			Name "Big Salty Big Boy"
+			Class Heavyweapons
+			Skill Expert
+			Health 25000 //from 15k
+			ClassIcon heavy_salty_giant
+			WeaponRestrictions PrimaryOnly
+			Item "The Brass Beast"
+			Attributes UseBossHealthBar
+			Attributes MiniBoss
+			Scale 1.8
+
+			ItemAttributes
+			{
+				ItemName "The Brass Beast"
+				"damage bonus" 1.5
+			}
+			CharacterAttributes
+			{
+				"airblast vulnerability multiplier" 0.3
+				"damage force reduction" 0.3
+				"move speed bonus" 0.5
+				"override footstep sound set" 2
+			}
+		}
+	T_TFBot_Giant_Medic_Blutsauger
+		{
+			Name "Big Salty Needle Boy"
+			Class Medic
+			Skill Expert
+			ClassIcon medic_syringe_salty
+			Health 2500 //from 3000
+			WeaponRestrictions PrimaryOnly
+			Attributes AlwaysCrit
+			//Attributes UseBossHealthBar
+			Item "The Blutsauger"
+			Attributes MiniBoss
+			ItemAttributes
+			{
+				ItemName "The Blutsauger"
+				"fire rate bonus" 0.5
+			}
+			CharacterAttributes
+			{
+				"airblast vulnerability multiplier" 0.6
+				"damage force reduction" 0.6
+				"move speed bonus" 0.65 //from 0.5
+				"override footstep sound set" 5
+			}
+		}
+	T_TFBot_Giant_Sniper_Spammer
+		{
+			Class Sniper
+			Name "Big Lucky Salty Boy"
+			Health 5000 //from 7500
+			Item "The Huntsman"
+			ClassIcon sniper_bow_multi_salty_giant
+			Attributes AlwaysCrit
+			Attributes MiniBoss
+			Skill Hard
+			
+			ItemAttributes
+			{
+				ItemName "The Huntsman"
+				"fire rate bonus" 0.25
+				"damage penalty" 0.5
+			}
+			CharacterAttributes
+			{
+				"head scale" 0.7
+				"airblast vulnerability multiplier" 0.6
+				"damage force reduction" 0.6
+				"move speed bonus" 0.5
+				"override footstep sound set" 5
+			}
+		}
+
+	T_TFBot_SentryBuster_Salty
+		{
+			Class Demoman
+			Name "Sentry Buster"
+			Skill Expert
+			Health 2500
+			Item "The Ullapool Caber"
+			WeaponRestrictions MeleeOnly
+			ClassIcon sentry_buster_salty
+			Attributes MiniBoss
+			CharacterAttributes
+			{
+				"move speed bonus" 1.5
+				"damage force reduction" 0.5
+				"airblast vulnerability multiplier" 0.5
+				"override footstep sound set" 7
+				"cannot be backstabbed" 1
+			}
+		}
+	}
+	
+	
+	StartingCurrency		-1
+	RespawnWaveTime 		4
+	CanBotsAttackWhileInSpawnRoom no
+	Advanced	1
+
+	Mission // sentry buster
+	{
+		Objective DestroySentries
+
+		InitialCooldown 25 //from 20
+		Where behind
+		BeginAtWave 1
+		RunForThisManyWaves 5
+
+		CooldownTime 35    //from 30         
+
+            RandomChoice
+			{
+				TFBot
+				{
+					Template T_TFBot_SentryBuster_Salty
+					Name "Salty Explody Boy"
+				}
+				TFBot
+				{
+					Template T_TFBot_SentryBuster_Salty
+					Name "Sodium + H2O Boy"
+				}
+				TFBot
+				{
+					Template T_TFBot_SentryBuster_Salty
+					Name "Sentry With a Side of Salt"
+				}
+				TFBot
+				{
+					Template T_TFBot_SentryBuster_Salty
+					Name "Spikeball of Salt"
+				}
+				TFBot
+				{
+					Template T_TFBot_SentryBuster_Salty
+					Name "*Telesalts Behind You*"
+				}
+			}
+
+	}
+	Mission // Spy - wave 2 & 3 [removed wave 1]
+	{
+		Objective Spy  
+
+		InitialCooldown 60
+		Where spawnbot_mission_spy
+		BeginAtWave 2
+		RunForThisManyWaves 2
+		CooldownTime 60
+		DesiredCount 3 //reduced from 6
+		
+		RandomChoice
+		{
+			TFBot
+			{
+				Class Spy
+				ClassIcon spy_salty
+				Skill Expert
+				Name "Salty Stabby Boy"
+			}
+			TFBot
+			{
+				Class Spy
+				ClassIcon spy_salty
+				Skill Expert
+				Name "Surprise ButtSalt"
+			}
+			TFBot
+			{
+				Class Spy
+				ClassIcon spy_salty
+				Skill Expert
+				Name "Assalt from Behind"
+			}
+			TFBot
+			{
+				Class Spy
+				ClassIcon spy_salty
+				Skill Expert
+				Name "A Salty Surprise!"
+			}
+			TFBot
+			{
+				Class Spy
+				ClassIcon spy_salty
+				Skill Expert
+				Name "Insalt to Injury"
+			}
+		}
+		
+	}
+
+	Mission // Spy - wave 5 [NEW]
+	{
+		Objective Spy  
+
+		InitialCooldown 30 //from 60
+		Where spawnbot_mission_spy
+		BeginAtWave 5
+		RunForThisManyWaves 1
+		CooldownTime 45 //from 60
+		DesiredCount 4 //from 3
+		
+		RandomChoice
+		{
+			TFBot
+			{
+				Class Spy
+				ClassIcon spy_salty
+				Skill Expert
+				Name "Salty Stabby Boy"
+			}
+			TFBot
+			{
+				Class Spy
+				ClassIcon spy_salty
+				Skill Expert
+				Name "Surprise ButtSalt"
+			}
+			TFBot
+			{
+				Class Spy
+				ClassIcon spy_salty
+				Skill Expert
+				Name "Assalt from Behind"
+			}
+			TFBot
+			{
+				Class Spy
+				ClassIcon spy_salty
+				Skill Expert
+				Name "A Salty Surprise!"
+			}
+			TFBot
+			{
+				Class Spy
+				ClassIcon spy_salty
+				Skill Expert
+				Name "Insalt to Injury"
+			}
+		}
+		
+	}
+	Mission // Sniper - wave 3 & 4 & 5
+	{
+		Objective Sniper
+
+		InitialCooldown 15
+		Where spawnbot_mission_sniper
+		BeginAtWave 3
+		RunForThisManyWaves 3
+		CooldownTime 60
+		DesiredCount 3
+
+		RandomChoice
+		{
+			TFBot
+			{	
+				Template T_TFBot_Sniper_Razorback
+				Name "Edgy Salty Boy"
+				ClassIcon sniper_salty
+				MaxVisionRange 3000
+				Item "The Hitman's Heatmaker"
+			}
+			TFBot
+			{	
+				Template T_TFBot_Sniper_Razorback
+				Name "Long Range Salt"
+				ClassIcon sniper_salty
+				MaxVisionRange 3000
+				Item "The Hitman's Heatmaker"
+			}
+			TFBot
+			{	
+				Template T_TFBot_Sniper_Razorback
+				Name "Salted Brain Surgery"
+				ClassIcon sniper_salty
+				MaxVisionRange 3000
+				Item "The Hitman's Heatmaker"
+			}
+			TFBot
+			{	
+				Template T_TFBot_Sniper_Razorback
+				Name "Long-Distance Relationsalt"
+				ClassIcon sniper_salty
+				MaxVisionRange 3000
+				Item "The Hitman's Heatmaker"
+			}
+		}
+		
+	}
+	
+//WAVE 1  /////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Infinite Fish Scouts (401)
+// 
+//
+// 1 Giant Phlog Pyro (300)
+//	-healed by 2 quickfix medics
+//  -with 2 Blutsauger Medics
+//
+// 4 Pybros (400) down from 6
+// 	-each with 3 Revengineers
+// 3 Giant Blutsauger Medic (300)
+//  -each with 2 Blutsauger Medics
+// 
+// 1 Giant Phlog Pyro (300)
+//	-healed by 4 quickfix medics
+//	-more health
+//  -with 2 Blutsauger Medics
+//	
+// Spy Mission [removed]
+// 
+//
+// Cash at start is $-1
+// Total cash in this wave is $1900
+// Running Total cash is $1900
+///////////////////////////////////////////////////////////////////////////
+	Wave
+	{
+		StartWaveOutput
+			{
+				Target wave_start_relay
+				Action Trigger
+			}
+		DoneOutput					
+			{
+				Target wave_finished_relay
+				Action trigger
+			}
+		WaitWhenDone 65
+		Checkpoint Yes
+		
+		WaveSpawn //WAVE 01a: Fish Scouts support
+		{
+			Name "wave01a"
+			Where spawnbot
+			TotalCount 6
+			MaxActive 6
+			SpawnCount 2
+			WaitBeforeStarting 5
+			WaitBetweenSpawns 3
+			TotalCurrency 401	//increased from 200
+			Support 1
+		
+			Squad
+			{
+				TFBot
+				{
+					Template T_TFBot_Scout_Fish
+				}
+				TFBot
+				{
+					Template T_TFBot_Scout_Fish
+				}
+			}
+		}
+
+		WaveSpawn //WAVE 01c: Giant Phlog Pyro Squad
+		{
+			Name "wave01c"
+			Where spawnbot
+			TotalCount 3
+			MaxActive 5
+			SpawnCount 5
+			WaitBeforeStarting 5
+			TotalCurrency 310	//increased from 200
+			
+			Squad
+			{
+				TFBot
+				{
+					Template T_TFBot_Giant_Pyro_Phlog //8000 health
+					Health 5000 //huge nerf
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickUber_QuickFix
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickUber_QuickFix
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_Blutsauger //added
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_Blutsauger //added
+				}	
+			}
+		}
+		WaveSpawn //WAVE 01d: Pybro + Revengineers
+		{
+			Name "wave01d"
+			WaitForAllDead "wave01c"
+			Where spawnbot
+			TotalCount 16
+			MaxActive 12 //from 16
+			SpawnCount 4
+			WaitBeforeStarting 5 //from 3
+			WaitBetweenSpawns 15 //from 10
+			TotalCurrency 413
+			
+			Squad
+			{
+				ShouldPreserveSquad 1
+				FormationSize 512
+				
+				TFBot
+				{
+					Template T_TFBot_Giant_Pyro_Bro
+				}
+				TFBot
+				{
+					Template T_TFBot_Engineer_Revenge
+				}
+				TFBot
+				{
+					Template T_TFBot_Engineer_Revenge
+				}
+				TFBot
+				{
+					Template T_TFBot_Engineer_Revenge
+				}
+			}
+		}
+		
+		WaveSpawn //WAVE 01e: 3 Giant Blutsauger Medic
+		{
+			Name "wave01e"
+			WaitForAllDead "wave01c"
+			Where spawnbot
+			TotalCount 9
+			MaxActive 6
+			SpawnCount 3
+			WaitBeforeStarting 12 //from 10
+			WaitBetweenSpawns 20 //from 15
+			TotalCurrency 207		
+			
+			//added blutsauger medics to squad
+			Squad
+			{
+				FormationSize 512
+				
+				TFBot
+				{
+					Template T_TFBot_Giant_Medic_Blutsauger
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_Blutsauger
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_Blutsauger
+				}			
+			}
+		}
+		WaveSpawn //WAVE 01f: Giant Phlog Pyro Squad
+		{
+			Name "wave01f"
+			WaitForAllDead "wave01d"
+			Where spawnbot
+			TotalCount 7
+			MaxActive 7
+			SpawnCount 7
+			WaitBeforeStarting 5
+			TotalCurrency 303	//increased from 200
+			
+			Squad
+			{
+				TFBot
+				{
+					Template T_TFBot_Giant_Pyro_Phlog
+					Name "Saltier Big Salty Fire Boy"
+					Health 10000
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickUber_QuickFix
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickUber_QuickFix
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickUber_QuickFix
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickUber_QuickFix
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_Blutsauger //added
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_Blutsauger //added
+				}
+			}
+		}
+	}	
+//WAVE 2  /////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Infinite Fish Scouts (100)
+// Infinite Soda Pop Scouts (100)
+//
+// 3 Giant Stock Pyros (100)
+//  -with 3 mini phlog pyros
+// 24 Flare Gun Pyros to crit burning players (100)
+//
+// Tank (200)
+//
+// 12 huntsman spammers (100)
+// 
+// 3 Giant Huntsman spammer (100)
+//  -each with 3 more spammers
+// 
+// 1 Mini phlog boss (100)
+//  -with 5 fish scouts
+//
+// Spy Mission
+//
+// Cash at start is $1900
+// Total cash in this wave is $900
+// Running Total cash is $2800
+///////////////////////////////////////////////////////////////////////////
+	Wave
+	{
+		StartWaveOutput
+			{
+				Target wave_start_relay
+				Action Trigger
+			}
+		DoneOutput					
+			{
+				Target wave_finished_relay
+				Action trigger
+			}
+		WaitWhenDone 65
+		Checkpoint Yes
+		
+		WaveSpawn //WAVE 02a: Fish Scouts support
+		{
+			Name "wave02a"
+			Where spawnbot
+			TotalCount 8
+			MaxActive 8
+			SpawnCount 4
+			WaitBeforeStarting 5
+			WaitBetweenSpawns 6
+			TotalCurrency 101	
+			Support 1
+		
+			Squad
+			{
+				TFBot
+				{
+					Template T_TFBot_Scout_Fish
+				}
+				TFBot
+				{
+					Template T_TFBot_Scout_Fish
+				}
+			}
+		}
+		WaveSpawn //WAVE 02b: Soda Pop Scouts Support
+		{
+			Name "wave02b"
+			Where spawnbot
+			TotalCount 12 //from 16
+			MaxActive 8
+			SpawnCount 4
+			WaitBeforeStarting 10 //from 5
+			WaitBetweenSpawns 8
+			TotalCurrency 101	
+			Support 1
+		
+			TFBot
+			{
+				Template T_TFBot_Scout_SodaPopper
+			}
+
+		}
+		
+		WaveSpawn //WAVE 02c1: Giant Pyro w/ mini phlogs squad
+		{
+			Name "wave02c1"
+			Where spawnbot
+			TotalCount 12
+			MaxActive 4
+			SpawnCount 4
+			WaitBeforeStarting 5
+			WaitBetweenSpawns 10 //from 15
+			TotalCurrency 150		
+
+			Squad
+			{
+				FormationSize 750
+				TFBot
+				{
+					Template T_TFBot_Giant_Pyro_Stock
+				}
+				TFBot
+				{
+					Template T_TFBot_Pyro_Phlog
+					Name "Mini Salty Mmmph Boy"
+					Health 1000
+					Scale 0.6
+					
+					ItemAttributes
+					{
+						ItemName "The Phlogistinator"
+						"damage penalty" 0.35
+					}
+				}
+				TFBot
+				{
+					Template T_TFBot_Pyro_Phlog
+					Name "Mini Salty Mmmph Boy"
+					Health 1000
+					Scale 0.6
+					
+					ItemAttributes
+					{
+						ItemName "The Phlogistinator"
+						"damage penalty" 0.35
+					}
+				}
+				TFBot
+				{
+					Template T_TFBot_Pyro_Phlog
+					Name "Mini Salty Mmmph Boy"
+					Health 1000
+					Scale 0.6
+					
+					ItemAttributes
+					{
+						ItemName "The Phlogistinator"
+						"damage penalty" 0.35
+					}
+				}
+			}
+			
+		}
+		
+		WaveSpawn //WAVE 02c2: Flare  Pyros
+		{
+			Name "wave02c2"
+			Where spawnbot
+			TotalCount 24
+			MaxActive 8
+			SpawnCount 4
+			WaitBeforeStarting 5
+			WaitBetweenSpawns 15
+			TotalCurrency 153		
+
+			TFBot
+			{
+				Template T_TFBot_Pyro_Flare
+			}
+		}
+		WaveSpawn //WAVE 02d: Hunstman spammers
+		{
+			Name "wave02d"
+			WaitForAllSpawned "wave02t" //spawns with tank
+			Where spawnbot
+			TotalCount 12 //from 15
+			MaxActive 12 //from 6
+			SpawnCount 3 
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 3
+			TotalCurrency 101	
+			
+			TFBot
+			{
+				Template T_TFBot_Sniper_Spammer
+			}
+		}
+		
+		WaveSpawn //WAVE 02t: [TANK]  
+		{
+			Name "wave02t"
+			WaitForAllDead "wave02c1" //spawns after giant pyros die
+			TotalCount 1
+			WaitBeforeStarting 0 //from 5
+			TotalCurrency 200
+			
+			FirstSpawnOutput
+				{
+					Target boss_spawn_relay                                            
+					Action Trigger
+				}
+				
+			Tank
+			{
+				Health 25000
+				Speed 75
+				Skin 1
+				Name "Salt-mobile 9000"
+				//ClassIcon tank_salty
+				StartingPathTrackNode "boss_path_a1"
+			
+				OnKilledOutput                                  
+				{
+					Target boss_dead_relay
+					Action Trigger
+				}
+				OnBombDroppedOutput                                  
+				{
+					Target boss_deploy_relay
+					Action Trigger
+				}
+			}
+		}
+		WaveSpawn //WAVE 02e: 3 Giant Hunstman spammers with more spammers
+		{
+			Name "wave02e"
+			WaitForAllDead "wave02d" //when first 12 spammers die
+			Where spawnbot
+			TotalCount 12
+			MaxActive 8
+			SpawnCount 4 
+			WaitBeforeStarting 3
+			WaitBetweenSpawns 6
+			TotalCurrency 101
+			
+			Squad
+			{
+				FormationSize 512
+				
+				TFBot
+				{
+					Template T_TFBot_Giant_Sniper_Spammer
+				}
+				
+				TFBot
+				{
+					Template T_TFBot_Sniper_Spammer
+				}
+				TFBot
+				{
+					Template T_TFBot_Sniper_Spammer
+				}
+				TFBot
+				{
+					Template T_TFBot_Sniper_Spammer
+				}
+			}
+			
+		}		
+		WaveSpawn //WAVE 02f: mini phlog boss
+		{
+			Name "wave02f"
+			WaitForAllDead "wave02t" //spawns after tank
+			Where spawnbot
+			TotalCount 5
+			MaxActive 5
+			SpawnCount 5
+			WaitBeforeStarting 5
+			WaitBetweenSpawns 3
+			TotalCurrency 101	
+			
+			Squad
+			{
+				FormationSize 512
+				
+				TFBot
+				{
+					Template T_TFBot_Pyro_Phlog
+					Name "Saltier Mini Salty Mmmph Boy"
+					ClassIcon pyro_phlog_saltier
+					Health 10000
+					Attributes UseBossHealthBar
+					Attributes AlwaysCrit
+					Attributes MiniBoss
+					Scale 0.6
+						
+					ItemAttributes
+					{
+						ItemName "The Phlogistinator"
+						"damage penalty" 0.5
+					}
+				}
+				
+				TFBot
+				{
+					Template T_TFBot_Scout_Fish
+					Name "Mini Salty Boy"
+					Scale 0.6
+				}
+				TFBot
+				{
+					Template T_TFBot_Scout_Fish
+					Name "Mini Salty Boy"
+					Scale 0.6
+				}
+				TFBot
+				{
+					Template T_TFBot_Scout_Fish
+					Name "Mini Salty Boy"
+					Scale 0.6
+				}
+				TFBot
+				{
+					Template T_TFBot_Scout_Fish
+					Name "Mini Salty Boy"
+					Scale 0.6
+				}
+				TFBot
+				{
+					Template T_TFBot_Scout_Fish
+					Name "Mini Salty Boy"
+					Scale 0.6
+				}
+			}
+		}
+	}	
+//WAVE 3  /////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Infinite Jarate Snipers Support (200) added ignoreflag
+//  -with Bushwacka
+// 
+// 10 Tanks (800) spawn faster and 12k health from 11k
+// !0 Giant Fish Scouts
+//   -1 for each tank
+// 
+// Milk Fish Scout Support (200) added ignoreflag
+//	-2 fish scouts
+//  -2 milk scouts
+//
+// Sniper Mission
+// Spy Mission
+//
+// Cash at start is $2800
+// Total cash in this wave is $1200
+// Running Total cash is $4000
+///////////////////////////////////////////////////////////////////////////
+	Wave
+	{
+		StartWaveOutput
+			{
+				Target wave_start_relay
+				Action Trigger
+			}
+		DoneOutput					
+			{
+				Target wave_finished_relay
+				Action trigger
+			}
+		WaitWhenDone 65
+		Checkpoint Yes
+		
+		WaveSpawn //WAVE 03a: Jarate Sniper support
+		{
+			Name "wave03a"
+			Where spawnbot
+			TotalCount 8
+			MaxActive 8
+			SpawnCount 4
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 15 //from 5
+			TotalCurrency 200	
+			Support 1
+			
+		
+			Squad
+			{
+				ShouldPreserveSquad 1
+				FormationSize 256
+				
+				TFBot
+				{
+					Template T_TFBot_Sniper_Jarate
+					Attributes IgnoreFlag
+					BehaviorModifiers Mobber
+				}
+				TFBot
+				{
+					Template T_TFBot_Sniper_Bushwacka
+					Attributes IgnoreFlag
+					BehaviorModifiers Mobber
+				}
+				TFBot
+				{
+					Template T_TFBot_Sniper_Bushwacka
+					Attributes IgnoreFlag
+					BehaviorModifiers Mobber
+				}
+				TFBot
+				{
+					Template T_TFBot_Sniper_Bushwacka
+					Attributes IgnoreFlag
+					BehaviorModifiers Mobber
+				}
+			}
+		}
+		WaveSpawn //WAVE 03b: [TANK]s path a
+		{
+			Name "wave03b"
+			TotalCount 5
+			WaitBeforeStarting 5
+			WaitBetweenSpawns 20
+			TotalCurrency 400
+			
+			FirstSpawnOutput
+				{
+					Target boss_spawn_relay                                            
+					Action Trigger
+				}
+				
+			Tank
+			{
+				Health 12000
+				Speed 75
+				Skin 1
+				Name "FedEx-tra Salt"
+				//ClassIcon tank_salty
+				StartingPathTrackNode "boss_path_a1"
+			
+				OnKilledOutput                                  
+				{
+					Target boss_dead_relay
+					Action Trigger
+				}
+				OnBombDroppedOutput                                  
+				{
+					Target boss_deploy_relay
+					Action Trigger
+				}
+			}
+		}
+		WaveSpawn //WAVE 03c: [TANK]s path b
+		{
+			Name "wave03c"
+			TotalCount 5
+			WaitBeforeStarting 15
+			WaitBetweenSpawns 20
+			TotalCurrency 400
+			
+			FirstSpawnOutput
+				{
+					Target boss_spawn_relay                                            
+					Action Trigger
+				}
+				
+			Tank
+			{
+				Health 12000
+				Speed 75
+				Skin 1
+				Name "United Packaged Salt"
+				//ClassIcon tank_salty
+				StartingPathTrackNode "boss_path_b1"
+			
+				OnKilledOutput                                  
+				{
+					Target boss_dead_relay
+					Action Trigger
+				}
+				OnBombDroppedOutput                                  
+				{
+					Target boss_deploy_relay
+					Action Trigger
+				}
+			}
+		}
+		WaveSpawn //WAVE 03d: Milk Fish Scouts Squad Support
+		{
+			Name "wave03d"
+			Where spawnbot
+			TotalCount 8
+			MaxActive 8 //from 4
+			SpawnCount 4
+			WaitBeforeStarting 30  //from 45
+			WaitBetweenSpawns 15 //from 20
+			TotalCurrency 200	
+			Support 1
+		
+			Squad
+			{
+				TFBot
+				{
+					Template T_TFBot_Scout_Milk
+					Attributes IgnoreFlag
+					BehaviorModifiers Mobber
+				}
+				TFBot
+				{
+					Template T_TFBot_Scout_Milk
+					Attributes IgnoreFlag
+					BehaviorModifiers Mobber
+				}
+				TFBot
+				{
+					Template T_TFBot_Scout_Fish
+					Attributes IgnoreFlag
+					BehaviorModifiers Mobber
+				}
+				TFBot
+				{
+					Template T_TFBot_Scout_Fish
+					Attributes IgnoreFlag
+					BehaviorModifiers Mobber
+				}
+			}
+		}
+		WaveSpawn //WAVE 03d1: Giant Fish Scout
+		{
+			Name "wave03d1"
+			Where spawnbot
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 5
+			
+			TotalCurrency 1	
+		
+			TFBot
+			{
+				Template T_TFBot_Giant_Scout_Fish
+				ClassIcon tank_salty
+				Name "Hey guess what? Salt"
+			}
+
+		}
+		WaveSpawn //WAVE 03d2: Giant Fish Scout
+		{
+			Name "wave03d2"
+			WaitForAllDead "wave03d1"
+			Where spawnbot
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 5
+			
+			TotalCurrency 2	
+		
+			TFBot
+			{
+				Template T_TFBot_Giant_Scout_Fish
+				ClassIcon tank_salty
+				Name "Salt-mobile 9000"
+			}
+
+		}
+		WaveSpawn //WAVE 03d3: Giant Fish Scout
+		{
+			Name "wave03d3"
+			Where spawnbot
+			WaitForAllDead "wave03d2"
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 5
+			
+			TotalCurrency 3	
+		
+			TFBot
+			{
+				Template T_TFBot_Giant_Scout_Fish
+				ClassIcon tank_salty
+				Name "FedEx-tra Salt"
+			}
+
+		}
+		WaveSpawn //WAVE 03d4: Giant Fish Scout
+		{
+			Name "wave03d4"
+			Where spawnbot
+			WaitForAllDead "wave03d3"
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 5
+			
+			TotalCurrency 4	
+		
+			TFBot
+			{
+				Template T_TFBot_Giant_Scout_Fish
+				ClassIcon tank_salty
+				Name "United Packaged Salt"
+			}
+
+		}
+		WaveSpawn //WAVE 03d5: Giant Fish Scout
+		{
+			Name "wave03d5"
+			Where spawnbot
+			WaitForAllDead "wave03d4"
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 5
+			
+			TotalCurrency 5	
+		
+			TFBot
+			{
+				Template T_TFBot_Giant_Scout_Fish
+				ClassIcon tank_salty
+				Name "United Salt Postal Service"
+			}
+
+		}
+		WaveSpawn //WAVE 03d6: Giant Fish Scout
+		{
+			Name "wave03d6"
+			Where spawnbot
+			WaitForAllDead "wave03d5"
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 5
+			
+			TotalCurrency 6
+		
+			TFBot
+			{
+				Template T_TFBot_Giant_Scout_Fish
+				ClassIcon tank_salty
+				Name "NaCl Snail Mail"
+			}
+
+		}
+		WaveSpawn //WAVE 03d7: Giant Fish Scout
+		{
+			Name "wave03d7"
+			Where spawnbot
+			WaitForAllDead "wave03d6"
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 5
+			
+			TotalCurrency 7
+		
+			TFBot
+			{
+				Template T_TFBot_Giant_Scout_Fish
+				ClassIcon tank_salty
+				Name "Amasalt Prime Free 2-Day Salting"
+			}
+
+		}
+		WaveSpawn //WAVE 03d8: Giant Fish Scout
+		{
+			Name "wave03d8"
+			Where spawnbot
+			WaitForAllDead "wave03d7"
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 5
+			
+			TotalCurrency 8
+		
+			TFBot
+			{
+				Template T_TFBot_Giant_Scout_Fish
+				ClassIcon tank_salty
+				Name "Ebay-sically Just Salt"
+			}
+
+		}
+		WaveSpawn //WAVE 03d9: Giant Fish Scout
+		{
+			Name "wave03d9"
+			Where spawnbot
+			WaitForAllDead "wave03d8"
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 5
+			
+			TotalCurrency 9
+		
+			TFBot
+			{
+				Template T_TFBot_Giant_Scout_Fish
+				ClassIcon tank_salty
+				Name "Dehydrated Ocean Water"
+			}
+
+		}
+		WaveSpawn //WAVE 03d10: Giant Fish Scout
+		{
+			Name "wave03d10"
+			Where spawnbot
+			WaitForAllDead "wave03d9"
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 5
+			
+			TotalCurrency 10
+		
+			TFBot
+			{
+				Template T_TFBot_Giant_Scout_Fish
+				ClassIcon tank_salty
+				Name "Mother of all Salt"
+				Health 3000 //default 1500
+			}
+
+		}		
+	}
+//WAVE 4  /////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// 1 Tank (100)
+// 4 Buff Beggars soldiers squad (300)
+// -3 Fast Heavies
+// -split into 2 squads for farquaad and hydrogen
+// 12 Demoknights (100)
+//
+// Reflector Pyros Support(100)
+//
+// 1 Tank (100)
+//
+// 10 Crit Demos (300)
+// -2 quickfix medics
+//
+// 
+//
+//
+//
+// Sniper Mission
+//
+// Cash at start is $4000
+// Total cash in this wave is $1000
+// Running Total cash is $5000
+///////////////////////////////////////////////////////////////////////////
+	Wave
+	{
+		StartWaveOutput
+			{
+				Target wave_start_relay
+				Action Trigger
+			}
+		DoneOutput					
+			{
+				Target wave_finished_relay
+				Action trigger
+			}
+		WaitWhenDone 65
+		Checkpoint Yes
+		
+		// WaveSpawn //WAVE 04sb: Sentry Busters
+		// {
+			// Name "wave04sb"
+			// WaitBeforeStarting 60
+			// WaitBetweenSpawns 60			
+			// Where spawnbot
+			// TotalCount 10
+			// MaxActive 2
+			// SpawnCount 1
+			// TotalCurrency 0
+			
+			// Support 1
+			
+			// TFBot
+			// {
+				// Template T_TFBot_SentryBuster_Salty
+				// ClassIcon sentry_buster_hydrogen_salty
+				// Name "Salty Hydrogen Bomb"
+				// CharacterAttributes
+				// {
+					// "move speed bonus" 3
+				// }
+			// }
+		// }
+		
+		WaveSpawn //WAVE 04t: [TANK]
+		{
+			Name "wave04t"
+			TotalCount 1
+			WaitBeforeStarting 30 //spawns after 2 beggars soldiers
+			TotalCurrency 101
+			
+			FirstSpawnOutput
+				{
+					Target boss_spawn_relay                                            
+					Action Trigger
+				}
+				
+			Tank
+			{
+				Health 22000 //from 20k
+				Speed 75
+				Skin 1
+				Name "NaCl Transport"
+				//ClassIcon tank_salty
+				StartingPathTrackNode "boss_path_b1"
+			
+				OnKilledOutput                                  
+				{
+					Target boss_dead_relay
+					Action Trigger
+				}
+				OnBombDroppedOutput                                  
+				{
+					Target boss_deploy_relay
+					Action Trigger
+				}
+			}
+		}
+		WaveSpawn //WAVE 04t2: [TANK]
+		{
+			Name "wave04t2"
+			TotalCount 1
+			WaitForAllDead "wave04a2" //changed from 04t
+			WaitBeforeStarting 5 //from 20
+			TotalCurrency 101
+			
+			FirstSpawnOutput
+				{
+					Target boss_spawn_relay                                            
+					Action Trigger
+				}
+				
+			Tank
+			{
+				Health 22000 //from 20k
+				Speed 75
+				Skin 1
+				Name "Hey guess what? Salt"
+				//ClassIcon tank_salty
+				StartingPathTrackNode "boss_path_b1"
+			
+				OnKilledOutput                                  
+				{
+					Target boss_dead_relay
+					Action Trigger
+				}
+				OnBombDroppedOutput                                  
+				{
+					Target boss_deploy_relay
+					Action Trigger
+				}
+			}
+		}
+		WaveSpawn //WAVE 04a1: Buff Beggars Soldier Squad (Hydrogen)
+		{
+			Name "wave04a1"
+			Where spawnbot
+			TotalCount 8
+			MaxActive 8
+			SpawnCount 4
+			WaitBeforeStarting 5 //from 10
+			WaitBetweenSpawns 30
+			TotalCurrency 150	
+		
+			Squad
+			{
+				FormationSize 256
+				
+				TFBot
+				{
+					Template T_TFBot_Giant_Soldier_Buff_Beggar
+				}
+				TFBot
+				{
+					Template T_TFBot_Heavy_Fast
+				}
+				TFBot
+				{
+					Template T_TFBot_Heavy_Fast
+				}
+				TFBot
+				{
+					Template T_TFBot_Heavy_Fast
+				}
+			}
+		}
+		WaveSpawn //WAVE 04a2: Buff Beggars Soldier Squad (Farquaad)
+		{
+			Name "wave04a2"
+			Where spawnbot
+			TotalCount 8
+			MaxActive 8
+			SpawnCount 4
+			WaitBeforeStarting 20
+			WaitBetweenSpawns 30
+			TotalCurrency 150	
+		
+			Squad
+			{
+				FormationSize 256
+				
+				TFBot
+				{
+					Template T_TFBot_Giant_Soldier_Conch_Beggar
+				}
+				TFBot
+				{
+					Template T_TFBot_Heavy_Fast
+				}
+				TFBot
+				{
+					Template T_TFBot_Heavy_Fast
+				}
+				TFBot
+				{
+					Template T_TFBot_Heavy_Fast
+				}
+			}
+		}
+		
+		WaveSpawn //WAVE 04b: Demoknights
+		{
+			Name "wave04b"
+			Where spawnbot
+			TotalCount 12
+			MaxActive 6
+			SpawnCount 3
+			WaitBeforeStarting 20
+			WaitBetweenSpawns 5
+			TotalCurrency 101	
+			//Support 1
+			
+			TFBot
+			{
+				Template T_TFBot_Demoman_Knight
+				ClassIcon demoknight_salty
+				Name "Salty Charge Boy"
+			}
+			
+		}
+		WaveSpawn //WAVE 04c: Reflector Pyro Support
+		{
+			Name "wave04c"
+			Where spawnbot
+			TotalCount 20
+			MaxActive 4
+			SpawnCount 2
+			WaitBeforeStarting 15
+			WaitBetweenSpawns 5
+			TotalCurrency 101	
+			Support 1
+		
+			Squad
+			{
+				TFBot
+				{
+					Template T_TFBot_Pyro_Reflector
+				}
+				TFBot
+				{
+					Template T_TFBot_Pyro_Reflector
+				}
+			}
+		}
+		WaveSpawn //WAVE 04d: Crit Demos
+		{
+			Name "wave04d"
+			WaitForAllDead "wave04a2"
+			Where spawnbot
+			TotalCount 30
+			MaxActive 12
+			SpawnCount 3
+			WaitBeforeStarting 8
+			WaitBetweenSpawns 3
+			TotalCurrency 400
+		
+			Squad
+			{
+				TFBot
+				{
+					Template T_TFBot_Demoman_Crits
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickUber_QuickFix
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickUber_QuickFix
+				}
+
+			}
+		}
+	}
+//WAVE 5  /////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// 20 Force-a-Nature Scouts (100) less spammy now
+// 20 Soda Popper Scouts (100)
+// 1 Giant Fish Scout (50)
+// 
+// 50 Fish Scout support Limited (0)
+//
+// 1 Giant BB Heavy (50)
+// -healed by 2 Uber Meds
+// Assorted Support Heavies (100)
+// 1 TANK (150)
+//
+//
+// 1 Saltier Hydrogen (50) -New
+// 1 Saltier Farquaad (50) -New
+//
+//
+// Sniper Mission
+//
+// Cash at start is $5000
+// Total cash in this wave is $650
+// Running Total cash is $5650
+///////////////////////////////////////////////////////////////////////////
+	Wave
+	{
+		StartWaveOutput
+			{
+				Target wave_start_relay
+				Action Trigger
+			}
+		DoneOutput					
+			{
+				Target wave_finished_relay
+				Action trigger
+			}
+		WaitWhenDone 65
+		Checkpoint Yes
+		
+		
+		// WaveSpawn //WAVE 05sb: Sentry Busters
+		// {
+			// Name "wave05sb"
+			// WaitBeforeStarting 60
+			// WaitBetweenSpawns 60			
+			// Where spawnbot
+			// TotalCount 10
+			// MaxActive 2
+			// SpawnCount 1
+			// TotalCurrency 0
+			
+			// Support 1
+			
+			// TFBot
+			// {
+				// Template T_TFBot_SentryBuster_Salty
+				// ClassIcon sentry_buster_hydrogen_salty
+				// Name "Salty Hydrogen Bomb"
+				// CharacterAttributes
+				// {
+					// "move speed bonus" 3
+				// }
+			// }
+		// }
+	
+		WaveSpawn //WAVE 05a: FaN Scouts
+		{
+			Name "wave05a"
+			Where spawnbot
+			TotalCount 20
+			MaxActive 6 //from 10
+			SpawnCount 3 //from 5
+			WaitBeforeStarting 15
+			WaitBetweenSpawns 8 //from 5
+			TotalCurrency 101	
+		
+			TFBot
+			{
+				Template T_TFBot_Scout_FaN
+			}
+
+		}
+		WaveSpawn //WAVE 05a2: Soda Pop Scouts
+		{
+			Name "wave05a2"
+			Where spawnbot
+			TotalCount 20
+			MaxActive 6 //from 10
+			SpawnCount 3 //from 5
+			WaitBeforeStarting 15
+			WaitBetweenSpawns 8 //from 5
+			TotalCurrency 101	
+		
+			TFBot
+			{
+				Template T_TFBot_Scout_SodaPopper
+			}
+
+		}
+		WaveSpawn //WAVE 05b: Giant Fish Scout
+		{
+			Name "wave05b"
+			WaitForAllDead "wave05d" //spawns after BB heavy dies
+			Where spawnbot
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 8
+			
+			TotalCurrency 50	
+		
+			TFBot
+			{
+				Template T_TFBot_Giant_Scout_Fish
+				Health 5000
+			}
+
+		}
+		WaveSpawn //WAVE 05c: Fish Scouts Support Limited
+		{
+			Name "wave05a"
+			Where spawnbot
+			TotalCount 50
+			MaxActive 4 //from 5
+			SpawnCount 2 //from 5
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 5
+			TotalCurrency 0
+			Support Limited
+		
+			TFBot
+			{
+				Template T_TFBot_Scout_Fish
+			}
+
+		}
+		WaveSpawn //WAVE 05d: Giant BB Heavy
+		{
+			Name "wave05d"
+			//WaitForAllDead "wave05b"
+			Where spawnbot
+			TotalCount 3
+			MaxActive 3
+			SpawnCount 3
+			WaitBeforeStarting 5
+			WaitBetweenSpawns 10
+			TotalCurrency 50
+			
+			Squad
+			{
+				TFBot
+				{
+					Template T_TFBot_Giant_Heavy_BB
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic
+					ClassIcon medic_uber_salty
+					Name "Salty Heal Boy"
+					Health 800 //from 500
+					Scale 1.2 //added
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic
+					ClassIcon medic_uber_salty
+					Name "Salty Heal Boy"
+					Health 800 //from 500
+					Scale 1.2 //added
+				}
+			}
+		}
+		WaveSpawn //WAVE 05t: [TANK]
+		{
+			Name "wave05t"
+			WaitForAllDead "wave05d"
+			TotalCount 1
+			WaitBeforeStarting 5
+			TotalCurrency 150
+			
+			FirstSpawnOutput
+				{
+					Target boss_spawn_relay                                            
+					Action Trigger
+				}
+				
+			Tank
+			{
+				Health 40000 //from 30k
+				Speed 75
+				Skin 1
+				Name "Mother of all Salt"
+				//ClassIcon tank_salty
+				StartingPathTrackNode "boss_path_a1"
+			
+				OnKilledOutput
+				{
+					Target boss_dead_relay
+					Action Trigger
+				}
+				OnBombDroppedOutput                                  
+				{
+					Target boss_deploy_relay
+					Action Trigger
+				}
+			}
+		}
+		WaveSpawn //WAVE 05e: Assorted Heavies
+		{
+			Name "wave05e"
+			Where spawnbot
+			//WaitForAllDead "wave05d" //starts spawning immediately
+			TotalCount 25
+			MaxActive 10
+			SpawnCount 5
+			WaitBeforeStarting 10 //from 5
+			WaitBetweenSpawns 20 //from 6
+			TotalCurrency 100
+			Support 1
+			
+			Squad
+			{
+				FormationSize 512
+				
+				TFBot
+				{
+					Template T_TFBot_Heavy_Standard
+					Item "Iron Curtain"
+				}
+				TFBot
+				{
+					Template T_TFBot_Heavy_Standard
+					Item "Tomislav"
+				}
+				TFBot
+				{
+					Template T_TFBot_Heavy_Standard
+					Item "Natascha"
+				}
+				TFBot
+				{
+					Template T_TFBot_Heavy_Standard
+					Item "The Huo Long Heatmaker"
+				}
+				TFBot
+				{
+					Template T_TFBot_Heavy_Standard
+					Item "The Brass Beast"
+				}
+			}
+			
+		}
+		WaveSpawn //WAVE 05f: Buff Beggars Soldier Squad (Hydrogen & Farquaad)
+		{
+			Name "wave05f"
+			Where spawnbot
+			WaitForAllDead "wave05t"
+			TotalCount 2
+			MaxActive 2
+			SpawnCount 2
+			WaitBeforeStarting 5
+			WaitBetweenSpawns 30
+			TotalCurrency 100	
+		
+			Squad
+			{
+				FormationSize 512
+				
+				TFBot
+				{
+					Template T_TFBot_Giant_Soldier_Buff_Beggar
+					
+					ClassIcon soldier_buff_saltier
+					Name "Saltier Salty Hydrogen"
+					Health 20000 //from 17500
+					Scale 1.8
+					Attributes AlwaysCrit
+					
+					ItemAttributes
+					{
+						ItemName "The Beggar's Bazooka"
+						"projectile spread angle penalty" 5
+					}
+				}
+				TFBot
+				{
+					Template T_TFBot_Giant_Soldier_Conch_Beggar
+					
+					ClassIcon soldier_conch_saltier
+					Name "Saltier Salty Farquaad"
+					Health 15000
+					Scale 1.8
+					Attributes AlwaysCrit
+					
+					ItemAttributes
+					{
+						ItemName "The Beggar's Bazooka"
+						"projectile spread angle penalty" 5
+					}
+				}
+			}
+		}
+	
+	}
+//WAVE 6  /////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Achovies Wave
+//
+//
+// Cash at start is $5100
+// Total cash in this wave is $A Lot
+// Running Total cash is $Who cares
+///////////////////////////////////////////////////////////////////////////
+	Wave
+	{
+		StartWaveOutput
+			{
+				Target wave_start_relay
+				Action Trigger
+			}
+		DoneOutput					
+			{
+				Target wave_finished_relay
+				Action trigger
+			}
+		WaitWhenDone 65
+		Checkpoint Yes
+	
+		WaveSpawn //WAVE 06a: Do you smell it?
+		{
+			Name "wave06a"
+			Where spawnbot
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 5
+			WaitBetweenSpawns 5
+			TotalCurrency 0	
+		
+			TFBot
+			{
+				Template T_TFBot_Heavy_Fast
+				ClassIcon heavy_krabs
+				Name "Do you smell it?"
+				Health 300
+				WeaponRestrictions MeleeOnly
+				Attributes Aggressive
+				Attributes MiniBoss
+				Attributes IgnoreFlag
+			}
+		}
+		WaveSpawn //WAVE 06b: That smell...
+		{
+			Name "wave06b"
+			WaitForAllDead "wave06a"
+			Where spawnbot
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 5
+			TotalCurrency 0	
+		
+			TFBot
+			{
+				Template T_TFBot_Heavy_Fast
+				ClassIcon heavy_krabs
+				Name "That smell..."
+				Health 300
+				WeaponRestrictions MeleeOnly
+				BehaviorModifiers Mobber
+				Attributes MiniBoss
+				Attributes IgnoreFlag
+			}
+		}
+		WaveSpawn //WAVE 06c: The kind of smelly smell...
+		{
+			Name "wave06c"
+			WaitForAllDead "wave06b"
+			Where spawnbot
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 5
+			TotalCurrency 0	
+		
+			TFBot
+			{
+				Template T_TFBot_Heavy_Fast
+				ClassIcon heavy_krabs
+				Name "The kind of smelly smell..."
+				Health 300
+				WeaponRestrictions MeleeOnly
+				BehaviorModifiers Mobber
+				Attributes MiniBoss
+				Attributes IgnoreFlag
+			}
+		}
+		WaveSpawn //WAVE 06d: The smelly smell that smells...
+		{
+			Name "wave06d"
+			WaitForAllDead "wave06c"
+			Where spawnbot
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 5
+			TotalCurrency 0	
+		
+			TFBot
+			{
+				Template T_TFBot_Heavy_Fast
+				ClassIcon heavy_krabs
+				Name "The smelly smell that smells..."
+				Health 300
+				WeaponRestrictions MeleeOnly
+				BehaviorModifiers Mobber
+				Attributes MiniBoss
+				Attributes IgnoreFlag
+			}
+		}		
+		WaveSpawn //WAVE 06e: Smelly...
+		{
+			Name "wave06e"
+			WaitForAllDead "wave06d"
+			Where spawnbot
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 5
+			TotalCurrency 0	
+		
+			TFBot
+			{
+				Template T_TFBot_Heavy_Fast
+				ClassIcon heavy_krabs
+				Name "Smelly..."
+				Health 500
+				WeaponRestrictions MeleeOnly
+				BehaviorModifiers Mobber
+				Attributes MiniBoss
+				Attributes IgnoreFlag
+			}
+		}		
+		WaveSpawn //WAVE 06f: Anchovies...
+		{
+			Name "wave06f"
+			WaitForAllDead "wave06e"
+			Where spawnbot
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 5
+			TotalCurrency 0	
+		
+			TFBot
+			{
+				Template T_TFBot_Heavy_Fast
+				ClassIcon heavy_krabs
+				Name "Anchovies..."
+				Health 300
+				WeaponRestrictions MeleeOnly
+				BehaviorModifiers Mobber
+				Attributes MiniBoss
+				Attributes IgnoreFlag
+			}
+		}
+		WaveSpawn //WAVE 06g: What?
+		{
+			Name "wave06g"
+			WaitForAllDead "wave06f"
+			Where spawnbot
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 5
+			TotalCurrency 0	
+		
+			TFBot
+			{
+				Template T_TFBot_Demoman
+				ClassIcon demo_squidw
+				Name "What?"
+
+				WeaponRestrictions MeleeOnly
+				BehaviorModifiers Mobber
+				Attributes MiniBoss
+				Attributes IgnoreFlag
+			}
+		}
+		WaveSpawn //WAVE 06h: Anchovies!!!
+		{
+			Name "wave06h"
+			WaitForAllDead "wave06g"
+			Where spawnbot
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 5
+			TotalCurrency 0	
+		
+			TFBot
+			{
+				Template T_TFBot_Heavy_Fast
+				ClassIcon heavy_krabs
+				Name "ANCHOVIES!!!"
+				Health 1
+				WeaponRestrictions MeleeOnly
+				BehaviorModifiers Mobber
+				Attributes MiniBoss
+				Attributes IgnoreFlag
+			}
+		}
+		WaveSpawn //WAVE 06aa: Anchovies 1
+		{
+			Name "wave06aa"
+			WaitForAllDead "wave06h"
+			Where spawnbot
+			TotalCount 50
+			MaxActive 10
+			SpawnCount 10
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 6
+			TotalCurrency 500
+
+			Support 1
+		
+			TFBot
+			{
+				Template T_TFBot_Scout_Fish
+				ClassIcon scout_fish
+				Health 450 //from 300
+				Scale 1.15
+				Name "Anchovie"
+				//Attributes IgnoreFlag
+				//BehaviorModifiers Mobber
+				Attributes AutoJump
+				AutoJumpMin 1
+				AutoJumpMax 5
+				
+				CharacterAttributes
+				{
+					"move speed bonus" 1.25
+				}
+			}
+		}
+		WaveSpawn //WAVE 06aaa: Anchovies 2
+		{
+			Name "wave06aaa"
+			WaitForAllDead "wave06h"
+			Where spawnbot
+			TotalCount 50
+			MaxActive 10
+			SpawnCount 10
+			WaitBeforeStarting 3
+			WaitBetweenSpawns 6
+			TotalCurrency 500
+
+			Support 1
+		
+			TFBot
+			{
+				Template T_TFBot_Scout_Fish
+				ClassIcon scout_fish
+				Health 450 //from 300
+				Scale 1.25
+				Name "Anchovie"
+				//Attributes IgnoreFlag
+				//BehaviorModifiers Mobber
+				Attributes AutoJump
+				AutoJumpMin 1
+				AutoJumpMax 5
+				
+				CharacterAttributes
+				{
+					"move speed bonus" 1.25
+					"increased jump height" 1.5
+				}
+				
+			}
+		}
+		WaveSpawn //WAVE 06t: [TANKs]  
+		{
+			Name "wave06t"
+			WaitForAllDead "wave06i" //spawns after mommy
+			TotalCount 10
+			WaitBeforeStarting 5
+			WaitBetweenSpawns 1
+			
+			TotalCurrency 1000
+			
+			FirstSpawnOutput
+				{
+					Target boss_spawn_relay                                            
+					Action Trigger
+				}
+				
+			Tank
+			{
+				Health 10000 //from 5k
+				Speed 125 //default 75
+				Skin 1
+				Name "Anchovie Express"
+				StartingPathTrackNode "boss_path_a1"
+			
+				OnKilledOutput                                  
+				{
+					Target boss_dead_relay
+					Action Trigger
+				}
+				OnBombDroppedOutput                                  
+				{
+					Target boss_deploy_relay
+					Action Trigger
+				}
+			}
+		}
+		
+		WaveSpawn //WAVE 0i: I want my mommy
+		{
+			Name "wave06i"
+			WaitForAllDead "wave06h"
+			Where spawnbot
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 5
+			TotalCurrency 0	
+		
+			TFBot
+			{
+				Template T_TFBot_Heavy_Fast
+				ClassIcon heavy_krabs
+				Name "I Want My Mommy Mr. Squidward!"
+				Health 10000
+				WeaponRestrictions MeleeOnly
+				BehaviorModifiers Mobber
+				Attributes MiniBoss
+				Attributes IgnoreFlag
+			}
+		}
+		
+		WaveSpawn //WAVE 06ab: Giant Fish Scout - King Achovie
+		{
+			Name "wave06ab"
+			WaitForAllDead "wave06i"
+			Where spawnbot
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 15 //from 0			
+			TotalCurrency 500	
+		
+			TFBot
+			{
+				Template T_TFBot_Giant_Scout_Fish
+				Name "King Anchovie"
+				ClassIcon scout_fish_giant
+				Health 25000
+				Attributes UseBossHealthBar
+				
+				CharacterAttributes
+				{
+					"move speed bonus"	0.5
+				}
+			}
+		}
+	}
+
+}
