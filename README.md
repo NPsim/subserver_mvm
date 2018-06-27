@@ -1,3 +1,8 @@
-# tf2
-things will be mostly uploaded via web browser
-testing certain things with this repo
+# Sub-MvM Lab Server
+Repository of main server files.
+
+Maps (.bsp)
+
+GUI Materials (.vtf)
+
+Population Files (.pop)
