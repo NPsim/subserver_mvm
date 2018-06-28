@@ -1,0 +1,8 @@
+"UnlitGeneric"
+{
+	"$basetexture" "hud/leaderboard_class_heavy_deflector_healonkill_conch_extended_shitversion"
+	"$no_fullbright" 1
+	"$ignorez" 1
+	"%keywords" "tf"
+	"$translucent" 1
+}
