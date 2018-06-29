@@ -1,0 +1,394 @@
+////////////////////////////////////////////////////////////////
+//
+//	mvm_trainyard example pop file
+//	map created by 42 - http://steamcommunity.com/profiles/76561198166835059
+//	tf2maps - https://tf2maps.net/downloads/trainyard.1572/
+//	steam workshop - https://steamcommunity.com/sharedfiles/filedetails/?id=1160890619
+//
+//	this pop file is an example on how to make a working pop file for mvm_trainyard with train/gatebot gimmik
+//
+//	list of robot spawns:
+//	spawnbot - both left and main path
+//	spawnbot_left - left path
+//	spawnbot_middle - main path
+//	spawnbot_right - right/flank path
+//	spawnbot_mission_sniper - right/flank path
+//	spawnbot_mission_spy - main path, but doesnt matter for spy
+//	spawnbot_mission_sentrybuster - main path
+//	
+//	list of starting tank path:
+//	tank_path_LL_1 - spawns in left side and takes lower path
+//	tank_path_RL_1 - spawns in right side and takes lower path
+//	tank_path_LU_1 - spawns in left side and takes upper path
+//	tank_path_RU_1 - spawns in right side and takes upper path
+//
+////////////////////////////////////////////////////////////////
+
+#base robot_giant.pop
+#base robot_standard.pop
+#base robot_gatebot.pop
+#base robot_trainyard.pop		//custom robots template for mvm_trainyard
+population
+{
+	StartingCurrency	30000
+	RespawnWaveTime	0
+	CanBotsAttackWhileInSpawnRoom	no
+	
+	Wave									//this wave shows how to trigger train with robots
+	{
+		WaitWhenDone	65
+		Checkpoint	Yes
+		StartWaveOutput
+		{
+			Target	wave_start_relay
+			Action	Trigger
+		}
+		DoneOutput
+		{
+			Target	wave_finished_relay
+			Action	Trigger
+		}
+		
+		WaveSpawn	//this WaveSpawn is purely for "A" sign in support robots hud, to hint the current wave have train A
+		{
+			WaitForAllDead	"w1_D"			//starts once all robots killed, so it would never spawns in map
+			TotalCurrency 0
+			Where spawnbot
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBetweenSpawnsAfterDeath 0
+			WaitBeforeStarting 1000000		//alternately, dont let him spawn for a very long time
+			Support 1						//must be support 1
+
+			TFBot
+			{
+				Class Scout
+				ClassIcon	sign_a			//sets his custom icon to A sign
+			}
+		}
+		
+		WaveSpawn							//repeat same for train B
+		{
+			WaitForAllDead	"w1_D"
+			TotalCurrency 0
+			Where spawnbot
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBetweenSpawnsAfterDeath 0
+			WaitBeforeStarting 1000000
+			Support 1
+
+			TFBot
+			{
+				Class Scout
+				ClassIcon	sign_b			//sets his custom icon to B sign
+			}
+		}
+		
+		WaveSpawn							//repeat same for train C
+		{
+			WaitForAllDead	"w1_D"
+			TotalCurrency 0
+			Where spawnbot
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBetweenSpawnsAfterDeath 0
+			WaitBeforeStarting 1000000
+			Support 1
+
+			TFBot
+			{
+				Class Scout
+				ClassIcon	sign_c			//sets his custom icon to C sign
+			}
+		}
+		
+		WaveSpawn							//repeat same for train D
+		{
+			WaitForAllDead	"w1_D"
+			TotalCurrency 0
+			Where spawnbot
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBetweenSpawnsAfterDeath 0
+			WaitBeforeStarting 1000000
+			Support 1
+
+			TFBot
+			{
+				Class Scout
+				ClassIcon	sign_d			//sets his custom icon to D sign
+			}
+		}
+		
+		WaveSpawn							//this is an example gatebot to capture train
+		{
+			Name	"w1_D"					//to prevent all custom icon robots to spawn
+			TotalCurrency	0
+			TotalCount	10
+			MaxActive	1
+			SpawnCount	1
+			Where	spawnbot_right
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	0
+			
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFGateBot_Scout_Melee
+				}
+			}
+		}
+		
+		WaveSpawn							//this robot calls train A to spawn in map once robot is spawned
+		{
+			Name	"w1_A"
+			TotalCurrency	0
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			Where	spawnbot_middle
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	0
+			
+			FirstSpawnOutput				//When a robot spawned this relay fires
+			{
+				Target train_spawnrelay_A	//this relay triggeres train A to spawn in map for getbot to capture it
+				Action Trigger				//action to fire the relay
+			}
+			
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Heavyweapons_Heavyweight_Champ
+				}
+			}
+		}
+		
+		WaveSpawn							//repeat for train B to spawn
+		{
+			Name	"w1_B"
+			WaitForAllDead	"w1_A"			//start spawns once robot triggeres train A is killed
+			TotalCurrency	0
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			Where	spawnbot_middle
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	0
+			
+			FirstSpawnOutput
+			{
+				Target train_spawnrelay_B	//relay to spawn train B
+				Action Trigger
+			}
+			
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Heavyweapons_Heavyweight_Champ
+				}
+			}
+		}
+		
+		WaveSpawn							//repeat for train C to spawn
+		{
+			Name	"w1_C"
+			WaitForAllDead	"w1_B"			//start spawns once robot triggeres train B is killed
+			TotalCurrency	0
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			Where	spawnbot_middle
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	0
+			
+			FirstSpawnOutput
+			{
+				Target train_spawnrelay_C	//relay to spawn train C
+				Action Trigger
+			}
+			
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Heavyweapons_Heavyweight_Champ
+				}
+			}
+		}
+		
+		WaveSpawn							//repeat for train D to spawn
+		{
+			Name	"w1_D"
+			WaitForAllDead	"w1_C"			//start spawns once robot triggeres train C is killed
+			TotalCurrency	0
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			Where	spawnbot_middle
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	0
+			
+			FirstSpawnOutput
+			{
+				Target train_spawnrelay_D	//relay to spawn train D
+				Action Trigger
+			}
+			
+			Squad
+			{
+				TFBot
+				{
+					Template	T_TFBot_Heavyweapons_Heavyweight_Champ
+				}
+			}
+		}
+	}
+	Wave									//this wave shows each 4 tank paths
+	{
+		WaitWhenDone	65
+		Checkpoint	Yes
+		StartWaveOutput
+		{
+			Target	wave_start_relay
+			Action	Trigger
+		}
+		DoneOutput
+		{
+			Target	wave_finished_relay
+			Action	Trigger
+		}
+		
+		WaveSpawn
+		{
+			TotalCurrency	0
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			Where	spawnbot
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	0
+			Squad
+			{
+				Tank
+				{
+					Health	200
+					Name	Tank
+					Speed	75
+					StartingPathTrackNode	tank_path_LL_1	//spawns in left side and takes lower path
+					OnKilledOutput
+					{
+						Target	boss_dead_relay
+						Action	Trigger
+					}
+					OnBombDroppedOutput
+					{
+						Target	boss_deploy_relay
+						Action	Trigger
+					}
+				}
+			}
+		}
+		
+		WaveSpawn
+		{
+			TotalCurrency	0
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			Where	spawnbot
+			WaitBeforeStarting	20
+			WaitBetweenSpawns	0
+			Squad
+			{
+				Tank
+				{
+					Health	200
+					Name	Tank
+					Speed	75
+					StartingPathTrackNode	tank_path_RL_1	//spawns in right side and takes lower path
+					OnKilledOutput
+					{
+						Target	boss_dead_relay
+						Action	Trigger
+					}
+					OnBombDroppedOutput
+					{
+						Target	boss_deploy_relay
+						Action	Trigger
+					}
+				}
+			}
+		}
+		
+		WaveSpawn
+		{
+			TotalCurrency	0
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			Where	spawnbot
+			WaitBeforeStarting	30
+			WaitBetweenSpawns	0
+			Squad
+			{
+				Tank
+				{
+					Health	200
+					Name	Tank
+					Speed	75
+					StartingPathTrackNode	tank_path_LU_1	//spawns in left side and takes upper path
+					OnKilledOutput
+					{
+						Target	boss_dead_relay
+						Action	Trigger
+					}
+					OnBombDroppedOutput
+					{
+						Target	boss_deploy_relay
+						Action	Trigger
+					}
+				}
+			}
+		}
+		
+		WaveSpawn
+		{
+			TotalCurrency	0
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			Where	spawnbot
+			WaitBeforeStarting	50
+			WaitBetweenSpawns	0
+			Squad
+			{
+				Tank
+				{
+					Health	200
+					Name	Tank
+					Speed	75
+					StartingPathTrackNode	tank_path_RU_1	//spawns in right side and takes upper path
+					OnKilledOutput
+					{
+						Target	boss_dead_relay
+						Action	Trigger
+					}
+					OnBombDroppedOutput
+					{
+						Target	boss_deploy_relay
+						Action	Trigger
+					}
+				}
+			}
+		}
+	}
+}
