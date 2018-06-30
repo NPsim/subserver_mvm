@@ -1,5 +1,5 @@
 # Sub-MvM Lab Server
-Repository of main server files.
+Repository of BAD main server files.
 
 Maps (.bsp)
 
