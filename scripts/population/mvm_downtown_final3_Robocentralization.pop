@@ -1620,7 +1620,7 @@ population
 			MaxActive	1
 			SpawnCount	1
 			TotalCurrency	50
-			WaitBeforeStarting	27
+			WaitBeforeStarting	37
 			WaitBetweenSpawns	6
 			TFBot
 			{
@@ -1723,9 +1723,9 @@ population
 			Where	spawnbot_garage
 			Where	spawnbot_mensch
 			Where	spawnbot_trainstation
-			TotalCount	35
-			MaxActive	14
-			SpawnCount	7
+			TotalCount	24
+			MaxActive	12
+			SpawnCount	6
 			TotalCurrency	50
 			WaitBeforeStarting	2
 			WaitBetweenSpawns	11
@@ -1743,7 +1743,7 @@ population
 			Where	spawnbot_garage
 			Where	spawnbot_mensch
 			Where	spawnbot_trainstation
-			TotalCount	44
+			TotalCount	28
 			MaxActive	8
 			SpawnCount	4
 			TotalCurrency	50
@@ -1780,13 +1780,13 @@ population
 			Where	spawnbot_garage
 			Where	spawnbot_mensch
 			Where	spawnbot_trainstation
-			TotalCount	60
+			TotalCount	40
 			MaxActive	6
 			SpawnCount	1
 			TotalCurrency	50
 			WaitBeforeStarting	2
 			WaitBetweenSpawns	1
-			Support	Limted
+			Support	Limited
 			TFBot
 			{
 				Template	T_TFBot_Soldier_Extended_Battalion
