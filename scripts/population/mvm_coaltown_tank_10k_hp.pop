@@ -5,7 +5,7 @@
 #base robot_gatebot.pop
 population
 {
-	StartingCurrency	20000
+	StartingCurrency	30000
 	RespawnWaveTime	6
 	CanBotsAttackWhileInSpawnRoom	no
 	Templates

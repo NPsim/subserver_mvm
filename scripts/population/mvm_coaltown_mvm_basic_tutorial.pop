@@ -1,0 +1,596 @@
+#base robot_giant.pop
+#base robot_standard.pop
+#base robot_gatebot.pop
+population
+{
+	StartingCurrency	700
+	RespawnWaveTime	0
+	CanBotsAttackWhileInSpawnRoom	no
+	FixedRespawnWaveTime	Yes
+	Mission
+	{
+		Objective	Spy
+		Where	spawnbot_mission_spy
+		BeginAtWave	5
+		RunForThisManyWaves	1
+		InitialCooldown	48
+		CooldownTime	60
+		DesiredCount	1
+		TFBot
+		{
+			Template	T_TFBot_Spy
+		}
+	}
+	Mission
+	{
+		Objective	Sniper
+		Where	spawnbot_mission_sniper
+		BeginAtWave	5
+		RunForThisManyWaves	1
+		InitialCooldown	40
+		CooldownTime	60
+		DesiredCount	2
+		TFBot
+		{
+			Template	T_TFBot_Sniper
+			MaxVisionRange 2000
+		}
+	}
+	Mission
+	{
+		Objective	SeekAndDestroy
+		Where	spawnbot
+		BeginAtWave	5
+		RunForThisManyWaves	1
+		CooldownTime	30
+		DesiredCount	1
+		TFBot
+		{
+			Template	T_TFBot_SentryBuster
+		}
+	}
+	Wave
+	{
+		Explanation [$SIGSEGV]
+		{
+			Line "{red}Welcome to the Tutorial!"
+			Line ""
+			Line "{737373}Robots {reset}in Mann Vs Machine carry a {ff471a}bomb."
+			Line "Their objective is to make it to the players's hatch and {ff471a}deploy the bomb."
+			Line "Which is normally near your spawn."
+			Line "Most of the time, robots drop {33cc33}cash {reset}upon dying."
+			Line "The cash can be used to buy upgrades such as {3385ff}resistances {reset}(the section with your class's image), {ff9900}weapon buffs {reset}and {ff4d4d}canteens."
+			Line "{green}Objective: {reset}Defend your hatch from the Scouts and collect their cash!"
+			Line "{ffff66}Tip : Scouts gain health from collecting cash and have a larger cash collecting radius."
+		}
+		WaitWhenDone	65
+		Checkpoint	Yes
+		StartWaveOutput
+		{
+			Target	wave_start_relay
+			Action	Trigger
+		}
+		DoneOutput
+		{
+			Target	wave_finished_relay
+			Action	Trigger
+		}
+		WaveSpawn
+		{
+			TotalCurrency	100
+			Name bow1
+			TotalCount	10
+			MaxActive	6
+			SpawnCount	2
+			FirstSpawnWarningSound vo/mvm_bomb_alerts01.mp3
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	6
+			Where	spawnbot
+			TFBot
+			{
+				Class Scout
+				WeaponRestrictions MeleeOnly
+				ClassIcon scout_bat
+				Skill Easy
+				Item "Upgradeable TF_WEAPON_BAT"
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	100
+			Name bow2
+			WaitForAllDead bow1
+			TotalCount	10
+			MaxActive	5
+			SpawnCount	5
+			WaitBeforeStarting	6
+			WaitBetweenSpawns	10
+			Where	spawnbot
+			TFBot
+			{
+				Class Scout
+				WeaponRestrictions MeleeOnly
+				Item "Sun-on-a-Stick"
+				Item "The Bolt Boy"
+				ClassIcon scout_sunstick
+				Skill Normal
+				Name "Sunstick Scout"
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	100
+			Name bow3
+			WaitForAllDead bow2
+			TotalCount	10
+			MaxActive	5
+			SpawnCount	5
+			WaitBeforeStarting	6
+			WaitBetweenSpawns	12
+			Where	spawnbot_mission_sniper
+			TFBot
+			{
+				Class Scout
+				WeaponRestrictions MeleeOnly
+				ClassIcon scout_bat
+				Name "Fish Scout"
+				Skill Hard
+				Item "The Holy Mackerel"
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	300
+			Name bow4
+			WaitForAllDead bow3
+			TotalCount	30
+			MaxActive	10
+			SpawnCount	5
+			WaitBeforeStarting	7
+			WaitBetweenSpawns	12
+			Where	spawnbot
+			TFBot
+			{
+				Class Scout
+				Item "Upgradeable TF_WEAPON_SCATTERGUN"
+				Skill Easy
+				ItemAttributes
+				{
+					ItemName "Upgradeable TF_WEAPON_SCATTERGUN"
+					"fire rate penalty" 2.5
+					"damage penalty" 0.7
+					"bullets per shot bonus" 3
+					"spread penalty" 1.15
+				}
+			}
+		}
+	}
+	Wave
+	{
+		Explanation [$SIGSEGV]
+		{
+			Line "There are more types of {737373}robots {reset}instead of just {005ce6}Bowmen."
+			Line "Look at the top of your screen to see what comes during the wave!"
+			Line "In mid-wave, press TAB or toggle 'cl_mvm_wave_status_visible_during_wave' in console to see current robots alive in the wave."
+			Line "{green}Objective: {reset}Defend your hatch from the Scouts, Soldiers and Pyros then collect their cash!"
+			Line "{ffff66}Tip : Robot eyes are based on how good they are. You will have a little tougher time fighting bots with {reset}{ffff00}yellow eyes, {ffff66}but easier to fight robots with {80d4ff}blue eyes."
+			Line "{ffff66}Tip#2 : Permanently crit-boosted bots will have a blue outline around them."
+		}
+		Checkpoint	Yes
+		StartWaveOutput
+		{
+			Target	wave_start_relay
+			Action	Trigger
+		}
+		DoneOutput
+		{
+			Target	wave_finished_relay
+			Action	Trigger
+		}
+		WaveSpawn
+		{
+			TotalCurrency 240	
+			TotalCount	24
+			MaxActive	9
+			SpawnCount	3
+			Name w2_a
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	7
+			Where	spawnbot
+			Squad
+			{
+			    FormationSize 50
+				TFBot
+				{
+					Class Soldier
+					Skill Easy
+					Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+				}
+				TFBot
+				{
+					Template T_TFBot_Scout_Sandman
+					Skill Normal
+				}
+				TFBot
+				{
+					Template T_TFBot_Scout_Sandman
+					Skill Normal
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	180
+			TotalCount	18
+			MaxActive	6
+			SpawnCount	3
+			Name w2_b
+			WaitBeforeStarting	35
+			WaitBetweenSpawns	10
+			Where	spawnbot
+			TFBot
+			{
+				Skill	Easy
+				Class Pyro
+				Item "Upgradeable TF_WEAPON_FLAMETHROWER"
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	180
+			TotalCount	9
+			MaxActive	3
+			SpawnCount	3
+			Name w2_c
+			WaitForAllSpawned w2_a
+			WaitBeforeStarting	9
+			WaitBetweenSpawns	13
+			Where	spawnbot
+			TFBot
+			{
+				Template T_TFBot_Scout_Bonk
+				Name "Bonk Scout"
+				Skill Easy
+				Item "Upgradeable TF_WEAPON_BAT"
+				CharacterAttributes
+				{
+					"move speed penalty" 0.85
+					"gesture speed increase" 0.85
+				}
+			}
+		}
+	}
+	Wave
+	{
+		Explanation [$SIGSEGV]
+		{
+			Line "A {e60000}Giant {reset}is in this wave, you can tell by its {e60000}red background {reset}of its icon."
+			Line "Giants have significantly more health than normal robots."
+			Line "In this situation, its a Giant Scout."
+			Line "{green}Objective: {reset}Defend your hatch from the Giant Scout and collect its cash!"
+			Line "{ffff66}Tip : Giants do not lose speed from carrying the bomb. However, they cannot gain buffs from the bomb."
+		}
+		StartWaveOutput
+		{
+			Target	wave_start_relay
+			Action	Trigger
+		}
+		DoneOutput
+		{
+			Target	wave_finished_relay
+			Action	Trigger
+		}
+		WaveSpawn
+		{
+			TotalCurrency	200
+			TotalCount	2
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	8
+			Where	spawnbot
+			TFBot
+			{
+				Template	T_TFBot_Giant_Scout
+				Item "Upgradeable TF_WEAPON_SCATTERGUN"
+				CharacterAttributes
+				{
+					"airblast vulnerability multiplier" 0.25
+					"airblast vertical vulnerability multiplier" 0.5
+				}
+			}
+		}
+	}
+	Wave
+	{
+		Explanation [$SIGSEGV]
+		{
+			Line "{blue}Tank!"
+			Line "Tanks are moving machines that can deploy the bomb."
+			Line "If they are given enough time or take not enough damage, they will deploy the bomb at the hatch!"
+			Line "Tank(s) {yellow}health {reset}is shown at your top screen/hud when it appears."
+			Line "{green}Objective: {reset}Destroy the tank and gather is cash!"
+			Line "{ffff66}Tip : Tanks can kill you if they crush you against a wall, celling or nearby objects. They cannot run over you unless the floor it's moving on is not flat or someting was blocking you."
+			Line "{ffff66}Tip#2 : Soldiers, Pyros and Demomen are very good at damaging tanks."
+		}	
+		WaitWhenDone	65
+		Checkpoint	Yes
+		StartWaveOutput
+		{
+			Target	wave_start_relay
+			Action	Trigger
+		}
+		DoneOutput
+		{
+			Target	wave_finished_relay
+			Action	Trigger
+		}
+		WaveSpawn
+		{
+			TotalCurrency	500
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	0
+			Where	spawnbot
+			Squad
+			{
+				Tank
+				{
+					Health	14750
+					Name	"Tank Tutorial"
+					Speed	75
+					OnKilledOutput
+					{
+						Target	boss_dead_relay
+						Action	Trigger
+					}
+					OnBombDroppedOutput
+					{
+						Target	boss_deploy_relay
+						Action	Trigger
+					}
+				}
+			}
+		}
+	}
+	Wave
+	{
+		Explanation [$SIGSEGV]
+		{	
+			Line "{gray}Congrats!"
+			Line "{green}You've completed the basic tutorial, {reset}{red}but now its time to see what a mid-wave in Intermediate difficulty for Coaltown might look like."
+			Line "{green}Objective: {reset}Defend Mann Co at all costs!"
+			Line "{ffff66}Tip : If an Engineer killed a specific amount of bots or done a specific amount of damage with his sentry, a Sentry Buster will enter the area after it's spawn times are over."
+			Line "{ffff66}Tip#2 : Medic bots will use their ubercharge if they themselves or their patient is below 50% health."
+			Line "{ffff66}Use Spy's Sappers or Knives or Demoman's Stickybombs to kill them before they use it!"
+		} 
+		StartWaveOutput
+		{
+			Target	wave_start_relay
+			Action	Trigger
+		}
+		DoneOutput
+		{
+			Target	wave_finished_relay
+			Action	Trigger
+		}
+		WaveSpawn
+		{
+			Name	w1-a
+			TotalCurrency	90
+			TotalCount	30
+			MaxActive	9
+			SpawnCount	3
+			WaitBeforeStarting	0
+			WaitBetweenSpawns	6
+			Where	spawnbot
+			Squad
+			{
+			    FormationSize 35.0
+			    TFBot
+				{
+				    Template T_TFBot_Heavyweapons_Heavyweight_Champ
+				}
+				TFBot
+				{
+					Class Sniper
+					Name "Bowman"
+					Skill Hard
+					ClassIcon sniper_bow
+					WeaponRestrictions PrimaryOnly
+					Item "The Huntsman"
+
+					ItemAttributes
+					{
+						ItemName "The Huntsman"
+						"damage penalty" 0.4
+						"fire rate penalty" 0.85
+					}
+				}
+				TFBot
+				{
+				    Class Sniper
+					Name "Bowman"
+					Skill Hard
+					ClassIcon sniper_bow
+					WeaponRestrictions PrimaryOnly
+					Item "The Huntsman"
+
+					ItemAttributes
+					{
+						ItemName "The Huntsman"
+						"damage penalty" 0.4
+						"fire rate penalty" 0.85
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	w1-b
+			TotalCurrency	120
+			TotalCount	24
+			MaxActive	6
+			SpawnCount	3
+			WaitBeforeStarting	17.5
+			WaitBetweenSpawns	9
+			Where	spawnbot
+			Squad
+			{
+				TFBot
+				{
+					Template T_TFBot_Demoman_Knight
+					Skill Hard
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	240
+			TotalCount	16
+			MaxActive	8
+			SpawnCount	8
+			WaitForAllDead w1-a
+			WaitBeforeStarting	20
+			WaitBetweenSpawns	18
+			Where	spawnbot_giant
+			Squad
+			{
+			    FormationSize 37.5
+			    TFBot
+				{
+				    Class Soldier
+					Name "Giant Charged Soldier"
+					ClassIcon soldier_crit
+					Skill Normal
+					Health 3800
+					Item "The Original"
+					Attributes AlwaysCrit
+					WeaponRestrictions PrimaryOnly
+					Attributes MiniBoss
+					ItemAttributes
+					{
+						ItemName "The Original"
+						"faster reload rate" 0.2
+						"fire rate penalty" 2
+						"Projectile speed increased" 0.5
+					}
+					CharacterAttributes
+					{
+						"damage force reduction" 0.4
+						"move speed penalty"	0.5
+						"airblast vulnerability multiplier" 0.1
+						"airblast vertical vulnerability multiplier" 0.5
+						"override footstep sound set" 3
+					}
+				}
+				TFBot
+				{
+				    Template T_TFBot_Medic_QuickFix
+				}
+				TFBot
+				{
+				    Template T_TFBot_Medic_QuickFix
+				}
+				TFBot
+				{
+				    Template T_TFBot_Medic_QuickFix
+				}
+				TFBot
+				{
+				    Template T_TFBot_Medic_QuickFix
+				}
+				TFBot
+				{
+				    Class Demoman
+					Name "Burst Fire Demo"
+					ClassIcon demo_burst
+					Skill Hard
+					WeaponRestrictions PrimaryOnly
+					Attributes HoldFireUntilFullReload
+					Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+						"reload time increased" 1.75
+						"fire rate bonus" 0.05
+						"clip size penalty" 0.5
+						"projectile spread angle penalty" 3
+						//"Projectile speed increased"	1.1
+					}
+				}
+				TFBot
+				{
+					 Class Demoman
+					Name "Burst Fire Demo"
+					ClassIcon demo_burst
+					Skill Normal
+					WeaponRestrictions PrimaryOnly
+					Attributes HoldFireUntilFullReload
+					Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+						"reload time increased" 1.75
+						"fire rate bonus" 0.05
+						"clip size penalty" 0.5
+						"projectile spread angle penalty" 3
+						//"Projectile speed increased"	1.1
+					}
+				}
+				TFBot
+				{
+				    Class Demoman
+					Name "Burst Fire Demo"
+					ClassIcon demo_burst
+					Skill Normal
+					WeaponRestrictions PrimaryOnly
+					Attributes HoldFireUntilFullReload
+					Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+					ItemAttributes
+					{
+						ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+						"reload time increased" 1.75
+						"fire rate bonus" 0.05
+						"clip size penalty" 0.5
+						"projectile spread angle penalty" 3
+						//"Projectile speed increased"	1.1
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCurrency	250
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			WaitForAllDead w1-a
+			WaitBeforeStarting	10
+			WaitBetweenSpawns	0
+			Where	spawnbot
+			Squad
+			{
+				Tank
+				{
+					Health	12500
+					Name	tankboss
+					Speed	75
+					Skin 1
+					OnKilledOutput
+					{
+						Target	boss_dead_relay
+						Action	Trigger
+					}
+					OnBombDroppedOutput
+					{
+						Target	boss_deploy_relay
+						Action	Trigger
+					}
+				}
+			}
+		}
+	}
+}
