@@ -593,7 +593,7 @@ WaveSchedule
 		{
 			Class	Demoman
 			Name	"Mad Bomber"
-			ClassIcon	demo_nuker
+			ClassIcon	demoman_nuker
 			Health	45000
 			Scale	1.9
 			Item	"The Bolgan"
