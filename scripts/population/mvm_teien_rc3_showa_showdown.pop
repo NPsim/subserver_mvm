@@ -249,7 +249,7 @@ WaveSchedule
 			ItemAttributes
 			{
 				ItemName "The Direct Hit"
-				"projectile spread angle penalty" 1
+				"projectile spread angle penalty" 2.5
 				"clip size upgrade atomic" 2
 				"faster reload rate" .55
 				"fire rate bonus" .4
@@ -1611,7 +1611,7 @@ WaveSchedule
 					ItemAttributes
 					{
 						ItemName "The Direct Hit"
-						"projectile spread angle penalty" 1
+						"projectile spread angle penalty" 2.5
 						"clip size upgrade atomic" 2
 						"faster reload rate" .15
 						"fire rate bonus" .4
