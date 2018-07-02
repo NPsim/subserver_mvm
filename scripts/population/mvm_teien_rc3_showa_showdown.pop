@@ -1367,6 +1367,7 @@ WaveSchedule
 					Template T_TFBot_Demo_Burst
 					Name "Cluster Demoman"
 					Skill Hard
+					Classicon "demo_ibomber"
 					Item "The Iron Bomber"
 					ItemAttributes
 					{
