@@ -2499,7 +2499,7 @@ Advanced2/Expert1_Titanium_Tank
         {
             Class Sniper
             Skill Hard
-            ClassIcon​ sniper_huntsman_bleed_razorback_jarate
+            ClassIcon​ sniper_huntsman_bleed_razorback_jarate // ERROR Theres a zero width space
             Item "The Huntsman"
 			Item "The Razorback"
             ItemAttributes

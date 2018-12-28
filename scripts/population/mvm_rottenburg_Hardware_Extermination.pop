@@ -249,7 +249,7 @@ population
 			Where	spawnbot_mission_spy
 			WaitBeforeStarting	0
 			WaitBetweenSpawnsAfterDeath	30
-			Attributes	IgnoreFlag
+			Attributes IgnoreFlag // ERROR Attributes is supposed to go under TFBot
 			Support	1
 			Squad
 			{

@@ -167,7 +167,7 @@ WaveSchedule
 				"faster reload rate" 0.5
 			}
 		}
-		Wave1_Foofs
+		Wave1_Foofs // WaveSpawn Templates unsupported
 		{
 			TotalCurrency 50
 			TotalCount 10

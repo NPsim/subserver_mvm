@@ -281,7 +281,7 @@ Mission // sentry buster
 		    Attributes AlwaysFireWeapon
 		    Attributes MiniBoss
 		  }
-		    ItemAttributes
+		    ItemAttributes // Totally broken mission
 		  {
 		    ItemName "The Flying Guillotine"
             "fire rate bonus" 0.25

@@ -747,7 +747,7 @@ WaveSchedule
 		{
 			Name "wave04_pyrosquad"
 			Where spawnbot
-			TotalCount 12d
+			TotalCount 12d // ERROR obvious misplaced 'd'
 			SpawnCount 3
 			MaxActive 9
 			WaitBetweenSpawns 7
